@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F3A96F9C1B9D8AF600CEDF9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96F9B1B9D8AF600CEDF9E /* main.m */; };
+		F3A96F9F1B9D8AF600CEDF9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */; };
+		F3A96FA21B9D8AF600CEDF9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FA11B9D8AF600CEDF9E /* ViewController.m */; };
+		F3A96FA51B9D8AF600CEDF9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */; };
+		F3A96FA71B9D8AF600CEDF9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA61B9D8AF600CEDF9E /* Images.xcassets */; };
+		F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */; };
+		F3A96FB61B9D8AF600CEDF9E /* sinoptik_uaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FB51B9D8AF600CEDF9E /* sinoptik_uaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F3A96FB01B9D8AF600CEDF9E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3A96F8E1B9D8AF600CEDF9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3A96F951B9D8AF600CEDF9E;
+			remoteInfo = sinoptik.ua;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F3A96F961B9D8AF600CEDF9E /* sinoptik.ua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinoptik.ua.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A96F9A1B9D8AF600CEDF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A96F9B1B9D8AF600CEDF9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F3A96F9D1B9D8AF600CEDF9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F3A96FA01B9D8AF600CEDF9E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F3A96FA11B9D8AF600CEDF9E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F3A96FA41B9D8AF600CEDF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F3A96FA61B9D8AF600CEDF9E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F3A96FA91B9D8AF600CEDF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F3A96FAF1B9D8AF600CEDF9E /* sinoptik.uaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sinoptik.uaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A96FB41B9D8AF600CEDF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A96FB51B9D8AF600CEDF9E /* sinoptik_uaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sinoptik_uaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F3A96F931B9D8AF600CEDF9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3A96FAC1B9D8AF600CEDF9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F3A96F8D1B9D8AF600CEDF9E = {
+			isa = PBXGroup;
+			children = (
+				F3A96F981B9D8AF600CEDF9E /* sinoptik.ua */,
+				F3A96FB21B9D8AF600CEDF9E /* sinoptik.uaTests */,
+				F3A96F971B9D8AF600CEDF9E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F3A96F971B9D8AF600CEDF9E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3A96F961B9D8AF600CEDF9E /* sinoptik.ua.app */,
+				F3A96FAF1B9D8AF600CEDF9E /* sinoptik.uaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3A96F981B9D8AF600CEDF9E /* sinoptik.ua */ = {
+			isa = PBXGroup;
+			children = (
+				F3A96F9D1B9D8AF600CEDF9E /* AppDelegate.h */,
+				F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */,
+				F3A96FA01B9D8AF600CEDF9E /* ViewController.h */,
+				F3A96FA11B9D8AF600CEDF9E /* ViewController.m */,
+				F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */,
+				F3A96FA61B9D8AF600CEDF9E /* Images.xcassets */,
+				F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */,
+				F3A96F991B9D8AF600CEDF9E /* Supporting Files */,
+			);
+			path = sinoptik.ua;
+			sourceTree = "<group>";
+		};
+		F3A96F991B9D8AF600CEDF9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F3A96F9A1B9D8AF600CEDF9E /* Info.plist */,
+				F3A96F9B1B9D8AF600CEDF9E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F3A96FB21B9D8AF600CEDF9E /* sinoptik.uaTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3A96FB51B9D8AF600CEDF9E /* sinoptik_uaTests.m */,
+				F3A96FB31B9D8AF600CEDF9E /* Supporting Files */,
+			);
+			path = sinoptik.uaTests;
+			sourceTree = "<group>";
+		};
+		F3A96FB31B9D8AF600CEDF9E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F3A96FB41B9D8AF600CEDF9E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F3A96F951B9D8AF600CEDF9E /* sinoptik.ua */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3A96FB91B9D8AF600CEDF9E /* Build configuration list for PBXNativeTarget "sinoptik.ua" */;
+			buildPhases = (
+				F3A96F921B9D8AF600CEDF9E /* Sources */,
+				F3A96F931B9D8AF600CEDF9E /* Frameworks */,
+				F3A96F941B9D8AF600CEDF9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sinoptik.ua;
+			productName = sinoptik.ua;
+			productReference = F3A96F961B9D8AF600CEDF9E /* sinoptik.ua.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F3A96FAE1B9D8AF600CEDF9E /* sinoptik.uaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3A96FBC1B9D8AF600CEDF9E /* Build configuration list for PBXNativeTarget "sinoptik.uaTests" */;
+			buildPhases = (
+				F3A96FAB1B9D8AF600CEDF9E /* Sources */,
+				F3A96FAC1B9D8AF600CEDF9E /* Frameworks */,
+				F3A96FAD1B9D8AF600CEDF9E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3A96FB11B9D8AF600CEDF9E /* PBXTargetDependency */,
+			);
+			name = sinoptik.uaTests;
+			productName = sinoptik.uaTests;
+			productReference = F3A96FAF1B9D8AF600CEDF9E /* sinoptik.uaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F3A96F8E1B9D8AF600CEDF9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = shdwprince;
+				TargetAttributes = {
+					F3A96F951B9D8AF600CEDF9E = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					F3A96FAE1B9D8AF600CEDF9E = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = F3A96F951B9D8AF600CEDF9E;
+					};
+				};
+			};
+			buildConfigurationList = F3A96F911B9D8AF600CEDF9E /* Build configuration list for PBXProject "sinoptik.ua" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F3A96F8D1B9D8AF600CEDF9E;
+			productRefGroup = F3A96F971B9D8AF600CEDF9E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F3A96F951B9D8AF600CEDF9E /* sinoptik.ua */,
+				F3A96FAE1B9D8AF600CEDF9E /* sinoptik.uaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F3A96F941B9D8AF600CEDF9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3A96FA51B9D8AF600CEDF9E /* Main.storyboard in Resources */,
+				F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */,
+				F3A96FA71B9D8AF600CEDF9E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3A96FAD1B9D8AF600CEDF9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3A96F921B9D8AF600CEDF9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3A96FA21B9D8AF600CEDF9E /* ViewController.m in Sources */,
+				F3A96F9F1B9D8AF600CEDF9E /* AppDelegate.m in Sources */,
+				F3A96F9C1B9D8AF600CEDF9E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3A96FAB1B9D8AF600CEDF9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3A96FB61B9D8AF600CEDF9E /* sinoptik_uaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F3A96FB11B9D8AF600CEDF9E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3A96F951B9D8AF600CEDF9E /* sinoptik.ua */;
+			targetProxy = F3A96FB01B9D8AF600CEDF9E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3A96FA41B9D8AF600CEDF9E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3A96FA91B9D8AF600CEDF9E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F3A96FB71B9D8AF600CEDF9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F3A96FB81B9D8AF600CEDF9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F3A96FBA1B9D8AF600CEDF9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = sinoptik.ua/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F3A96FBB1B9D8AF600CEDF9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = sinoptik.ua/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F3A96FBD1B9D8AF600CEDF9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = sinoptik.uaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sinoptik.ua.app/sinoptik.ua";
+			};
+			name = Debug;
+		};
+		F3A96FBE1B9D8AF600CEDF9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = sinoptik.uaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/sinoptik.ua.app/sinoptik.ua";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3A96F911B9D8AF600CEDF9E /* Build configuration list for PBXProject "sinoptik.ua" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3A96FB71B9D8AF600CEDF9E /* Debug */,
+				F3A96FB81B9D8AF600CEDF9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3A96FB91B9D8AF600CEDF9E /* Build configuration list for PBXNativeTarget "sinoptik.ua" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3A96FBA1B9D8AF600CEDF9E /* Debug */,
+				F3A96FBB1B9D8AF600CEDF9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F3A96FBC1B9D8AF600CEDF9E /* Build configuration list for PBXNativeTarget "sinoptik.uaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3A96FBD1B9D8AF600CEDF9E /* Debug */,
+				F3A96FBE1B9D8AF600CEDF9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F3A96F8E1B9D8AF600CEDF9E /* Project object */;
+}
