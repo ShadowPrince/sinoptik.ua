@@ -7,13 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73051B9DD37B00A34965 /* TFHpple.m */; };
+		F34A730B1B9DD37B00A34965 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73071B9DD37B00A34965 /* TFHppleElement.m */; };
+		F34A730C1B9DD37B00A34965 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73091B9DD37B00A34965 /* XPathQuery.m */; };
+		F34A730E1B9DD46D00A34965 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F34A730D1B9DD46D00A34965 /* libxml2.dylib */; };
+		F34A73111B9DD69000A34965 /* ForecastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F34A73101B9DD69000A34965 /* ForecastViewController.xib */; };
+		F34A73141B9DD73F00A34965 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73131B9DD73F00A34965 /* PlacesViewController.m */; };
+		F34A731A1B9DE5BB00A34965 /* PlacesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73191B9DE5BB00A34965 /* PlacesDataSource.m */; };
+		F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */; };
 		F3A96F9C1B9D8AF600CEDF9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96F9B1B9D8AF600CEDF9E /* main.m */; };
 		F3A96F9F1B9D8AF600CEDF9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */; };
-		F3A96FA21B9D8AF600CEDF9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FA11B9D8AF600CEDF9E /* ViewController.m */; };
 		F3A96FA51B9D8AF600CEDF9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */; };
 		F3A96FA71B9D8AF600CEDF9E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA61B9D8AF600CEDF9E /* Images.xcassets */; };
 		F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */; };
 		F3A96FB61B9D8AF600CEDF9E /* sinoptik_uaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FB51B9D8AF600CEDF9E /* sinoptik_uaTests.m */; };
+		F3A96FC11B9D8CB000CEDF9E /* SinoptikAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FC01B9D8CB000CEDF9E /* SinoptikAPI.m */; };
+		F3D583781B9EBAC300EF2334 /* SearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583771B9EBAC300EF2334 /* SearchManager.m */; };
+		F3D5837C1B9EEDBE00EF2334 /* SinoptikResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837B1B9EEDBE00EF2334 /* SinoptikResponseParser.m */; };
+		F3D5837F1B9EEDD600EF2334 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837E1B9EEDD600EF2334 /* Forecast.m */; };
+		F3D583821B9EEFEE00EF2334 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583811B9EEFEE00EF2334 /* ForecastViewController.m */; };
+		F3D583851B9EF01E00EF2334 /* ForecastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583841B9EF01E00EF2334 /* ForecastManager.m */; };
+		F3D5838B1BA05CE200EF2334 /* AssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5838A1BA05CE200EF2334 /* AssetsManager.m */; };
+		F3D583921BA0623900EF2334 /* HourlyForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583901BA0623900EF2334 /* HourlyForecastTableViewCell.m */; };
+		F3D583931BA0623900EF2334 /* HourlyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */; };
+		F3D583961BA065C700EF2334 /* ForecastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583951BA065C700EF2334 /* ForecastsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +44,50 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F34A73041B9DD37B00A34965 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Classes/TFHpple.h; sourceTree = "<group>"; };
+		F34A73051B9DD37B00A34965 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Classes/TFHpple.m; sourceTree = "<group>"; };
+		F34A73061B9DD37B00A34965 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Classes/TFHppleElement.h; sourceTree = "<group>"; };
+		F34A73071B9DD37B00A34965 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = Classes/TFHppleElement.m; sourceTree = "<group>"; };
+		F34A73081B9DD37B00A34965 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = Classes/XPathQuery.h; sourceTree = "<group>"; };
+		F34A73091B9DD37B00A34965 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = Classes/XPathQuery.m; sourceTree = "<group>"; };
+		F34A730D1B9DD46D00A34965 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		F34A73101B9DD69000A34965 /* ForecastViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastViewController.xib; sourceTree = "<group>"; };
+		F34A73121B9DD73F00A34965 /* PlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesViewController.h; sourceTree = "<group>"; };
+		F34A73131B9DD73F00A34965 /* PlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
+		F34A73181B9DE5BB00A34965 /* PlacesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesDataSource.h; sourceTree = "<group>"; };
+		F34A73191B9DE5BB00A34965 /* PlacesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesDataSource.m; sourceTree = "<group>"; };
+		F35A8BBC1BA454F3001AAA34 /* UIImage-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage-Extensions.h"; path = "UIImageExtensions/UIImage-Extensions.h"; sourceTree = "<group>"; };
+		F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage-Extensions.m"; path = "UIImageExtensions/UIImage-Extensions.m"; sourceTree = "<group>"; };
 		F3A96F961B9D8AF600CEDF9E /* sinoptik.ua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinoptik.ua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A96F9A1B9D8AF600CEDF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A96F9B1B9D8AF600CEDF9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F3A96F9D1B9D8AF600CEDF9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F3A96FA01B9D8AF600CEDF9E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F3A96FA11B9D8AF600CEDF9E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F3A96FA41B9D8AF600CEDF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3A96FA61B9D8AF600CEDF9E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F3A96FA91B9D8AF600CEDF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F3A96FAF1B9D8AF600CEDF9E /* sinoptik.uaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sinoptik.uaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A96FB41B9D8AF600CEDF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A96FB51B9D8AF600CEDF9E /* sinoptik_uaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sinoptik_uaTests.m; sourceTree = "<group>"; };
+		F3A96FBF1B9D8CB000CEDF9E /* SinoptikAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinoptikAPI.h; sourceTree = "<group>"; };
+		F3A96FC01B9D8CB000CEDF9E /* SinoptikAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinoptikAPI.m; sourceTree = "<group>"; };
+		F3D583761B9EBAC300EF2334 /* SearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchManager.h; sourceTree = "<group>"; };
+		F3D583771B9EBAC300EF2334 /* SearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchManager.m; sourceTree = "<group>"; };
+		F3D5837A1B9EEDBE00EF2334 /* SinoptikResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinoptikResponseParser.h; sourceTree = "<group>"; };
+		F3D5837B1B9EEDBE00EF2334 /* SinoptikResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinoptikResponseParser.m; sourceTree = "<group>"; };
+		F3D5837D1B9EEDD600EF2334 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		F3D5837E1B9EEDD600EF2334 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		F3D583801B9EEFEE00EF2334 /* ForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
+		F3D583811B9EEFEE00EF2334 /* ForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
+		F3D583831B9EF01E00EF2334 /* ForecastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastManager.h; sourceTree = "<group>"; };
+		F3D583841B9EF01E00EF2334 /* ForecastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastManager.m; sourceTree = "<group>"; };
+		F3D583891BA05CE200EF2334 /* AssetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsManager.h; sourceTree = "<group>"; };
+		F3D5838A1BA05CE200EF2334 /* AssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsManager.m; sourceTree = "<group>"; };
+		F3D5838F1BA0623900EF2334 /* HourlyForecastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourlyForecastTableViewCell.h; sourceTree = "<group>"; };
+		F3D583901BA0623900EF2334 /* HourlyForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourlyForecastTableViewCell.m; sourceTree = "<group>"; };
+		F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HourlyForecastTableViewCell.xib; sourceTree = "<group>"; };
+		F3D583941BA065C700EF2334 /* ForecastsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastsViewController.h; sourceTree = "<group>"; };
+		F3D583951BA065C700EF2334 /* ForecastsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F34A730E1B9DD46D00A34965 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +109,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F34A730F1B9DD47400A34965 /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				F34A73041B9DD37B00A34965 /* TFHpple.h */,
+				F34A73051B9DD37B00A34965 /* TFHpple.m */,
+				F34A73061B9DD37B00A34965 /* TFHppleElement.h */,
+				F34A73071B9DD37B00A34965 /* TFHppleElement.m */,
+				F34A73081B9DD37B00A34965 /* XPathQuery.h */,
+				F34A73091B9DD37B00A34965 /* XPathQuery.m */,
+			);
+			name = Hpple;
+			path = sinoptik.ua;
+			sourceTree = "<group>";
+		};
+		F34A73151B9DE3A000A34965 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F3A96FBF1B9D8CB000CEDF9E /* SinoptikAPI.h */,
+				F3A96FC01B9D8CB000CEDF9E /* SinoptikAPI.m */,
+				F3D5837A1B9EEDBE00EF2334 /* SinoptikResponseParser.h */,
+				F3D5837B1B9EEDBE00EF2334 /* SinoptikResponseParser.m */,
+				F3D5837D1B9EEDD600EF2334 /* Forecast.h */,
+				F3D5837E1B9EEDD600EF2334 /* Forecast.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		F34A73161B9DE3AB00A34965 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F34A73121B9DD73F00A34965 /* PlacesViewController.h */,
+				F34A73131B9DD73F00A34965 /* PlacesViewController.m */,
+				F3D583801B9EEFEE00EF2334 /* ForecastViewController.h */,
+				F3D583811B9EEFEE00EF2334 /* ForecastViewController.m */,
+				F3D583941BA065C700EF2334 /* ForecastsViewController.h */,
+				F3D583951BA065C700EF2334 /* ForecastsViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F34A73171B9DE3B200A34965 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F3D5838F1BA0623900EF2334 /* HourlyForecastTableViewCell.h */,
+				F3D583901BA0623900EF2334 /* HourlyForecastTableViewCell.m */,
+				F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */,
+				F34A73101B9DD69000A34965 /* ForecastViewController.xib */,
+				F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */,
+				F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		F35A8BBF1BA454F9001AAA34 /* UIImage-Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F35A8BBC1BA454F3001AAA34 /* UIImage-Extensions.h */,
+				F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */,
+			);
+			name = "UIImage-Extensions";
+			sourceTree = "<group>";
+		};
 		F3A96F8D1B9D8AF600CEDF9E = {
 			isa = PBXGroup;
 			children = (
+				F34A730D1B9DD46D00A34965 /* libxml2.dylib */,
+				F35A8BBF1BA454F9001AAA34 /* UIImage-Extensions */,
+				F34A730F1B9DD47400A34965 /* Hpple */,
 				F3A96F981B9D8AF600CEDF9E /* sinoptik.ua */,
 				F3A96FB21B9D8AF600CEDF9E /* sinoptik.uaTests */,
 				F3A96F971B9D8AF600CEDF9E /* Products */,
@@ -81,13 +195,13 @@
 		F3A96F981B9D8AF600CEDF9E /* sinoptik.ua */ = {
 			isa = PBXGroup;
 			children = (
+				F34A73151B9DE3A000A34965 /* API */,
+				F3D583791B9EED9000EF2334 /* Managers */,
+				F34A73161B9DE3AB00A34965 /* Controllers */,
+				F34A73171B9DE3B200A34965 /* UI */,
 				F3A96F9D1B9D8AF600CEDF9E /* AppDelegate.h */,
 				F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */,
-				F3A96FA01B9D8AF600CEDF9E /* ViewController.h */,
-				F3A96FA11B9D8AF600CEDF9E /* ViewController.m */,
-				F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */,
 				F3A96FA61B9D8AF600CEDF9E /* Images.xcassets */,
-				F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */,
 				F3A96F991B9D8AF600CEDF9E /* Supporting Files */,
 			);
 			path = sinoptik.ua;
@@ -117,6 +231,21 @@
 				F3A96FB41B9D8AF600CEDF9E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F3D583791B9EED9000EF2334 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F3D583891BA05CE200EF2334 /* AssetsManager.h */,
+				F3D5838A1BA05CE200EF2334 /* AssetsManager.m */,
+				F34A73181B9DE5BB00A34965 /* PlacesDataSource.h */,
+				F34A73191B9DE5BB00A34965 /* PlacesDataSource.m */,
+				F3D583761B9EBAC300EF2334 /* SearchManager.h */,
+				F3D583771B9EBAC300EF2334 /* SearchManager.m */,
+				F3D583831B9EF01E00EF2334 /* ForecastManager.h */,
+				F3D583841B9EF01E00EF2334 /* ForecastManager.m */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +297,7 @@
 				TargetAttributes = {
 					F3A96F951B9D8AF600CEDF9E = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = T7SD4W2ENW;
 					};
 					F3A96FAE1B9D8AF600CEDF9E = {
 						CreatedOnToolsVersion = 6.4;
@@ -201,6 +331,8 @@
 			files = (
 				F3A96FA51B9D8AF600CEDF9E /* Main.storyboard in Resources */,
 				F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */,
+				F3D583931BA0623900EF2334 /* HourlyForecastTableViewCell.xib in Resources */,
+				F34A73111B9DD69000A34965 /* ForecastViewController.xib in Resources */,
 				F3A96FA71B9D8AF600CEDF9E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,9 +351,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3A96FA21B9D8AF600CEDF9E /* ViewController.m in Sources */,
+				F3D5838B1BA05CE200EF2334 /* AssetsManager.m in Sources */,
+				F3D5837C1B9EEDBE00EF2334 /* SinoptikResponseParser.m in Sources */,
+				F3D583821B9EEFEE00EF2334 /* ForecastViewController.m in Sources */,
+				F34A73141B9DD73F00A34965 /* PlacesViewController.m in Sources */,
+				F34A730B1B9DD37B00A34965 /* TFHppleElement.m in Sources */,
+				F3D583921BA0623900EF2334 /* HourlyForecastTableViewCell.m in Sources */,
+				F34A730C1B9DD37B00A34965 /* XPathQuery.m in Sources */,
+				F3D583781B9EBAC300EF2334 /* SearchManager.m in Sources */,
+				F3D5837F1B9EEDD600EF2334 /* Forecast.m in Sources */,
+				F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */,
 				F3A96F9F1B9D8AF600CEDF9E /* AppDelegate.m in Sources */,
+				F3D583851B9EF01E00EF2334 /* ForecastManager.m in Sources */,
 				F3A96F9C1B9D8AF600CEDF9E /* main.m in Sources */,
+				F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */,
+				F3D583961BA065C700EF2334 /* ForecastsViewController.m in Sources */,
+				F3A96FC11B9D8CB000CEDF9E /* SinoptikAPI.m in Sources */,
+				F34A731A1B9DE5BB00A34965 /* PlacesDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,20 +494,34 @@
 		F3A96FBA1B9D8AF600CEDF9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = sinoptik.ua/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
 			name = Debug;
 		};
 		F3A96FBB1B9D8AF600CEDF9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = sinoptik.ua/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
 			name = Release;
 		};
@@ -418,6 +578,7 @@
 				F3A96FBB1B9D8AF600CEDF9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F3A96FBC1B9D8AF600CEDF9E /* Build configuration list for PBXNativeTarget "sinoptik.uaTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +587,7 @@
 				F3A96FBE1B9D8AF600CEDF9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
