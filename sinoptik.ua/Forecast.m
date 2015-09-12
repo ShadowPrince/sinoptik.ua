@@ -67,7 +67,7 @@
 #pragma mark - daily forecast
 
 @implementation DailyForecast
-@synthesize hourlyForecast, daylight, summary;
+@synthesize hourlyForecast, daylight, summary, last_update;
 
 - (NSString *) description {
     return [NSString stringWithFormat:@"%@\n    %@, (%@-%@), %d others",
@@ -88,6 +88,7 @@
     self = [super init];
     self.hourlyForecast = [NSMutableDictionary new];
     self.daylight = @[];
+    self.last_update = [NSDate date];
     return self;
 }
 
@@ -98,6 +99,7 @@
     self.hourlyForecast = [aDecoder decodeObject];
     self.daylight = [aDecoder decodeObject];
     self.summary = [aDecoder decodeObject];
+    self.last_update = [aDecoder decodeObject];
 
     return self;
 }
@@ -106,6 +108,7 @@
     [aCoder encodeObject:self.hourlyForecast];
     [aCoder encodeObject:self.daylight];
     [aCoder encodeObject:self.summary];
+    [aCoder encodeObject:self.last_update];
 }
 @end
 

@@ -13,6 +13,7 @@
 #import "AssetsManager.h"
 
 #import "HourlyForecastTableViewCell.h"
+#import "SummaryForecastTableViewCell.h"
 
 @interface ForecastViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 

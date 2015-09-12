@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 #import "SinoptikResponseParser.h"
 
 typedef NSString *SinoptikImageSize;

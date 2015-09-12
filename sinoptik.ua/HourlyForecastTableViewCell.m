@@ -10,6 +10,7 @@
 #define HEADER_FONT_SIZE 11.f
 
 #import "HourlyForecastTableViewCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface HourlyForecastTableViewCell ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *columnWidthContraint;
@@ -26,6 +27,8 @@
 
 - (void)awakeFromNib {
     self.assets = [AssetsManager new];
+    self.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    self.layer.borderWidth = 0.f;
 }
 
 - (void) layoutSubviews {
@@ -41,9 +44,9 @@
     self.humidityLabel.font = [UIFont systemFontOfSize:size];
     self.windLabel.font = [UIFont systemFontOfSize:size];
     self.rainProbabilityLabel.font = [UIFont systemFontOfSize:size];
+    self.layer.borderWidth = 0.f;
 
     [self.assets cancelOperations];
-
 
     self.temperatureLabel.text = [NSString stringWithFormat:@"%d℃", cast.temperature];
     self.humidityLabel.text = [NSString stringWithFormat:@"%d%%", cast.humidity];
@@ -57,12 +60,20 @@
         self.weatherImageView.image = image;
     }];
 
+    if (cast.hour > 8 && cast.hour < 22) {
+        self.timeLabel.backgroundColor = [UIColor yellowColor];
+        self.timeLabel.textColor = [UIColor blackColor];
+    } else {
+        self.timeLabel.backgroundColor = [UIColor darkGrayColor];
+        self.timeLabel.textColor = [UIColor whiteColor];
+    }
+
     if (cast.wind_direction < 8)
         self.windDirectionImageView.image = [AssetsManager windDirectionalImages][cast.wind_direction];
 }
 
 - (void) setCurrent {
-    self.timeLabel.font = [UIFont boldSystemFontOfSize:ROW_FONT_SIZE];
+    self.layer.borderWidth = 1.f;
 }
 
 - (void) setHeader {
@@ -71,11 +82,12 @@
     self.humidityLabel.font = [UIFont systemFontOfSize:size];
     self.windLabel.font = [UIFont systemFontOfSize:size];
     self.rainProbabilityLabel.font = [UIFont systemFontOfSize:size];
+    self.timeLabel.backgroundColor = [UIColor whiteColor];
 
-    self.temperatureLabel.text = @"Temp.";
-    self.humidityLabel.text = @"Humidity";
-    self.windLabel.text = @"Wind";
-    self.rainProbabilityLabel.text = @"Rain%";
+    self.temperatureLabel.text = @"Темп.";
+    self.humidityLabel.text = @"Влажн.";
+    self.windLabel.text = @"Ветер";
+    self.rainProbabilityLabel.text = @"Осад%";
     self.timeLabel.text = @"";
     self.weatherImageView.image = nil;
     self.windDirectionImageView.image = nil;
@@ -84,7 +96,7 @@
 #pragma mark helper
 
 - (void) justifyColumns {
-    CGFloat space = self.frame.size.width - 86.f - 82.f;
+    CGFloat space = self.frame.size.width - 86.f - 82.f - 16.f;
     self.columnWidthContraint.constant = space / 3;
 }
 

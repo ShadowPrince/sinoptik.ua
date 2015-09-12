@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F32CF9D31BA4CEE500814A61 /* SummaryForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F32CF9D11BA4CEE500814A61 /* SummaryForecastTableViewCell.m */; };
+		F32CF9D41BA4CEE500814A61 /* SummaryForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32CF9D21BA4CEE500814A61 /* SummaryForecastTableViewCell.xib */; };
 		F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73051B9DD37B00A34965 /* TFHpple.m */; };
 		F34A730B1B9DD37B00A34965 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73071B9DD37B00A34965 /* TFHppleElement.m */; };
 		F34A730C1B9DD37B00A34965 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73091B9DD37B00A34965 /* XPathQuery.m */; };
@@ -31,6 +33,7 @@
 		F3D583921BA0623900EF2334 /* HourlyForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583901BA0623900EF2334 /* HourlyForecastTableViewCell.m */; };
 		F3D583931BA0623900EF2334 /* HourlyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */; };
 		F3D583961BA065C700EF2334 /* ForecastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583951BA065C700EF2334 /* ForecastsViewController.m */; };
+		F3EE03F61BA4CDFF0066CF95 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F32CF9D01BA4CEE500814A61 /* SummaryForecastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryForecastTableViewCell.h; sourceTree = "<group>"; };
+		F32CF9D11BA4CEE500814A61 /* SummaryForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryForecastTableViewCell.m; sourceTree = "<group>"; };
+		F32CF9D21BA4CEE500814A61 /* SummaryForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryForecastTableViewCell.xib; sourceTree = "<group>"; };
 		F34A73041B9DD37B00A34965 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Classes/TFHpple.h; sourceTree = "<group>"; };
 		F34A73051B9DD37B00A34965 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Classes/TFHpple.m; sourceTree = "<group>"; };
 		F34A73061B9DD37B00A34965 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Classes/TFHppleElement.h; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 		F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HourlyForecastTableViewCell.xib; sourceTree = "<group>"; };
 		F3D583941BA065C700EF2334 /* ForecastsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastsViewController.h; sourceTree = "<group>"; };
 		F3D583951BA065C700EF2334 /* ForecastsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastsViewController.m; sourceTree = "<group>"; };
+		F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3EE03F61BA4CDFF0066CF95 /* QuartzCore.framework in Frameworks */,
 				F34A730E1B9DD46D00A34965 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,6 +117,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F32CF9D51BA4D9BF00814A61 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F32CF9D01BA4CEE500814A61 /* SummaryForecastTableViewCell.h */,
+				F32CF9D11BA4CEE500814A61 /* SummaryForecastTableViewCell.m */,
+				F32CF9D21BA4CEE500814A61 /* SummaryForecastTableViewCell.xib */,
+				F3D5838F1BA0623900EF2334 /* HourlyForecastTableViewCell.h */,
+				F3D583901BA0623900EF2334 /* HourlyForecastTableViewCell.m */,
+				F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		F34A730F1B9DD47400A34965 /* Hpple */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,9 +173,7 @@
 		F34A73171B9DE3B200A34965 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F3D5838F1BA0623900EF2334 /* HourlyForecastTableViewCell.h */,
-				F3D583901BA0623900EF2334 /* HourlyForecastTableViewCell.m */,
-				F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */,
+				F32CF9D51BA4D9BF00814A61 /* Cells */,
 				F34A73101B9DD69000A34965 /* ForecastViewController.xib */,
 				F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */,
 				F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */,
@@ -174,6 +193,7 @@
 		F3A96F8D1B9D8AF600CEDF9E = {
 			isa = PBXGroup;
 			children = (
+				F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */,
 				F34A730D1B9DD46D00A34965 /* libxml2.dylib */,
 				F35A8BBF1BA454F9001AAA34 /* UIImage-Extensions */,
 				F34A730F1B9DD47400A34965 /* Hpple */,
@@ -333,6 +353,7 @@
 				F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */,
 				F3D583931BA0623900EF2334 /* HourlyForecastTableViewCell.xib in Resources */,
 				F34A73111B9DD69000A34965 /* ForecastViewController.xib in Resources */,
+				F32CF9D41BA4CEE500814A61 /* SummaryForecastTableViewCell.xib in Resources */,
 				F3A96FA71B9D8AF600CEDF9E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +389,7 @@
 				F3D583961BA065C700EF2334 /* ForecastsViewController.m in Sources */,
 				F3A96FC11B9D8CB000CEDF9E /* SinoptikAPI.m in Sources */,
 				F34A731A1B9DE5BB00A34965 /* PlacesDataSource.m in Sources */,
+				F32CF9D31BA4CEE500814A61 /* SummaryForecastTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

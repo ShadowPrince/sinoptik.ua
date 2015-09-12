@@ -78,8 +78,6 @@
 }
 
 - (void) forecastManager:(ForecastManager *)manager didReceivedForecast:(Forecast *)cast for:(NSArray *)place {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
     NSDate *today = [NSDate date];
     NSDateFormatter *f = [NSDateFormatter new];
     f.dateFormat = @"yyyy-MM-dd";
@@ -114,7 +112,6 @@
 
     CGFloat width = self.view.frame.size.width;
     self.contentViewWidthConstraint.constant = width * orderedKeys.count;
-    [self.view layoutIfNeeded];
     CGFloat height = self.contentView.frame.size.height;
 
     int i = 0;
@@ -139,8 +136,6 @@
                                                                                       views:dict]];
         self.forecastVCConstraints[key] = new_constrants;
         [self.contentView addConstraints:new_constrants];
-
-        [controller.view layoutIfNeeded];
         i++;
     }
 }
@@ -160,7 +155,6 @@
 - (void) loadForecastForKey {
     if (self.key != -1) {
         [self.forecastManager requestForecastFor:self.places.places[self.key]];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     }
 }
 

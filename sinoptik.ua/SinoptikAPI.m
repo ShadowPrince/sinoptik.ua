@@ -32,7 +32,10 @@
 
 // synchronous loading in NSOperation
 - (NSArray *) searchPlaces:(NSString *) query {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSData *data = [NSData dataWithContentsOfURL:[self url:@"/search.php?q=%@", query]];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+
     NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
     if ([response isEqualToString:@""])
@@ -44,7 +47,8 @@
         [result addObject:[part componentsSeparatedByString:@"|"]];
     }
 
-    return result;}
+    return result;
+}
 
 // synchronous loading in NSOperation
 - (Forecast *) forecastFor:(NSString *) key {
@@ -57,6 +61,7 @@
     NSDate *date = [formatter dateFromString:[formatter stringFromDate:[NSDate date]]];
     date = [date dateByAddingTimeInterval:-day];
 
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     for (int i = 0; i < 10; i++) {
         date = [date dateByAddingTimeInterval:day];
         NSData *forecastData = [self apiForecastFor:[NSString stringWithFormat:@"%@/%@", key, [formatter stringFromDate:date]]];
@@ -66,9 +71,12 @@
             forecast.dailyForecasts[date] = cast;
         }
 
-        if ([[NSOperationQueue currentQueue] isSuspended])
-            return nil;
+        if ([[NSOperationQueue currentQueue] isSuspended]) {
+            forecast.dailyForecasts = [NSMutableDictionary new];
+            break;
+        }
     }
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO; 
 
     return forecast.dailyForecasts.count ? forecast : nil;
 }
@@ -93,7 +101,10 @@
 
 - (NSData *) apiForecastFor:(NSString *) query {
     NSHTTPURLResponse *resp;
+
     NSData *data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[self url:@"/%@?ajax=GetForecast", query]] returningResponse:&resp error:nil];
+//    NSData *data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost/2015-09-08.html"]] returningResponse:&resp error:nil];
+
 
     if (resp.statusCode == 200)
         return data;

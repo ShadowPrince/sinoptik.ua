@@ -79,10 +79,6 @@
         @throw exception;
     }
 
-    [self.forecastCache.allKeys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSLog(@"%@ %@", [obj class], obj);
-    }];
-
     if (!self.forecastCache)
         self.forecastCache = [NSMutableDictionary new];
 }

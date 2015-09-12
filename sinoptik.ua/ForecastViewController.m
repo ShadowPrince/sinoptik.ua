@@ -17,6 +17,7 @@
 @property NSArray *place;
 //---
 @property (weak, nonatomic) IBOutlet UILabel *placeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *daylightLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *nowImageView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -38,7 +39,7 @@
     [super viewDidLoad];
 
     [self.tableView registerNib:[UINib nibWithNibName:@"HourlyForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"HourlyForecastTableHeader" bundle:nil] forHeaderFooterViewReuseIdentifier:@"Header"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SummaryForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"Footer"];
 
     self.assets = [AssetsManager new];
 }
@@ -60,59 +61,75 @@
 
         for (NSNumber *hour in [self.forecast hours]) {
             if (hour.integerValue >= current_hour) {
+                if (self.current_hour == nil)
+                    self.current_hour = hour;
                 break;
+            } else {
+                self.current_hour = hour;
+                row_index ++;
             }
-            self.current_hour = hour;
-            row_index ++;
         }
 
         currentCast = self.forecast.hourlyForecast[self.current_hour];
     } else {
         int midday_hour = self.forecast.hourlyForecast.count / 2;
+        // @TODO: something's wrong with big image
         currentCast = self.forecast.hourlyForecast.allValues[midday_hour];
     }
 
     [self.tableView reloadData];
     //@TODO: scroll
-    //[self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row_index inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row_index inSection:0]
+//                          atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 
     self.title = [self.formatter stringFromDate:self.date];
     self.dateLabel.text = [NSString stringWithFormat:@"%d℃", currentCast.temperature];
     self.windLabel.text = [NSString stringWithFormat:@"%.1fm/s", currentCast.wind_speed];
+    self.daylightLabel.text = [NSString stringWithFormat:@"⇡%@ ⇣%@", cast.daylight[0], cast.daylight[1]];
     self.windDirectionImageView.image = [AssetsManager windDirectionalImages][currentCast.wind_direction];
 
     [self.assets loadImageFor:currentCast callback:^(UIImage *image) {
         self.nowImageView.image = image;
     }];
-
 }
 
 #pragma mark - table
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.forecast hours].count + 1;
+    // header + footer
+    return 1 + [self.forecast hours].count + 1;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HourlyForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-
-    if (indexPath.row == 0) {
-        [cell setHeader];
+    if (indexPath.row == self.forecast.hours.count + 1) { // footer
+        SummaryForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Footer"];
+        [cell populate:self.forecast];
+        return cell;
     } else {
-        NSNumber *key = [self.forecast hours][indexPath.row-1];
-        HourlyForecast *cast = self.forecast.hourlyForecast[key];
-        [cell populate:cast];
-        cell.backgroundColor = [UIColor whiteColor];
+        HourlyForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
-        if (self.current_hour && [key isEqualToNumber:self.current_hour])
-            [cell setCurrent];
+        if (indexPath.row == 0) { // header
+            [cell setHeader];
+        } else {
+            NSNumber *key = [self.forecast hours][indexPath.row-1];
+            HourlyForecast *cast = self.forecast.hourlyForecast[key];
+            [cell populate:cast];
+            cell.backgroundColor = [UIColor whiteColor];
+
+            if (self.current_hour && [key isEqualToNumber:self.current_hour])
+                [cell setCurrent];
+        }
+
+        return cell;
     }
-
-    return cell;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.row == 0 ? 25.f : 45.f;
+    if (indexPath.row == 0 || indexPath.row == self.forecast.hours.count + 1) {
+        return 30.f;
+    } else {
+        return 45.f;
+    }
 }
 
 @end

@@ -30,6 +30,7 @@
 @property NSArray *daylight;
 @property NSString *summary;
 @property NSMutableDictionary *hourlyForecast;
+@property NSDate *last_update;
 
 - (NSArray *) hours;
 
