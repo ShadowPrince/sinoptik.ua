@@ -12,13 +12,17 @@
 @property NSMutableDictionary *forecastCache;
 @property (weak) id<ForecastManagerDelegate> delegate;
 @property NSOperationQueue *queue;
+@property NSDateFormatter *formatter;
 @end@implementation ForecastManager
 
 - (instancetype) init {
     self = [super init];
     self.forecastCache = [NSMutableDictionary new];
     self.queue = [NSOperationQueue new];
+    self.formatter = [NSDateFormatter new];
+    self.formatter.dateFormat = @"yyyy-MM-dd";
     [self restore];
+    [self store];
     return self;
 }
 
@@ -67,7 +71,23 @@
 }
 
 - (void) store {
-    //@TODO: cleanup foreastsCache
+    //@TODO: check it
+    NSDate *yestarday = [[NSDate date] dateByAddingTimeInterval:-60*60*24];
+    NSDate *normalized_yestarday = [self.formatter dateFromString:[self.formatter stringFromDate:yestarday]];
+
+    for (NSString *cache_key in self.forecastCache) {
+        Forecast *cast = self.forecastCache[cache_key];
+        for (int i = 0; i < cast.dailyForecasts.count; i++) {
+            NSDate *key = cast.dailyForecasts.allKeys[i];
+
+
+            if ([normalized_yestarday compare:key] != NSOrderedAscending) {
+                [cast.dailyForecasts removeObjectForKey:key];
+            }
+        }
+        break;
+    }
+
     [NSKeyedArchiver archiveRootObject:self.forecastCache toFile:[self databasePath]];
 }
 

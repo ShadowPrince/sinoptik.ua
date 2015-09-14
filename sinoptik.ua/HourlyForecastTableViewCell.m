@@ -50,7 +50,7 @@
 
     self.temperatureLabel.text = [NSString stringWithFormat:@"%d℃", cast.temperature];
     self.humidityLabel.text = [NSString stringWithFormat:@"%d%%", cast.humidity];
-    self.windLabel.text = [NSString stringWithFormat:@"%.0f m/s", cast.wind_speed];
+    self.windLabel.text = [NSString stringWithFormat:@"%.0f %@", cast.wind_speed, NSLocalizedString(@"m/s", "meters per second")];
     self.rainProbabilityLabel.text = [NSString stringWithFormat:@"%d%%", cast.rain_probability];
 
     self.timeLabel.text = [NSString stringWithFormat:@"%d:00", cast.hour];
@@ -84,10 +84,10 @@
     self.rainProbabilityLabel.font = [UIFont systemFontOfSize:size];
     self.timeLabel.backgroundColor = [UIColor whiteColor];
 
-    self.temperatureLabel.text = @"Темп.";
-    self.humidityLabel.text = @"Влажн.";
-    self.windLabel.text = @"Ветер";
-    self.rainProbabilityLabel.text = @"Осад%";
+    self.temperatureLabel.text = NSLocalizedString(@"Temp.", @"temperature column");
+    self.humidityLabel.text = NSLocalizedString(@"Humid.", @"humidity column");
+    self.windLabel.text = NSLocalizedString(@"Wind", @"wind column");
+    self.rainProbabilityLabel.text = NSLocalizedString(@"Rain%", @"rain probability column");
     self.timeLabel.text = @"";
     self.weatherImageView.image = nil;
     self.windDirectionImageView.image = nil;

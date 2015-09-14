@@ -40,6 +40,11 @@
 
     [self.tableView registerNib:[UINib nibWithNibName:@"HourlyForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SummaryForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"Footer"];
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+    // remove text padding
+    self.summaryTextView.textContainerInset = UIEdgeInsetsZero;
+    self.summaryTextView.textContainer.lineFragmentPadding = 0.f;
 
     self.assets = [AssetsManager new];
 }
@@ -60,7 +65,7 @@
         NSInteger current_hour = [f stringFromDate:date].integerValue;
 
         for (NSNumber *hour in [self.forecast hours]) {
-            if (hour.integerValue >= current_hour) {
+            if (hour.integerValue > current_hour) {
                 if (self.current_hour == nil)
                     self.current_hour = hour;
                 break;

@@ -1,0 +1,24 @@
+
+/* Class = "UISearchBar"; placeholder = "Add place"; ObjectID = "1Ss-t9-H1s"; */
+"1Ss-t9-H1s.placeholder" = "Add place";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "62H-fF-WvJ"; */
+"62H-fF-WvJ.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "AIa-BJ-5v3"; */
+"AIa-BJ-5v3.text" = "Label";
+
+/* Class = "UILabel"; text = "–––"; ObjectID = "OAD-eg-ABO"; */
+"OAD-eg-ABO.text" = "–––";
+
+/* Class = "UINavigationItem"; title = "Places"; ObjectID = "RUJ-Ed-aSx"; */
+"RUJ-Ed-aSx.title" = "Places";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "SNb-Kv-mRg"; */
+"SNb-Kv-mRg.title" = "Edit";
+
+/* Class = "UIViewController"; title = "Города"; ObjectID = "gvv-V1-3Ls"; */
+"gvv-V1-3Ls.title" = "Города";
+
+/* Class = "UILabel"; text = "Loading..."; ObjectID = "v8X-2y-o3E"; */
+"v8X-2y-o3E.text" = "Loading...";

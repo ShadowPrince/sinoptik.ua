@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		F32CF9D31BA4CEE500814A61 /* SummaryForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F32CF9D11BA4CEE500814A61 /* SummaryForecastTableViewCell.m */; };
 		F32CF9D41BA4CEE500814A61 /* SummaryForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32CF9D21BA4CEE500814A61 /* SummaryForecastTableViewCell.xib */; };
+		F32CF9EA1BA6B87500814A61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F32CF9EC1BA6B87500814A61 /* Localizable.strings */; };
+		F32CF9F11BA6B92100814A61 /* ForecastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32CF9F01BA6B92100814A61 /* ForecastViewController.xib */; };
 		F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73051B9DD37B00A34965 /* TFHpple.m */; };
 		F34A730B1B9DD37B00A34965 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73071B9DD37B00A34965 /* TFHppleElement.m */; };
 		F34A730C1B9DD37B00A34965 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73091B9DD37B00A34965 /* XPathQuery.m */; };
 		F34A730E1B9DD46D00A34965 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F34A730D1B9DD46D00A34965 /* libxml2.dylib */; };
-		F34A73111B9DD69000A34965 /* ForecastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F34A73101B9DD69000A34965 /* ForecastViewController.xib */; };
 		F34A73141B9DD73F00A34965 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73131B9DD73F00A34965 /* PlacesViewController.m */; };
 		F34A731A1B9DE5BB00A34965 /* PlacesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73191B9DE5BB00A34965 /* PlacesDataSource.m */; };
 		F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */; };
@@ -50,6 +51,12 @@
 		F32CF9D01BA4CEE500814A61 /* SummaryForecastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryForecastTableViewCell.h; sourceTree = "<group>"; };
 		F32CF9D11BA4CEE500814A61 /* SummaryForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryForecastTableViewCell.m; sourceTree = "<group>"; };
 		F32CF9D21BA4CEE500814A61 /* SummaryForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryForecastTableViewCell.xib; sourceTree = "<group>"; };
+		F32CF9EB1BA6B87500814A61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F32CF9EE1BA6B87800814A61 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F32CF9EF1BA6B87800814A61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F32CF9F01BA6B92100814A61 /* ForecastViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastViewController.xib; sourceTree = "<group>"; };
+		F32CF9F31BA6BA5B00814A61 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		F32CF9F51BA6BA5F00814A61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		F34A73041B9DD37B00A34965 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Classes/TFHpple.h; sourceTree = "<group>"; };
 		F34A73051B9DD37B00A34965 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Classes/TFHpple.m; sourceTree = "<group>"; };
 		F34A73061B9DD37B00A34965 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Classes/TFHppleElement.h; sourceTree = "<group>"; };
@@ -57,7 +64,6 @@
 		F34A73081B9DD37B00A34965 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = Classes/XPathQuery.h; sourceTree = "<group>"; };
 		F34A73091B9DD37B00A34965 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = Classes/XPathQuery.m; sourceTree = "<group>"; };
 		F34A730D1B9DD46D00A34965 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		F34A73101B9DD69000A34965 /* ForecastViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastViewController.xib; sourceTree = "<group>"; };
 		F34A73121B9DD73F00A34965 /* PlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesViewController.h; sourceTree = "<group>"; };
 		F34A73131B9DD73F00A34965 /* PlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
 		F34A73181B9DE5BB00A34965 /* PlacesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesDataSource.h; sourceTree = "<group>"; };
@@ -130,6 +136,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		F32CF9E91BA6B83C00814A61 /* i18n */ = {
+			isa = PBXGroup;
+			children = (
+				F32CF9EC1BA6B87500814A61 /* Localizable.strings */,
+			);
+			name = i18n;
+			sourceTree = "<group>";
+		};
 		F34A730F1B9DD47400A34965 /* Hpple */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,9 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				F32CF9D51BA4D9BF00814A61 /* Cells */,
-				F34A73101B9DD69000A34965 /* ForecastViewController.xib */,
 				F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */,
 				F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */,
+				F32CF9F01BA6B92100814A61 /* ForecastViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -222,6 +236,7 @@
 				F3A96F9D1B9D8AF600CEDF9E /* AppDelegate.h */,
 				F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */,
 				F3A96FA61B9D8AF600CEDF9E /* Images.xcassets */,
+				F32CF9E91BA6B83C00814A61 /* i18n */,
 				F3A96F991B9D8AF600CEDF9E /* Supporting Files */,
 			);
 			path = sinoptik.ua;
@@ -332,6 +347,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				uk,
 			);
 			mainGroup = F3A96F8D1B9D8AF600CEDF9E;
 			productRefGroup = F3A96F971B9D8AF600CEDF9E /* Products */;
@@ -350,9 +367,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A96FA51B9D8AF600CEDF9E /* Main.storyboard in Resources */,
+				F32CF9F11BA6B92100814A61 /* ForecastViewController.xib in Resources */,
 				F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */,
 				F3D583931BA0623900EF2334 /* HourlyForecastTableViewCell.xib in Resources */,
-				F34A73111B9DD69000A34965 /* ForecastViewController.xib in Resources */,
+				F32CF9EA1BA6B87500814A61 /* Localizable.strings in Resources */,
 				F32CF9D41BA4CEE500814A61 /* SummaryForecastTableViewCell.xib in Resources */,
 				F3A96FA71B9D8AF600CEDF9E /* Images.xcassets in Resources */,
 			);
@@ -412,10 +430,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F32CF9EC1BA6B87500814A61 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F32CF9EB1BA6B87500814A61 /* Base */,
+				F32CF9EE1BA6B87800814A61 /* ru */,
+				F32CF9EF1BA6B87800814A61 /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F3A96FA41B9D8AF600CEDF9E /* Base */,
+				F32CF9F31BA6BA5B00814A61 /* ru */,
+				F32CF9F51BA6BA5F00814A61 /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

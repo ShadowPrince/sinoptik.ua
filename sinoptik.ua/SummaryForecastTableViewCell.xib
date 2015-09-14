@@ -14,8 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22/03/15 12:51" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wld-Lm-S8D">
-                        <rect key="frame" x="8" y="8" width="304" height="27.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="22/03/15 12:51" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wld-Lm-S8D">
+                        <rect key="frame" x="8" y="8" width="276" height="28"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -30,18 +30,27 @@
                             </mask>
                         </variation>
                     </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UeU-8a-JOJ">
+                        <rect key="frame" x="292" y="12" width="20" height="20"/>
+                        <animations/>
+                    </activityIndicatorView>
                 </subviews>
                 <animations/>
                 <constraints>
+                    <constraint firstItem="UeU-8a-JOJ" firstAttribute="leading" secondItem="wld-Lm-S8D" secondAttribute="trailing" constant="8" id="2NC-8w-BpO"/>
+                    <constraint firstItem="UeU-8a-JOJ" firstAttribute="centerY" secondItem="wld-Lm-S8D" secondAttribute="centerY" id="7BU-la-tMf"/>
                     <constraint firstAttribute="bottomMargin" secondItem="wld-Lm-S8D" secondAttribute="bottom" id="7xB-Gu-k9T"/>
-                    <constraint firstItem="wld-Lm-S8D" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="9ha-M7-qXL"/>
                     <constraint firstItem="wld-Lm-S8D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="C3F-J2-YVZ"/>
                     <constraint firstItem="wld-Lm-S8D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="KeO-a8-wqx"/>
+                    <constraint firstItem="UeU-8a-JOJ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="dJ5-5P-XY3"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="wld-Lm-S8D" secondAttribute="trailing" priority="500" id="sce-ru-6lh"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
             <connections>
                 <outlet property="dateLabel" destination="wld-Lm-S8D" id="lYA-jU-Gwd"/>
+                <outlet property="indicator" destination="UeU-8a-JOJ" id="aUG-gA-4Bw"/>
+                <outlet property="spacingConstraint" destination="dJ5-5P-XY3" id="NXn-gx-bvE"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -72,17 +72,45 @@
                                     <outlet property="delegate" destination="a5k-r0-Cgh" id="Y79-01-x6j"/>
                                 </connections>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANS-rw-iDx">
+                                <rect key="frame" x="16" y="218" width="288" height="43"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8X-2y-o3E">
+                                        <rect key="frame" x="121" y="12" width="77" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rU6-28-t52">
+                                        <rect key="frame" x="93" y="13" width="20" height="20"/>
+                                        <animations/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="v8X-2y-o3E" firstAttribute="leading" secondItem="rU6-28-t52" secondAttribute="trailing" constant="8" id="8eO-CT-STg"/>
+                                    <constraint firstItem="v8X-2y-o3E" firstAttribute="centerY" secondItem="rU6-28-t52" secondAttribute="centerY" constant="-0.5" id="GEE-IK-dlP"/>
+                                    <constraint firstAttribute="centerY" secondItem="v8X-2y-o3E" secondAttribute="centerY" constant="-1" id="RUX-lo-Bqb"/>
+                                    <constraint firstAttribute="centerX" secondItem="v8X-2y-o3E" secondAttribute="centerX" constant="-15.5" id="WtF-DM-PJs"/>
+                                    <constraint firstAttribute="height" constant="43" id="tEd-om-KFy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ANS-rw-iDx" firstAttribute="leading" secondItem="nD5-WL-K6d" secondAttribute="leadingMargin" id="4Jh-nd-Lt4"/>
                             <constraint firstItem="KD9-su-xa3" firstAttribute="top" secondItem="GaC-5s-bgT" secondAttribute="bottom" id="9U3-5y-7Ih"/>
                             <constraint firstItem="bCh-0U-IFE" firstAttribute="top" secondItem="KD9-su-xa3" secondAttribute="bottom" constant="-416" id="DFK-KA-kba"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GaC-5s-bgT" secondAttribute="trailing" constant="-16" id="JW3-kj-v11"/>
                             <constraint firstItem="bCh-0U-IFE" firstAttribute="top" secondItem="eGF-mY-Mrx" secondAttribute="bottom" id="QiW-82-lTo"/>
                             <constraint firstItem="GaC-5s-bgT" firstAttribute="top" secondItem="eGF-mY-Mrx" secondAttribute="bottom" id="YXh-ka-tiZ"/>
                             <constraint firstItem="bCh-0U-IFE" firstAttribute="bottom" secondItem="KD9-su-xa3" secondAttribute="bottom" id="Ydm-U3-Ob8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ANS-rw-iDx" secondAttribute="trailing" id="YhT-z3-Osz"/>
                             <constraint firstItem="GaC-5s-bgT" firstAttribute="leading" secondItem="nD5-WL-K6d" secondAttribute="leadingMargin" constant="-16" id="ejp-xA-hmp"/>
+                            <constraint firstAttribute="centerY" secondItem="ANS-rw-iDx" secondAttribute="centerY" constant="0.5" id="itP-gH-Eee"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -101,6 +129,7 @@
                     <connections>
                         <outlet property="contentView" destination="bCh-0U-IFE" id="A6M-0E-4Io"/>
                         <outlet property="contentViewWidthConstraint" destination="vRy-b3-yO7" id="QwK-AR-4pl"/>
+                        <outlet property="loadingView" destination="ANS-rw-iDx" id="1sw-kx-SOI"/>
                         <outlet property="scrollView" destination="GaC-5s-bgT" id="Ygk-6j-Rs5"/>
                         <segue destination="gvv-V1-3Ls" kind="show" identifier="showPlacesSegue" id="dMI-da-DHt"/>
                         <segue destination="gvv-V1-3Ls" kind="popoverPresentation" identifier="modallyShowPlacesSegue" popoverAnchorBarButtonItem="VjI-Pe-8lJ" id="Ghg-bu-O2S">
@@ -128,7 +157,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Добавить город" id="1Ss-t9-H1s">
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Add place" id="1Ss-t9-H1s">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <animations/>

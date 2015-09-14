@@ -16,7 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
 
+@property UIView *forecastsView;
 @property NSMutableDictionary *forecastViewControllers;
 @property NSMutableDictionary *forecastVCConstraints;
 @end
@@ -40,6 +42,7 @@
     self.forecastViewControllers = [NSMutableDictionary new];
     self.contentViewWidthConstraint.constant = 0;
     self.scrollView.contentOffset = CGPointZero;
+    self.loadingView.hidden = NO;
 
     [self loadForecastForKey];
     [self layoutControllers];
@@ -101,6 +104,7 @@
     }];
 
     [self updateTitle];
+    self.loadingView.hidden = YES;
 }
 
 #pragma mark helper
@@ -110,7 +114,7 @@
         return [obj1 compare:obj2];
     }];
 
-    CGFloat width = self.view.frame.size.width;
+    CGFloat width = self.scrollView.frame.size.width;
     self.contentViewWidthConstraint.constant = width * orderedKeys.count;
     CGFloat height = self.contentView.frame.size.height;
 
@@ -124,6 +128,7 @@
                                   @"y": @0,
                                   @"w": [NSNumber numberWithDouble:width],
                                   @"h": [NSNumber numberWithDouble:height], };
+        NSLog(@"positioning %@ at x%@y%@w%@ at base w%f", key, metrics[@"x"], metrics[@"y"], metrics[@"w"], width);
 
         NSMutableArray *new_constrants = [NSMutableArray new];
         [new_constrants addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(x)-[v(w)]"

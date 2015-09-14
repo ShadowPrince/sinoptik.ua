@@ -29,10 +29,10 @@
 
 - (IBAction)editToggleAction:(UIBarButtonItem *)sender {
     if (self.tableView.isEditing) {
-        [sender setTitle:@"Edit"];
+        [sender setTitle:NSLocalizedString(@"Edit", @"edit")];
         [self.tableView setEditing:NO animated:YES];
     } else {
-        [sender setTitle:@"Done"];
+        [sender setTitle:NSLocalizedString(@"Done", @"done")];
         [self.tableView setEditing:YES animated:YES];
     }
 }

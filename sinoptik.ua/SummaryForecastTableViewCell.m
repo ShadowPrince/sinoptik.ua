@@ -9,7 +9,9 @@
 #import "SummaryForecastTableViewCell.h"
 
 @interface SummaryForecastTableViewCell ()
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *spacingConstraint;
 //---
 @property NSDateFormatter *formatter;
 @end@implementation SummaryForecastTableViewCell
@@ -20,7 +22,11 @@
 }
 
 - (void) populate:(DailyForecast *)cast {
-    self.dateLabel.text = [NSString stringWithFormat:@"Последнее обновление: %@", [self.formatter stringFromDate:cast.last_update]];
+    if (![UIApplication sharedApplication].networkActivityIndicatorVisible) {
+        [self.indicator stopAnimating];
+        self.spacingConstraint.active = NO;
+    }
+    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Last update: %@", @"last update"), [self.formatter stringFromDate:cast.last_update]];
 }
 
 @end
