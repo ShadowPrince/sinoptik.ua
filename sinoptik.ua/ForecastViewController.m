@@ -77,7 +77,7 @@
 
         currentCast = self.forecast.hourlyForecast[self.current_hour];
     } else {
-        int midday_hour = self.forecast.hourlyForecast.count / 2;
+        int midday_hour = (int) self.forecast.hourlyForecast.count / 2;
         // @TODO: something's wrong with big image
         currentCast = self.forecast.hourlyForecast.allValues[midday_hour];
     }

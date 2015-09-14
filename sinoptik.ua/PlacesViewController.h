@@ -11,6 +11,6 @@
 #import "SearchManager.h"
 
 @interface PlacesViewController : UIViewController <UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource>
-@property int selected_index;
+@property NSInteger selected_index;
 
 @end

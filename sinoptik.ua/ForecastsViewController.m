@@ -128,7 +128,6 @@
                                   @"y": @0,
                                   @"w": [NSNumber numberWithDouble:width],
                                   @"h": [NSNumber numberWithDouble:height], };
-        NSLog(@"positioning %@ at x%@y%@w%@ at base w%f", key, metrics[@"x"], metrics[@"y"], metrics[@"w"], width);
 
         NSMutableArray *new_constrants = [NSMutableArray new];
         [new_constrants addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"|-(x)-[v(w)]"

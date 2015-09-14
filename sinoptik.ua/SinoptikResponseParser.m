@@ -69,8 +69,8 @@
     for (int i = 0; i < [data[1] count]; i++) {
         HourlyForecast *forecast = [HourlyForecast new];
         forecast.temperature = [(NSString *) data[3][i] integerValue];
-        forecast.pressure = [(NSString *) data[5][i] integerValue];
-        forecast.humidity = [(NSString *) data[6][i] integerValue];
+        forecast.pressure = [(NSString *) data[5][i] intValue];
+        forecast.humidity = [(NSString *) data[6][i] intValue];
 
         // wind data
         NSString *wind_data = data[7][i];
@@ -93,13 +93,13 @@
 
         forecast.clouds = clouds;
         forecast.rain = rain;
-        forecast.rain_probability = [(NSString *) data[8][i] integerValue];
+        forecast.rain_probability = [(NSString *) data[8][i] intValue];
 
         s = [NSScanner scannerWithString:data[1][i]];
         NSString *hour;
         [s scanUpToString:@":" intoString:&hour];
 
-        forecast.hour = hour.integerValue;
+        forecast.hour = hour.intValue;
         cast.hourlyForecast[[NSNumber numberWithInteger:hour.integerValue]] = forecast;
     }
 

@@ -96,7 +96,7 @@
 #pragma mark helper
 
 - (void) justifyColumns {
-    CGFloat space = self.frame.size.width - 86.f - 82.f - 16.f;
+    CGFloat space = self.frame.size.width - 86.f - 82.f - 24.f;
     self.columnWidthContraint.constant = space / 3;
 }
 
