@@ -60,8 +60,9 @@
         self.weatherImageView.image = image;
     }];
 
-    if (cast.hour > 8 && cast.hour < 22) {
-        self.timeLabel.backgroundColor = [UIColor yellowColor];
+
+    if ([self.assets sinoptikTimeFor:cast] == SinoptikTimeDay) {
+        self.timeLabel.backgroundColor = [UIColor colorWithRed:1.f green:0.9f blue:0.4f alpha:1.0f];
         self.timeLabel.textColor = [UIColor blackColor];
     } else {
         self.timeLabel.backgroundColor = [UIColor darkGrayColor];

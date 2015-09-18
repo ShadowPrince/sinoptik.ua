@@ -23,6 +23,6 @@ typedef void (^AssetsManagerLoadImageCallback) (UIImage *);
              callback:(AssetsManagerLoadImageCallback) callback;
 - (void) loadMediumImageFor:(HourlyForecast *) cast callback:(AssetsManagerLoadImageCallback) callback;
 
-
 + (NSArray *) windDirectionalImages;
+- (SinoptikTime) sinoptikTimeFor:(HourlyForecast *) cast;
 @end

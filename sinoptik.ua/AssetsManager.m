@@ -20,25 +20,17 @@
 }
 
 - (void) loadImageFor:(HourlyForecast *)cast callback:(AssetsManagerLoadImageCallback)callback {
-    [self.queue addOperationWithBlock:^{
-        NSData *data = [[SinoptikAPI api] imageForForecast:cast
-                                                    ofSize:SinoptikImageSizeBig
-                                                      time:[self sinoptikTimeFor:cast]];
-        UIImage *image = [UIImage imageWithData:data];
-
-        if ([NSOperationQueue currentQueue].isSuspended)
-            return;
-
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            callback(image);
-        });
-    }];
+    [self loadImageOfSize:SinoptikImageSizeBig for:cast callback:callback];
 }
 
 - (void) loadMediumImageFor:(HourlyForecast *) cast callback:(AssetsManagerLoadImageCallback) callback {
+    [self loadImageOfSize:SinoptikImageSizeMedium for:cast callback:callback];
+}
+
+- (void) loadImageOfSize:(SinoptikImageSize) size for:(HourlyForecast *) cast callback:(AssetsManagerLoadImageCallback) cb {
     [self.queue addOperationWithBlock:^{
         NSData *data = [[SinoptikAPI api] imageForForecast:cast
-                                                    ofSize:SinoptikImageSizeMedium
+                                                    ofSize:size
                                                       time:[self sinoptikTimeFor:cast]];
         UIImage *image = [UIImage imageWithData:data];
 
@@ -46,7 +38,7 @@
             return;
 
         dispatch_sync(dispatch_get_main_queue(), ^{
-            callback(image);
+            cb(image);
         });
     }];
 }
@@ -70,7 +62,7 @@
 }
 
 - (SinoptikTime) sinoptikTimeFor:(HourlyForecast *) cast {
-    return (cast.hour > 22 && cast.hour < 7) ? SinoptikTimeNight : SinoptikTimeDay;
+    return (cast.hour > 22 || cast.hour < 7) ? SinoptikTimeNight : SinoptikTimeDay;
 }
 
 - (void) dealloc {
