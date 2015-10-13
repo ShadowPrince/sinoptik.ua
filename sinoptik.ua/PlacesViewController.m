@@ -24,7 +24,7 @@
 
     self.places = [PlacesDataSource instance];
     self.tableView.dataSource = self.places;
-    self.tableView.contentOffset = CGPointMake(0, 44);
+//    self.tableView.contentOffset = CGPointMake(0, 0);
 }
 
 - (IBAction)editToggleAction:(UIBarButtonItem *)sender {
