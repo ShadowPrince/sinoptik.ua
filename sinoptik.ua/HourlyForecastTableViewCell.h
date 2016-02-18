@@ -15,6 +15,7 @@
 @interface HourlyForecastTableViewCell : UITableViewCell
 
 - (void) populate:(HourlyForecast *) cast;
+- (void) setupSeparator;
 - (void) setCurrent;
 - (void) setHeader;
 

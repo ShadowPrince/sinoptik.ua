@@ -24,7 +24,9 @@
 - (void) populate:(DailyForecast *)cast {
     if (![UIApplication sharedApplication].networkActivityIndicatorVisible) {
         [self.indicator stopAnimating];
-        self.spacingConstraint.active = NO;
+
+        if ([UIDevice currentDevice].systemVersion.intValue >= 8)
+            self.spacingConstraint.active = NO;
     }
     self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Last update: %@", @"last update"), [self.formatter stringFromDate:cast.last_update]];
 }

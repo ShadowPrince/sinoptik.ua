@@ -25,6 +25,7 @@
 		F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */; };
 		F3A96FB61B9D8AF600CEDF9E /* sinoptik_uaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FB51B9D8AF600CEDF9E /* sinoptik_uaTests.m */; };
 		F3A96FC11B9D8CB000CEDF9E /* SinoptikAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FC01B9D8CB000CEDF9E /* SinoptikAPI.m */; };
+		F3B18B0C1C0869180002B9D0 /* ILTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B18B0B1C0869180002B9D0 /* ILTranslucentView.m */; settings = {ASSET_TAGS = (); }; };
 		F3D583781B9EBAC300EF2334 /* SearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583771B9EBAC300EF2334 /* SearchManager.m */; };
 		F3D5837C1B9EEDBE00EF2334 /* SinoptikResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837B1B9EEDBE00EF2334 /* SinoptikResponseParser.m */; };
 		F3D5837F1B9EEDD600EF2334 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837E1B9EEDD600EF2334 /* Forecast.m */; };
@@ -83,6 +84,8 @@
 		F3A96FB51B9D8AF600CEDF9E /* sinoptik_uaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sinoptik_uaTests.m; sourceTree = "<group>"; };
 		F3A96FBF1B9D8CB000CEDF9E /* SinoptikAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinoptikAPI.h; sourceTree = "<group>"; };
 		F3A96FC01B9D8CB000CEDF9E /* SinoptikAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinoptikAPI.m; sourceTree = "<group>"; };
+		F3B18B0A1C0869180002B9D0 /* ILTranslucentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ILTranslucentView.h; path = ILTranslucentView/ILTranslucentView.h; sourceTree = "<group>"; };
+		F3B18B0B1C0869180002B9D0 /* ILTranslucentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ILTranslucentView.m; path = ILTranslucentView/ILTranslucentView.m; sourceTree = "<group>"; };
 		F3D583761B9EBAC300EF2334 /* SearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchManager.h; sourceTree = "<group>"; };
 		F3D583771B9EBAC300EF2334 /* SearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchManager.m; sourceTree = "<group>"; };
 		F3D5837A1B9EEDBE00EF2334 /* SinoptikResponseParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinoptikResponseParser.h; sourceTree = "<group>"; };
@@ -195,13 +198,15 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
-		F35A8BBF1BA454F9001AAA34 /* UIImage-Extensions */ = {
+		F35A8BBF1BA454F9001AAA34 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				F34A730F1B9DD47400A34965 /* Hpple */,
+				F3B18B0D1C08691C0002B9D0 /* TranslucentView */,
 				F35A8BBC1BA454F3001AAA34 /* UIImage-Extensions.h */,
 				F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */,
 			);
-			name = "UIImage-Extensions";
+			name = libs;
 			sourceTree = "<group>";
 		};
 		F3A96F8D1B9D8AF600CEDF9E = {
@@ -209,8 +214,7 @@
 			children = (
 				F370693C1BAC4FEA00373159 /* libxml2.tbd */,
 				F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */,
-				F35A8BBF1BA454F9001AAA34 /* UIImage-Extensions */,
-				F34A730F1B9DD47400A34965 /* Hpple */,
+				F35A8BBF1BA454F9001AAA34 /* libs */,
 				F3A96F981B9D8AF600CEDF9E /* sinoptik.ua */,
 				F3A96FB21B9D8AF600CEDF9E /* sinoptik.uaTests */,
 				F3A96F971B9D8AF600CEDF9E /* Products */,
@@ -266,6 +270,15 @@
 				F3A96FB41B9D8AF600CEDF9E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F3B18B0D1C08691C0002B9D0 /* TranslucentView */ = {
+			isa = PBXGroup;
+			children = (
+				F3B18B0A1C0869180002B9D0 /* ILTranslucentView.h */,
+				F3B18B0B1C0869180002B9D0 /* ILTranslucentView.m */,
+			);
+			name = TranslucentView;
 			sourceTree = "<group>";
 		};
 		F3D583791B9EED9000EF2334 /* Managers */ = {
@@ -401,6 +414,7 @@
 				F3D5837F1B9EEDD600EF2334 /* Forecast.m in Sources */,
 				F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */,
 				F3A96F9F1B9D8AF600CEDF9E /* AppDelegate.m in Sources */,
+				F3B18B0C1C0869180002B9D0 /* ILTranslucentView.m in Sources */,
 				F3D583851B9EF01E00EF2334 /* ForecastManager.m in Sources */,
 				F3A96F9C1B9D8AF600CEDF9E /* main.m in Sources */,
 				F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */,
@@ -552,7 +566,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = sinoptik.ua/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.shdwprince.$(PRODUCT_NAME:rfc1034identifier)";
@@ -570,7 +584,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = sinoptik.ua/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.shdwprince.$(PRODUCT_NAME:rfc1034identifier)";

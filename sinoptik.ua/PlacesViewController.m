@@ -24,7 +24,12 @@
 
     self.places = [PlacesDataSource instance];
     self.tableView.dataSource = self.places;
-//    self.tableView.contentOffset = CGPointMake(0, 0);
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
 }
 
 - (IBAction)editToggleAction:(UIBarButtonItem *)sender {
@@ -49,14 +54,15 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.searchDisplayController.isActive) {
-        [self.places addEntry:self.searchResults[indexPath.row]];
-        [self.searchDisplayController setActive:NO];
-        [self.tableView reloadData];
-    } else {
-        self.selected_index = indexPath.row;
-        [self performSegueWithIdentifier:@"unwindFromPlaces" sender:self];
-
+    if (indexPath.section == 0) {
+        if (self.searchDisplayController.isActive) {
+            [self.places addEntry:self.searchResults[indexPath.row]];
+            [self.searchDisplayController setActive:NO];
+            [self.tableView reloadData];
+        } else {
+            self.selected_index = indexPath.row;
+            [self performSegueWithIdentifier:@"unwindFromPlaces" sender:self];
+        }
     }
 }
 

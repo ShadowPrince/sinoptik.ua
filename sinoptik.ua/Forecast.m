@@ -84,6 +84,16 @@
     }];
 }
 
+- (HourlyForecast *) middayForecast {
+    NSArray *keys = self.hourlyForecast.allKeys;
+    keys = [keys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 compare:obj2];
+    }];
+
+    NSObject *key = keys[(int) keys.count / 2];
+    return self.hourlyForecast[key];
+}
+
 - (instancetype) init {
     self = [super init];
     self.hourlyForecast = [NSMutableDictionary new];

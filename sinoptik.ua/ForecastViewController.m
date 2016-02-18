@@ -16,6 +16,7 @@
 @property NSDate *date;
 @property NSArray *place;
 //---
+@property (weak, nonatomic) IBOutlet ILTranslucentView *headerAnchorView;
 @property (weak, nonatomic) IBOutlet UILabel *placeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *daylightLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *nowImageView;
@@ -26,27 +27,39 @@
 @property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
 @end@implementation ForecastViewController
 
-- (instancetype) initWithPlace:(NSArray *)place date:(NSDate *)d {
-    self = [super init];
+- (void) setPlace:(NSArray *) p date:(NSDate *) d {
     self.date = d;
-    self.place = place;
-    self.formatter = [NSDateFormatter new];
-    self.formatter.dateFormat = @"EEEE dd.MM.yy";
-    return self;
+    self.place = p;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.formatter = [NSDateFormatter new];
+    self.formatter.dateFormat = @"EEEE dd.MM.yy";
+
     [self.tableView registerNib:[UINib nibWithNibName:@"HourlyForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SummaryForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"Footer"];
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
+    self.nowImageView.layer.cornerRadius = self.nowImageView.frame.size.width / 2;
+    self.nowImageView.layer.masksToBounds = YES;
+    self.nowImageView.layer.borderWidth = 3.0f;
+    self.nowImageView.layer.borderColor = [UIColor whiteColor].CGColor;
 
     // remove text padding
-    self.summaryTextView.textContainerInset = UIEdgeInsetsZero;
-    self.summaryTextView.textContainer.lineFragmentPadding = 0.f;
+    if ([UIDevice currentDevice].systemVersion.integerValue >= 8) {
+        self.summaryTextView.textContainerInset = UIEdgeInsetsZero;
+        self.summaryTextView.textContainer.lineFragmentPadding = 0.f;
+    }
 
     self.assets = [AssetsManager new];
+}
+
+- (void) viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+
+    CGFloat top = self.headerAnchorView.frame.origin.y + self.headerAnchorView.frame.size.height;
+    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, 0, 0);
 }
 
 - (void) populate:(DailyForecast *) cast {
@@ -54,7 +67,6 @@
     self.summaryTextView.text = cast.summary;
     self.placeLabel.text = [self.place firstObject];
 
-    HourlyForecast *currentCast;
     NSDateFormatter *f = [NSDateFormatter new];
     f.dateFormat = @"yyyy-MM-dd";
     int row_index = 0;
@@ -75,27 +87,51 @@
             }
         }
 
-        currentCast = self.forecast.hourlyForecast[self.current_hour];
+        self.currentCast = self.forecast.hourlyForecast[self.current_hour];
     } else {
-        int midday_hour = (int) self.forecast.hourlyForecast.count / 2;
-        // @TODO: something's wrong with big image
-        currentCast = self.forecast.hourlyForecast.allValues[midday_hour];
+        self.currentCast = [self.forecast middayForecast];
     }
 
     [self.tableView reloadData];
-    //@TODO: scroll
-//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row_index inSection:0]
-//                          atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+
+    // header
+    SinoptikTime currentTime = [self.assets sinoptikTimeFor:self.currentCast];
+    [self changeHeaderColorsFor:currentTime];
+
+    if ([UIDevice currentDevice].systemVersion.integerValue < 7) {
+        CGFloat color = [currentTime isEqualToString:SinoptikTimeDay] ? 1.f : 0.f;
+        self.headerAnchorView.backgroundColor = [UIColor colorWithRed:color green:color blue:color alpha:0.9f];
+    } else {
+        self.headerAnchorView.translucentStyle = [currentTime isEqualToString:SinoptikTimeDay] ? UIBarStyleDefault : UIBarStyleBlackTranslucent;
+    }
 
     self.title = [self.formatter stringFromDate:self.date];
-    self.dateLabel.text = [NSString stringWithFormat:@"%d℃", currentCast.temperature];
-    self.windLabel.text = [NSString stringWithFormat:@"%.1fm/s", currentCast.wind_speed];
+    self.dateLabel.text = [NSString stringWithFormat:@"%d℃", self.currentCast.temperature];
+    self.windLabel.text = [NSString stringWithFormat:@"%.1fm/s", self.currentCast.wind_speed];
     self.daylightLabel.text = [NSString stringWithFormat:@"⇡%@ ⇣%@", cast.daylight[0], cast.daylight[1]];
-    self.windDirectionImageView.image = [AssetsManager windDirectionalImages][currentCast.wind_direction];
+    if (self.currentCast.wind_direction <= 7)
+        self.windDirectionImageView.image = [AssetsManager windDirectionalImages][self.currentCast.wind_direction];
+    else
+        self.windDirectionImageView.image = nil;
 
-    [self.assets loadImageFor:currentCast callback:^(UIImage *image) {
+    [self.assets loadImageFor:self.currentCast callback:^(UIImage *image) {
         self.nowImageView.image = image;
     }];
+}
+
+#pragma mark - day/night colors
+
+- (void) changeHeaderColorsFor:(SinoptikTime) time {
+    UIColor *textColor = [time isEqualToString:SinoptikTimeNight] ? [UIColor whiteColor] : [UIColor darkTextColor];
+    for (UIView *v in self.headerAnchorView.subviews) {
+        if ([v respondsToSelector:@selector(setColor:)]) {
+            [v performSelector:@selector(setColor:)
+                    withObject:textColor];
+        } else if ([v respondsToSelector:@selector(setTextColor:)]) {
+            [v performSelector:@selector(setTextColor:)
+                    withObject:textColor];
+        }
+    }
 }
 
 #pragma mark - table
@@ -112,6 +148,7 @@
         return cell;
     } else {
         HourlyForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+        [cell layoutIfNeeded];
 
         if (indexPath.row == 0) { // header
             [cell setHeader];
@@ -119,6 +156,8 @@
             NSNumber *key = [self.forecast hours][indexPath.row-1];
             HourlyForecast *cast = self.forecast.hourlyForecast[key];
             [cell populate:cast];
+            [cell setupSeparator];
+
             cell.backgroundColor = [UIColor whiteColor];
 
             if (self.current_hour && [key isEqualToNumber:self.current_hour])

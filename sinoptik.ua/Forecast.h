@@ -33,6 +33,7 @@
 @property NSDate *last_update;
 
 - (NSArray *) hours;
+- (HourlyForecast *) middayForecast;
 
 @end
 

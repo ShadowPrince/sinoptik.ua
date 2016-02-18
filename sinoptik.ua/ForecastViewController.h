@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ILTranslucentView.h"
+
 #import "ForecastManager.h"
 #import "PlacesDataSource.h"
 #import "AssetsManager.h"
@@ -16,9 +18,9 @@
 #import "SummaryForecastTableViewCell.h"
 
 @interface ForecastViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@property HourlyForecast *currentCast;
 
-- (instancetype) initWithPlace:(NSArray *) place date:(NSDate *) d;
-
+- (void) setPlace:(NSArray *) p date:(NSDate *) d;
 - (void) populate:(DailyForecast *) cast;
 
 @end

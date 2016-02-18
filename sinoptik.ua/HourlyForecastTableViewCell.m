@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *windDirectionImageView;
 @property (weak, nonatomic) IBOutlet UILabel *rainProbabilityLabel;
 //---
+@property UIView *separator;
 @property AssetsManager *assets;
 @end@implementation HourlyForecastTableViewCell
 
@@ -37,6 +38,32 @@
     [super layoutSubviews];
 }
 
+- (void) setupSeparator {
+    if (!self.separator) {
+        UIView *separatorLineView = [[UIView alloc] init];
+        separatorLineView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.contentView addSubview:separatorLineView];
+
+        NSMutableArray *new_constrants = [NSMutableArray new];
+        NSDictionary *metrics = @{@"x": @32.f,
+                                  @"b": @0.f,
+                                  @"h": @1.f, };
+        NSDictionary *dict = @{@"v": separatorLineView, };
+        [new_constrants addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(x)-[v]|"
+                                                                                    options:0
+                                                                                    metrics:metrics
+                                                                                      views:dict]];
+        [new_constrants addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[v(h)]-(b)-|"
+                                                                                    options:0
+                                                                                    metrics:metrics
+                                                                                      views:dict]];
+
+        [self addConstraints:new_constrants];
+        self.separator = separatorLineView;
+    }
+
+    self.separator.backgroundColor = [UIColor colorWithRed:0.90f green:0.90f blue:0.90f alpha:1.0f];
+}
 
 - (void) populate:(HourlyForecast *) cast {
     CGFloat size = ROW_FONT_SIZE;
@@ -61,7 +88,7 @@
     }];
 
 
-    if ([self.assets sinoptikTimeFor:cast] == SinoptikTimeDay) {
+    if ([[self.assets sinoptikTimeFor:cast] isEqualToString:SinoptikTimeDay]) {
         self.timeLabel.backgroundColor = [UIColor colorWithRed:1.f green:0.9f blue:0.4f alpha:1.0f];
         self.timeLabel.textColor = [UIColor blackColor];
     } else {
@@ -69,12 +96,14 @@
         self.timeLabel.textColor = [UIColor whiteColor];
     }
 
-    if (cast.wind_direction < 8)
+    if (cast.wind_direction <= 7)
         self.windDirectionImageView.image = [AssetsManager windDirectionalImages][cast.wind_direction];
+    else
+        self.windDirectionImageView.image = nil;
 }
 
 - (void) setCurrent {
-    self.layer.borderWidth = 1.f;
+    self.separator.backgroundColor = [UIColor blackColor];
 }
 
 - (void) setHeader {

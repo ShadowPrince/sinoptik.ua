@@ -11,6 +11,7 @@
 @interface ForecastsViewController ()
 @property PlacesDataSource *places;
 @property ForecastManager *forecastManager;
+@property AssetsManager *assets;
 @property BOOL viewChangedSize;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -21,6 +22,9 @@
 @property UIView *forecastsView;
 @property NSMutableDictionary *forecastViewControllers;
 @property NSMutableDictionary *forecastVCConstraints;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *organizeBarButtonItem;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewTrailingConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewLeadingConstraint;
 @end
 
 @implementation ForecastsViewController
@@ -51,11 +55,23 @@
 - (void) viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     [self layoutControllers];
+    [self.view layoutSubviews];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    if ([UIDevice currentDevice].systemVersion.intValue < 8) {
+        self.scrollviewLeadingConstraint.constant = 0.f;
+        self.scrollviewTrailingConstraint.constant = 0.f;
+    }
+
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        self.scrollviewLeadingConstraint.constant = -20.f;
+        self.scrollviewTrailingConstraint.constant = -20.f;
+    }
+
+    self.assets = [AssetsManager new];
     self.places = [PlacesDataSource instance];
     self.forecastVCConstraints = [NSMutableDictionary new];
     self.forecastViewControllers = [NSMutableDictionary new];
@@ -69,8 +85,11 @@
     [self loadForecastForKey];
 }
 
-- (void) viewDidAppear:(BOOL)animated {
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
     [self layoutControllers];
+    [self updateTitle];
 
     if (!self.places.places.count)
         [self showPlaces:nil];
@@ -92,9 +111,11 @@
 
         ForecastViewController *controller = nil;
         if (!self.forecastViewControllers[key]) {
-            controller = [[ForecastViewController alloc] initWithPlace:place date:key];
+            controller = [[ForecastViewController alloc] initWithNibName:@"ForecastViewController" bundle:nil];
+            [controller setPlace:place date:key];
             controller.view.translatesAutoresizingMaskIntoConstraints = NO;
             [self.contentView addSubview:controller.view];
+            [self addChildViewController:controller];
             self.forecastViewControllers[key] = controller;
         } else {
             controller = self.forecastViewControllers[key];
@@ -121,7 +142,9 @@
     int i = 0;
     for (NSDate *key in orderedKeys) {
         ForecastViewController *controller = self.forecastViewControllers[key];
-        [self.contentView removeConstraints:self.forecastVCConstraints[key]];
+        NSArray *old_constraints = self.forecastVCConstraints[key];
+
+        [self.contentView removeConstraints:old_constraints ? old_constraints : @[]];
 
         NSDictionary *dict = @{@"c": self.contentView, @"v": controller.view};
         NSDictionary *metrics = @{@"x": [NSNumber numberWithInt:width * i],
@@ -151,8 +174,18 @@
     }];
 
     if (orderedKeys.count > idx) {
-        NSString *date = [(ForecastViewController *) self.forecastViewControllers[orderedKeys[idx]] title];
-        self.title = date;
+        ForecastViewController *fvc = (ForecastViewController *) self.forecastViewControllers[orderedKeys[idx]];
+        self.title = fvc.title;
+
+        if ([UIDevice currentDevice].systemVersion.integerValue >= 7) {
+            if ([[self.assets sinoptikTimeFor:fvc.currentCast] isEqualToString:SinoptikTimeDay]) {
+                self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+                [self.organizeBarButtonItem setTintColor:[UIColor blueColor]];
+            } else {
+                self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+                [self.organizeBarButtonItem setTintColor:[UIColor whiteColor]];
+            }
+        }
     }
 }
 
@@ -164,9 +197,8 @@
 
 #pragma mark - scroll view
 
-- (void) scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self updateTitle];
 }
-
 
 @end

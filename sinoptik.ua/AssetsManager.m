@@ -37,6 +37,13 @@
         if ([NSOperationQueue currentQueue].isSuspended)
             return;
 
+        if ([size isEqualToString:SinoptikImageSizeBig]) {
+            image = [image imageAtRect:CGRectMake(42.f,
+                                                  20.f,
+                                                  image.size.width - 42.f * 2,
+                                                  image.size.height - 20.f * 2)];
+        }
+
         dispatch_sync(dispatch_get_main_queue(), ^{
             cb(image);
         });
@@ -62,7 +69,7 @@
 }
 
 - (SinoptikTime) sinoptikTimeFor:(HourlyForecast *) cast {
-    return (cast.hour > 22 || cast.hour < 7) ? SinoptikTimeNight : SinoptikTimeDay;
+    return (cast.hour > 20 || cast.hour < 7) ? SinoptikTimeNight : SinoptikTimeDay;
 }
 
 - (void) dealloc {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -12,18 +12,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mg4-tx-bG8">
-                        <rect key="frame" x="40" y="0.0" width="43" height="43"/>
+                        <rect key="frame" x="41" y="0.0" width="43" height="43"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="43" id="VwP-yM-tNQ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KvL-0B-wS2">
-                        <rect key="frame" x="238" y="0.0" width="60" height="43"/>
+                        <rect key="frame" x="237" y="0.0" width="60" height="43"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4H6-6I-c7Y">
-                        <rect key="frame" x="91" y="0.0" width="40" height="43"/>
+                        <rect key="frame" x="92" y="0.0" width="40" height="43"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -45,7 +45,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJc-Jc-h7X">
-                        <rect key="frame" x="139" y="0.0" width="40" height="43"/>
+                        <rect key="frame" x="140" y="0.0" width="40" height="43"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -61,7 +61,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prob. of rain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ars-Qn-X6J">
-                        <rect key="frame" x="187" y="0.0" width="40" height="43"/>
+                        <rect key="frame" x="188" y="0.0" width="40" height="43"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -77,7 +77,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmK-DH-GUQ">
-                        <rect key="frame" x="0.0" y="8" width="40" height="27"/>
+                        <rect key="frame" x="1" y="8" width="40" height="27"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="zAI-MN-XSu"/>
@@ -87,7 +87,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="south" translatesAutoresizingMaskIntoConstraints="NO" id="Apo-1h-U0K">
-                        <rect key="frame" x="300" y="10" width="20" height="23"/>
+                        <rect key="frame" x="299" y="10" width="20" height="23"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -99,7 +99,7 @@
                 <constraints>
                     <constraint firstItem="QJc-Jc-h7X" firstAttribute="width" secondItem="4H6-6I-c7Y" secondAttribute="width" id="1ht-nQ-yD2"/>
                     <constraint firstItem="Ars-Qn-X6J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="4RY-yB-9QC"/>
-                    <constraint firstItem="WmK-DH-GUQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="7vy-3Z-gJD"/>
+                    <constraint firstItem="WmK-DH-GUQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-7" id="7vy-3Z-gJD"/>
                     <constraint firstAttribute="bottomMargin" secondItem="QJc-Jc-h7X" secondAttribute="bottom" constant="-8" id="8Gb-Vt-3MK"/>
                     <constraint firstItem="QJc-Jc-h7X" firstAttribute="width" secondItem="4H6-6I-c7Y" secondAttribute="width" id="AQC-qo-dPa"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Apo-1h-U0K" secondAttribute="bottom" constant="2" id="FlO-qs-fd3"/>
@@ -122,7 +122,7 @@
                     <constraint firstItem="QJc-Jc-h7X" firstAttribute="baseline" secondItem="Ars-Qn-X6J" secondAttribute="baseline" id="jWD-pz-h9g"/>
                     <constraint firstItem="WmK-DH-GUQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="lVE-d1-kQL"/>
                     <constraint firstItem="Ars-Qn-X6J" firstAttribute="leading" secondItem="QJc-Jc-h7X" secondAttribute="trailing" constant="8" id="p3S-AF-8Yg"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Apo-1h-U0K" secondAttribute="trailing" constant="-8" id="rg6-77-sXx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Apo-1h-U0K" secondAttribute="trailing" constant="-7" id="rg6-77-sXx"/>
                     <constraint firstItem="Ars-Qn-X6J" firstAttribute="height" secondItem="4H6-6I-c7Y" secondAttribute="height" id="szI-VJ-GlR"/>
                     <constraint firstItem="4H6-6I-c7Y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="uXf-iK-FVv"/>
                     <constraint firstItem="KvL-0B-wS2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="vDX-cc-ScI"/>
