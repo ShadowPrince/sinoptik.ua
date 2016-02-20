@@ -13,6 +13,8 @@
 
 @protocol ForecastManagerDelegate <NSObject>
 - (void) forecastManager:(ForecastManager *) manager didReceivedForecast:(Forecast *) cast for:(NSArray *) place;
+- (void) forecastManager:(ForecastManager *) manager didMadeProgress:(NSUInteger) from to:(NSUInteger) to for:(NSArray *) place;
+
 @end
 
 @interface ForecastManager : NSObject

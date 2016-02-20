@@ -29,7 +29,7 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationController.navigationBarHidden =  NO;
 }
 
 - (IBAction)editToggleAction:(UIBarButtonItem *)sender {

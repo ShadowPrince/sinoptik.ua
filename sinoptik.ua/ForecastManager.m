@@ -41,7 +41,12 @@
     }
 
     [self.queue addOperationWithBlock:^{
-        Forecast *forecats = [[SinoptikAPI api] forecastFor:key];
+        Forecast *forecats = [[SinoptikAPI api] forecastFor:key progressCallback:^(NSUInteger from, NSUInteger to) {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.delegate forecastManager:self didMadeProgress:from to:to for:place];
+            });
+        }];
+
         if (!forecats) {
             return;
         }

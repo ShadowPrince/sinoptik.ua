@@ -11,6 +11,6 @@
 #import "PlacesDataSource.h"
 #import "AssetsManager.h"
 
-@interface ForecastViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ForecastManagerDelegate>
+@interface ForecastViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ForecastManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end

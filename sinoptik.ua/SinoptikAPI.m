@@ -51,7 +51,7 @@
 }
 
 // synchronous loading in NSOperation
-- (Forecast *) forecastFor:(NSString *) key {
+- (Forecast *) forecastFor:(NSString *) key progressCallback:(SinoptikAPIProgressCallback)cb {
     Forecast *forecast = [[Forecast alloc] init];
 
     NSDateFormatter *formatter = [NSDateFormatter new];
@@ -70,6 +70,8 @@
 
             forecast.dailyForecasts[date] = cast;
         }
+
+        cb(i, 10);
 
         if ([[NSOperationQueue currentQueue] isSuspended]) {
             forecast.dailyForecasts = [NSMutableDictionary new];
@@ -102,9 +104,8 @@
 - (NSData *) apiForecastFor:(NSString *) query {
     NSHTTPURLResponse *resp;
 
-    NSData *data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[self url:@"/%@?ajax=GetForecast", query]] returningResponse:&resp error:nil];
-//    NSData *data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost/2015-09-08.html"]] returningResponse:&resp error:nil];
-
+    NSURLRequest *request = [NSURLRequest requestWithURL:[self url:@"/%@?ajax=GetForecast", query]];
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&resp error:nil];
 
     if (resp.statusCode == 200)
         return data;
@@ -117,8 +118,8 @@
     va_start(args, _args);
     NSString *suffix = [[NSString alloc] initWithFormat:_args arguments:args];
     va_end(args);
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://sinoptik.ua%@", [suffix stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
-    NSLog(@"%@", url.absoluteString);
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://sinoptik.ua%@",
+                                       [suffix stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     return url;
 }
 
