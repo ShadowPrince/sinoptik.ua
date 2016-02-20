@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F32CF9D31BA4CEE500814A61 /* SummaryForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F32CF9D11BA4CEE500814A61 /* SummaryForecastTableViewCell.m */; };
-		F32CF9D41BA4CEE500814A61 /* SummaryForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32CF9D21BA4CEE500814A61 /* SummaryForecastTableViewCell.xib */; };
 		F32CF9EA1BA6B87500814A61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F32CF9EC1BA6B87500814A61 /* Localizable.strings */; };
-		F32CF9F11BA6B92100814A61 /* ForecastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32CF9F01BA6B92100814A61 /* ForecastViewController.xib */; };
 		F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73051B9DD37B00A34965 /* TFHpple.m */; };
 		F34A730B1B9DD37B00A34965 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73071B9DD37B00A34965 /* TFHppleElement.m */; };
 		F34A730C1B9DD37B00A34965 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73091B9DD37B00A34965 /* XPathQuery.m */; };
@@ -25,16 +22,13 @@
 		F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */; };
 		F3A96FB61B9D8AF600CEDF9E /* sinoptik_uaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FB51B9D8AF600CEDF9E /* sinoptik_uaTests.m */; };
 		F3A96FC11B9D8CB000CEDF9E /* SinoptikAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FC01B9D8CB000CEDF9E /* SinoptikAPI.m */; };
-		F3B18B0C1C0869180002B9D0 /* ILTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B18B0B1C0869180002B9D0 /* ILTranslucentView.m */; settings = {ASSET_TAGS = (); }; };
+		F3B18B0C1C0869180002B9D0 /* ILTranslucentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3B18B0B1C0869180002B9D0 /* ILTranslucentView.m */; };
 		F3D583781B9EBAC300EF2334 /* SearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583771B9EBAC300EF2334 /* SearchManager.m */; };
 		F3D5837C1B9EEDBE00EF2334 /* SinoptikResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837B1B9EEDBE00EF2334 /* SinoptikResponseParser.m */; };
 		F3D5837F1B9EEDD600EF2334 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837E1B9EEDD600EF2334 /* Forecast.m */; };
-		F3D583821B9EEFEE00EF2334 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583811B9EEFEE00EF2334 /* ForecastViewController.m */; };
 		F3D583851B9EF01E00EF2334 /* ForecastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583841B9EF01E00EF2334 /* ForecastManager.m */; };
 		F3D5838B1BA05CE200EF2334 /* AssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5838A1BA05CE200EF2334 /* AssetsManager.m */; };
-		F3D583921BA0623900EF2334 /* HourlyForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583901BA0623900EF2334 /* HourlyForecastTableViewCell.m */; };
-		F3D583931BA0623900EF2334 /* HourlyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */; };
-		F3D583961BA065C700EF2334 /* ForecastsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583951BA065C700EF2334 /* ForecastsViewController.m */; };
+		F3EB1B091C765063006231B7 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EB1B081C765063006231B7 /* ForecastViewController.m */; };
 		F3EE03F61BA4CDFF0066CF95 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,13 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F32CF9D01BA4CEE500814A61 /* SummaryForecastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryForecastTableViewCell.h; sourceTree = "<group>"; };
-		F32CF9D11BA4CEE500814A61 /* SummaryForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryForecastTableViewCell.m; sourceTree = "<group>"; };
-		F32CF9D21BA4CEE500814A61 /* SummaryForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryForecastTableViewCell.xib; sourceTree = "<group>"; };
 		F32CF9EB1BA6B87500814A61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F32CF9EE1BA6B87800814A61 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F32CF9EF1BA6B87800814A61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F32CF9F01BA6B92100814A61 /* ForecastViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastViewController.xib; sourceTree = "<group>"; };
 		F32CF9F31BA6BA5B00814A61 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		F32CF9F51BA6BA5F00814A61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		F34A73041B9DD37B00A34965 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Classes/TFHpple.h; sourceTree = "<group>"; };
@@ -92,17 +82,12 @@
 		F3D5837B1B9EEDBE00EF2334 /* SinoptikResponseParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinoptikResponseParser.m; sourceTree = "<group>"; };
 		F3D5837D1B9EEDD600EF2334 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
 		F3D5837E1B9EEDD600EF2334 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
-		F3D583801B9EEFEE00EF2334 /* ForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
-		F3D583811B9EEFEE00EF2334 /* ForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		F3D583831B9EF01E00EF2334 /* ForecastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastManager.h; sourceTree = "<group>"; };
 		F3D583841B9EF01E00EF2334 /* ForecastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastManager.m; sourceTree = "<group>"; };
 		F3D583891BA05CE200EF2334 /* AssetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsManager.h; sourceTree = "<group>"; };
 		F3D5838A1BA05CE200EF2334 /* AssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsManager.m; sourceTree = "<group>"; };
-		F3D5838F1BA0623900EF2334 /* HourlyForecastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourlyForecastTableViewCell.h; sourceTree = "<group>"; };
-		F3D583901BA0623900EF2334 /* HourlyForecastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourlyForecastTableViewCell.m; sourceTree = "<group>"; };
-		F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HourlyForecastTableViewCell.xib; sourceTree = "<group>"; };
-		F3D583941BA065C700EF2334 /* ForecastsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastsViewController.h; sourceTree = "<group>"; };
-		F3D583951BA065C700EF2334 /* ForecastsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastsViewController.m; sourceTree = "<group>"; };
+		F3EB1B071C765063006231B7 /* ForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
+		F3EB1B081C765063006231B7 /* ForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -126,19 +111,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F32CF9D51BA4D9BF00814A61 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				F32CF9D01BA4CEE500814A61 /* SummaryForecastTableViewCell.h */,
-				F32CF9D11BA4CEE500814A61 /* SummaryForecastTableViewCell.m */,
-				F32CF9D21BA4CEE500814A61 /* SummaryForecastTableViewCell.xib */,
-				F3D5838F1BA0623900EF2334 /* HourlyForecastTableViewCell.h */,
-				F3D583901BA0623900EF2334 /* HourlyForecastTableViewCell.m */,
-				F3D583911BA0623900EF2334 /* HourlyForecastTableViewCell.xib */,
-			);
-			name = Cells;
-			sourceTree = "<group>";
-		};
 		F32CF9E91BA6B83C00814A61 /* i18n */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,10 +151,8 @@
 			children = (
 				F34A73121B9DD73F00A34965 /* PlacesViewController.h */,
 				F34A73131B9DD73F00A34965 /* PlacesViewController.m */,
-				F3D583801B9EEFEE00EF2334 /* ForecastViewController.h */,
-				F3D583811B9EEFEE00EF2334 /* ForecastViewController.m */,
-				F3D583941BA065C700EF2334 /* ForecastsViewController.h */,
-				F3D583951BA065C700EF2334 /* ForecastsViewController.m */,
+				F3EB1B071C765063006231B7 /* ForecastViewController.h */,
+				F3EB1B081C765063006231B7 /* ForecastViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -190,10 +160,8 @@
 		F34A73171B9DE3B200A34965 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				F32CF9D51BA4D9BF00814A61 /* Cells */,
 				F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */,
 				F3A96FA81B9D8AF600CEDF9E /* LaunchScreen.xib */,
-				F32CF9F01BA6B92100814A61 /* ForecastViewController.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -380,11 +348,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A96FA51B9D8AF600CEDF9E /* Main.storyboard in Resources */,
-				F32CF9F11BA6B92100814A61 /* ForecastViewController.xib in Resources */,
 				F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */,
-				F3D583931BA0623900EF2334 /* HourlyForecastTableViewCell.xib in Resources */,
 				F32CF9EA1BA6B87500814A61 /* Localizable.strings in Resources */,
-				F32CF9D41BA4CEE500814A61 /* SummaryForecastTableViewCell.xib in Resources */,
 				F3A96FA71B9D8AF600CEDF9E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,23 +370,20 @@
 			files = (
 				F3D5838B1BA05CE200EF2334 /* AssetsManager.m in Sources */,
 				F3D5837C1B9EEDBE00EF2334 /* SinoptikResponseParser.m in Sources */,
-				F3D583821B9EEFEE00EF2334 /* ForecastViewController.m in Sources */,
 				F34A73141B9DD73F00A34965 /* PlacesViewController.m in Sources */,
 				F34A730B1B9DD37B00A34965 /* TFHppleElement.m in Sources */,
-				F3D583921BA0623900EF2334 /* HourlyForecastTableViewCell.m in Sources */,
 				F34A730C1B9DD37B00A34965 /* XPathQuery.m in Sources */,
 				F3D583781B9EBAC300EF2334 /* SearchManager.m in Sources */,
 				F3D5837F1B9EEDD600EF2334 /* Forecast.m in Sources */,
 				F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */,
 				F3A96F9F1B9D8AF600CEDF9E /* AppDelegate.m in Sources */,
+				F3EB1B091C765063006231B7 /* ForecastViewController.m in Sources */,
 				F3B18B0C1C0869180002B9D0 /* ILTranslucentView.m in Sources */,
 				F3D583851B9EF01E00EF2334 /* ForecastManager.m in Sources */,
 				F3A96F9C1B9D8AF600CEDF9E /* main.m in Sources */,
 				F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */,
-				F3D583961BA065C700EF2334 /* ForecastsViewController.m in Sources */,
 				F3A96FC11B9D8CB000CEDF9E /* SinoptikAPI.m in Sources */,
 				F34A731A1B9DE5BB00A34965 /* PlacesDataSource.m in Sources */,
-				F32CF9D31BA4CEE500814A61 /* SummaryForecastTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

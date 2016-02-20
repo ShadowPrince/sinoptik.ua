@@ -27,6 +27,10 @@
     [self loadImageOfSize:SinoptikImageSizeMedium for:cast callback:callback];
 }
 
+- (void) loadBigImageFor:(HourlyForecast *) cast callback:(AssetsManagerLoadImageCallback) callback {
+    [self loadImageOfSize:SinoptikImageSizeBig for:cast callback:callback];
+}
+
 - (void) loadImageOfSize:(SinoptikImageSize) size for:(HourlyForecast *) cast callback:(AssetsManagerLoadImageCallback) cb {
     [self.queue addOperationWithBlock:^{
         NSData *data = [[SinoptikAPI api] imageForForecast:cast
@@ -48,6 +52,48 @@
             cb(image);
         });
     }];
+}
+
+- (UIImage *) fancyImageFor:(HourlyForecast *) cast {
+    SinoptikTime time = [self sinoptikTimeFor:cast];
+    NSString *key;
+
+    if ([time isEqualToString:SinoptikTimeDay]) {
+        if (cast.clouds && cast.rain ) {
+            key = @"day-rain";
+        } else if (cast.clouds) {
+            switch (cast.clouds) {
+                case 4:
+                    key = @"day-clouds4";
+                    break;
+
+                case 3:
+                    key = @"day-clouds3";
+                case 2:
+                    key = @"day-clouds2";
+                case 1:
+                default:
+                    key = @"day-clouds1";
+                    break;
+            }
+        } else if (cast.rain) {
+            key = @"day-sunrain";
+        } else {
+            key = @"day-sun";
+        }
+    } else {
+        if (cast.clouds && cast.rain) {
+            key = @"night-rain";
+        } else if (cast.clouds) {
+            key = @"night-clouds";
+        } else if (cast.rain) {
+            key = @"night-rain";
+        } else {
+            key = @"night-clear";
+        }
+    }
+
+    return [UIImage imageNamed:key];
 }
 
 + (NSArray *) windDirectionalImages {

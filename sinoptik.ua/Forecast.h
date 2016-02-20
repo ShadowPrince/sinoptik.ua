@@ -34,12 +34,16 @@
 
 - (NSArray *) hours;
 - (HourlyForecast *) middayForecast;
+- (HourlyForecast *) morningForecast;
+- (HourlyForecast *) dayForecast;
+- (HourlyForecast *) nightForecast;
 
 @end
 
 @interface Forecast : NSObject <NSCoding>
 @property NSMutableDictionary *dailyForecasts;
 
+- (NSArray<NSDate *> *) dates;
 - (DailyForecast *) dailyForecastFor:(NSDate *) date;
 
 @end

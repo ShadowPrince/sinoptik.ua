@@ -1,179 +1,111 @@
 //
 //  ForecastViewController.m
-//  
+//  sinoptik.ua
 //
-//  Created by shdwprince on 9/8/15.
-//
+//  Created by shdwprince on 2/18/16.
+//  Copyright © 2016 shdwprince. All rights reserved.
 //
 
 #import "ForecastViewController.h"
 
 @interface ForecastViewController ()
-@property AssetsManager *assets;
-@property DailyForecast *forecast;
-@property NSDateFormatter *formatter;
-@property NSNumber *current_hour;
-@property NSDate *date;
-@property NSArray *place;
-//---
-@property (weak, nonatomic) IBOutlet ILTranslucentView *headerAnchorView;
-@property (weak, nonatomic) IBOutlet UILabel *placeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *daylightLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *nowImageView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *windLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *windDirectionImageView;
-@property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
-@end@implementation ForecastViewController
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-- (void) setPlace:(NSArray *) p date:(NSDate *) d {
-    self.date = d;
-    self.place = p;
-}
+@property ForecastManager *man;
+@property AssetsManager *assets;
+@property NSDateFormatter *formatter;
+
+@property Forecast *cast;
+@end @implementation ForecastViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.formatter = [NSDateFormatter new];
-    self.formatter.dateFormat = @"EEEE dd.MM.yy";
+    self.formatter.dateFormat = @"dd-MM-yyyy";
+    self.man = [[ForecastManager alloc] initWithDelegate:self];
+    [self.man requestForecastFor:@[@0, @0, @"погода-чернигов"]];
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"HourlyForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"SummaryForecastTableViewCell" bundle:nil] forCellReuseIdentifier:@"Footer"];
+    self.assets = [[AssetsManager alloc] init];
+}
 
-    self.nowImageView.layer.cornerRadius = self.nowImageView.frame.size.width / 2;
-    self.nowImageView.layer.masksToBounds = YES;
-    self.nowImageView.layer.borderWidth = 3.0f;
-    self.nowImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
-    // remove text padding
-    if ([UIDevice currentDevice].systemVersion.integerValue >= 8) {
-        self.summaryTextView.textContainerInset = UIEdgeInsetsZero;
-        self.summaryTextView.textContainer.lineFragmentPadding = 0.f;
-    }
-
-    self.assets = [AssetsManager new];
+- (void) forecastManager:(ForecastManager *)manager didReceivedForecast:(Forecast *)cast for:(NSArray *)place {
+    self.cast = cast;
+    [self.collectionView reloadData];
 }
 
 - (void) viewDidLayoutSubviews {
+    [self.collectionView reloadData];
     [super viewDidLayoutSubviews];
-
-    CGFloat top = self.headerAnchorView.frame.origin.y + self.headerAnchorView.frame.size.height;
-    self.tableView.contentInset = UIEdgeInsetsMake(top, 0, 0, 0);
 }
 
-- (void) populate:(DailyForecast *) cast {
-    self.forecast = cast;
-    self.summaryTextView.text = cast.summary;
-    self.placeLabel.text = [self.place firstObject];
+- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.cast.dailyForecasts.count;
+}
 
-    NSDateFormatter *f = [NSDateFormatter new];
-    f.dateFormat = @"yyyy-MM-dd";
-    int row_index = 0;
+- (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
 
-    if ([[f stringFromDate:self.date] isEqualToString:[f stringFromDate:[NSDate date]]]) {
-        NSDate *date = [NSDate date];
-        f.dateFormat = @"H";
-        NSInteger current_hour = [f stringFromDate:date].integerValue;
+- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    UIImageView *currentImageView = [cell viewWithTag:100];
+    UILabel *currentDate = [cell viewWithTag:101];
+    UILabel *currentTemp = [cell viewWithTag:102];
+    UILabel *currentCity = [cell viewWithTag:103];
 
-        for (NSNumber *hour in [self.forecast hours]) {
-            if (hour.integerValue > current_hour) {
-                if (self.current_hour == nil)
-                    self.current_hour = hour;
-                break;
-            } else {
-                self.current_hour = hour;
-                row_index ++;
-            }
-        }
+    NSDate *date = [self.cast.dates objectAtIndex:indexPath.row];
+    DailyForecast *forecast = [self.cast dailyForecastFor:date];
+    HourlyForecast *middayForecast = [forecast middayForecast];
 
-        self.currentCast = self.forecast.hourlyForecast[self.current_hour];
-    } else {
-        self.currentCast = [self.forecast middayForecast];
-    }
-
-    [self.tableView reloadData];
-
-    // header
-    SinoptikTime currentTime = [self.assets sinoptikTimeFor:self.currentCast];
-    [self changeHeaderColorsFor:currentTime];
-
-    if ([UIDevice currentDevice].systemVersion.integerValue < 7) {
-        CGFloat color = [currentTime isEqualToString:SinoptikTimeDay] ? 1.f : 0.f;
-        self.headerAnchorView.backgroundColor = [UIColor colorWithRed:color green:color blue:color alpha:0.9f];
-    } else {
-        self.headerAnchorView.translucentStyle = [currentTime isEqualToString:SinoptikTimeDay] ? UIBarStyleDefault : UIBarStyleBlackTranslucent;
-    }
-
-    self.title = [self.formatter stringFromDate:self.date];
-    self.dateLabel.text = [NSString stringWithFormat:@"%d℃", self.currentCast.temperature];
-    self.windLabel.text = [NSString stringWithFormat:@"%.1fm/s", self.currentCast.wind_speed];
-    self.daylightLabel.text = [NSString stringWithFormat:@"⇡%@ ⇣%@", cast.daylight[0], cast.daylight[1]];
-    if (self.currentCast.wind_direction <= 7)
-        self.windDirectionImageView.image = [AssetsManager windDirectionalImages][self.currentCast.wind_direction];
-    else
-        self.windDirectionImageView.image = nil;
-
-    [self.assets loadImageFor:self.currentCast callback:^(UIImage *image) {
-        self.nowImageView.image = image;
+    currentDate.text = [self.formatter stringFromDate:date];
+    currentCity.text = @"Чернигов";
+    currentTemp.text = [self tempTextFor:middayForecast.temperature];
+    currentImageView.image = nil;
+    [self.assets loadBigImageFor:middayForecast callback:^(UIImage *i) {
+        currentImageView.image = i;
+        currentImageView.contentMode = UIViewContentModeScaleToFill;
     }];
-}
 
-#pragma mark - day/night colors
+    NSArray *hours = @[@8, @14, @2];
+    for (int i = 0; i < hours.count; i++) {
+        NSNumber *hour = hours[i];
+        NSUInteger tag_prefix = i * 100 + 200;
 
-- (void) changeHeaderColorsFor:(SinoptikTime) time {
-    UIColor *textColor = [time isEqualToString:SinoptikTimeNight] ? [UIColor whiteColor] : [UIColor darkTextColor];
-    for (UIView *v in self.headerAnchorView.subviews) {
-        if ([v respondsToSelector:@selector(setColor:)]) {
-            [v performSelector:@selector(setColor:)
-                    withObject:textColor];
-        } else if ([v respondsToSelector:@selector(setTextColor:)]) {
-            [v performSelector:@selector(setTextColor:)
-                    withObject:textColor];
-        }
+        UIImageView *image = [cell viewWithTag:tag_prefix + 0];
+        UILabel *temp = [cell viewWithTag:tag_prefix + 1];
+        UILabel *hum = [cell viewWithTag:tag_prefix + 2];
+        UILabel *wind = [cell viewWithTag:tag_prefix + 3];
+
+        HourlyForecast *cast = [forecast hourlyForecast][hour];
+        temp.text = [self tempTextFor:cast.temperature];
+        hum.text = [self humTextFor:cast.humidity];
+        wind.text = [self windTextFor:cast.wind_speed];
+        image.image = [self.assets fancyImageFor:cast];
     }
+
+    return cell;
 }
 
-#pragma mark - table
-
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // header + footer
-    return 1 + [self.forecast hours].count + 1;
+- (NSString *) tempTextFor:(char) temp {
+    return [NSString stringWithFormat:@"%d℃", temp];
 }
 
-- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == self.forecast.hours.count + 1) { // footer
-        SummaryForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Footer"];
-        [cell populate:self.forecast];
-        return cell;
-    } else {
-        HourlyForecastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-        [cell layoutIfNeeded];
-
-        if (indexPath.row == 0) { // header
-            [cell setHeader];
-        } else {
-            NSNumber *key = [self.forecast hours][indexPath.row-1];
-            HourlyForecast *cast = self.forecast.hourlyForecast[key];
-            [cell populate:cast];
-            [cell setupSeparator];
-
-            cell.backgroundColor = [UIColor whiteColor];
-
-            if (self.current_hour && [key isEqualToNumber:self.current_hour])
-                [cell setCurrent];
-        }
-
-        return cell;
-    }
+- (NSString *) humTextFor:(int) val {
+    return [NSString stringWithFormat:@"%d%%", val];
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0 || indexPath.row == self.forecast.hours.count + 1) {
-        return 30.f;
-    } else {
-        return 45.f;
-    }
+- (NSString *) windTextFor:(float) val {
+    return [NSString stringWithFormat:@"%1.fms", val];
+}
+
+- (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(collectionView.frame.size.width, collectionView.frame.size.height);
 }
 
 @end

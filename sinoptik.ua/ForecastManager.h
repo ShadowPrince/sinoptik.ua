@@ -18,6 +18,6 @@
 @interface ForecastManager : NSObject
 
 - (instancetype) initWithDelegate:(id<ForecastManagerDelegate>) delegate;
-- (void) requestForecastFor:(NSString *) key;
+- (void) requestForecastFor:(NSArray *) key;
 
 @end

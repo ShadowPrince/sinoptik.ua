@@ -94,6 +94,18 @@
     return self.hourlyForecast[key];
 }
 
+- (HourlyForecast *) morningForecast {
+    return self.hourlyForecast[@8];
+}
+
+- (HourlyForecast *) dayForecast {
+    return self.hourlyForecast[@14];
+}
+
+- (HourlyForecast *) nightForecast {
+    return self.hourlyForecast[@2];
+}
+
 - (instancetype) init {
     self = [super init];
     self.hourlyForecast = [NSMutableDictionary new];
@@ -148,6 +160,14 @@
     }
 
     return [buff stringByAppendingString:@"}"];
+}
+
+- (NSArray<NSDate *> *) dates {
+    NSArray *keys = [self.dailyForecasts.allKeys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [obj1 compare:obj2];
+    }];
+
+    return keys;
 }
 
 - (DailyForecast *) dailyForecastFor:(NSDate *)date {

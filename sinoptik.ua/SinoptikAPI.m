@@ -117,7 +117,9 @@
     va_start(args, _args);
     NSString *suffix = [[NSString alloc] initWithFormat:_args arguments:args];
     va_end(args);
-    return [NSURL URLWithString:[NSString stringWithFormat:@"http://sinoptik.ua%@", [suffix stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://sinoptik.ua%@", [suffix stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    NSLog(@"%@", url.absoluteString);
+    return url;
 }
 
 @end
