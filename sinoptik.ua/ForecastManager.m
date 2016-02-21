@@ -19,6 +19,8 @@
     self = [super init];
     self.forecastCache = [NSMutableDictionary new];
     self.queue = [NSOperationQueue new];
+    self.behindDays = 2;
+    self.forwardDays = 10;
     self.formatter = [NSDateFormatter new];
     self.formatter.dateFormat = @"yyyy-MM-dd";
     [self restore];
@@ -41,11 +43,14 @@
     }
 
     [self.queue addOperationWithBlock:^{
-        Forecast *forecats = [[SinoptikAPI api] forecastFor:key progressCallback:^(NSUInteger from, NSUInteger to) {
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                [self.delegate forecastManager:self didMadeProgress:from to:to for:place];
-            });
-        }];
+        Forecast *forecats = [[SinoptikAPI api] forecastFor:key
+                                                 behindDays:self.behindDays
+                                                forwardDays:self.forwardDays
+                                           progressCallback:^(NSUInteger from, NSUInteger to) {
+                                               dispatch_sync(dispatch_get_main_queue(), ^{
+                                                   [self.delegate forecastManager:self didMadeProgress:from to:to for:place];
+                                               });
+                                           }];
 
         if (!forecats) {
             return;
@@ -77,14 +82,13 @@
 
 - (void) store {
     //@TODO: check it
-    NSDate *yestarday = [[NSDate date] dateByAddingTimeInterval:-60*60*24];
+    NSDate *yestarday = [[NSDate date] dateByAddingTimeInterval:(-60*60*24)*((int) self.behindDays + 1)];// * (self.behindDays+1)];
     NSDate *normalized_yestarday = [self.formatter dateFromString:[self.formatter stringFromDate:yestarday]];
 
     for (NSString *cache_key in self.forecastCache) {
         Forecast *cast = self.forecastCache[cache_key];
         for (int i = 0; i < cast.dailyForecasts.count; i++) {
             NSDate *key = cast.dailyForecasts.allKeys[i];
-
 
             if ([normalized_yestarday compare:key] != NSOrderedAscending) {
                 [cast.dailyForecasts removeObjectForKey:key];

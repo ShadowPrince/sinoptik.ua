@@ -13,15 +13,20 @@
 @property (weak, nonatomic) IBOutlet UITableView *popupTableView;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UIProgressView *loadingProgress;
+@property (weak, nonatomic) IBOutlet UIView *temperatureGraphContainer;
 
+@property GraphController *graphController;
 @property PlacesDataSource *places;
 @property ForecastManager *man;
 @property AssetsManager *assets;
 @property NSDateFormatter *formatter;
 
+@property NSArray *temperatureGraphData;
 @property NSArray *place;
 @property Forecast *cast;
+@property NSUInteger castOffset;
 @property BOOL initialLoading;
+
 @end @implementation ForecastViewController
 
 - (void)viewDidLoad {
@@ -29,10 +34,12 @@
 
     self.formatter = [NSDateFormatter new];
     self.formatter.dateFormat = @"dd-MM-y";
-    self.man = [[ForecastManager alloc] initWithDelegate:self];
 
+    self.man = [[ForecastManager alloc] initWithDelegate:self];
     self.assets = [[AssetsManager alloc] init];
     self.places = [[PlacesDataSource alloc] init];
+    self.graphController = [GraphController new];
+
     self.places.places = [NSMutableArray new];
     if (self.places.places.count == 0) {
         [self.places addEntry:@[@"Чернигов", @"0", @"погода-чернигов"]];
@@ -40,9 +47,9 @@
         [self.places addEntry:@[@"Киев", @"0", @"погода-киев"]];
     }
 
-    self.initialLoading = YES;
     self.place = self.places.places.firstObject;
 
+    self.initialLoading = YES;
     self.popupTableView.translatesAutoresizingMaskIntoConstraints = YES;
 }
 
@@ -60,6 +67,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewDidLayoutSubviews {
+    [self.collectionView reloadData];
+    [self renderGraph:self.temperatureGraphData];
+
+    float width = 150.f;
+    self.popupTableView.frame = CGRectMake(self.view.frame.size.width - width - 5.f, self.popupTableView.frame.origin.y, width, 300.f);
+
+    [super viewDidLayoutSubviews];
 }
 
 - (void) reload {
@@ -80,6 +97,61 @@
 
 - (void) removeLoadingView {
     self.loadingView.hidden = YES;
+}
+
+- (void) renderGraph:(NSArray *) data {
+    [[self.temperatureGraphContainer subviews].firstObject removeFromSuperview];
+
+    SHPlot *plot = [[SHPlot alloc] init];
+
+    CGSize size = self.temperatureGraphContainer.frame.size;
+    SHLineGraphView *graph = [[SHLineGraphView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    graph.yAxisRange = data.firstObject;
+    graph.yAxisSuffix = data[1];
+    graph.xAxisValues = data[2];
+    plot.plottingValues = data[3];
+    graph.highlightColor = [UIColor blueColor];
+    graph.highlightedXLabel = [(NSNumber *) data[4] integerValue];
+    graph.zeroMode = [(NSNumber *) data[5] integerValue];
+
+    NSDictionary *_plotThemeAttributes = @{kPlotStrokeWidthKey : @1,
+                                           kWarmLineColor: [UIColor redColor],
+                                           kColdLineColor: [UIColor blueColor], };
+
+    plot.plotThemeAttributes = _plotThemeAttributes;
+
+    UIColor *labelColor = [UIColor colorWithRed:.5f green:.5f blue:.5f alpha:1.f];
+    NSDictionary *_themeAttributes = @{kXAxisLabelColorKey : labelColor,
+                                       kXAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                                       kYAxisLabelColorKey : labelColor,
+                                       kYAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                                       kZeroLineColor: [UIColor grayColor],
+                                       kHighlightLineColor: [UIColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1.0],
+                                       kXAxisLabelHighlightColorKey: [UIColor blackColor],
+                                       kDotSizeKey: @3,
+                                       kPlotBackgroundLineColorKey : [UIColor colorWithRed:.9f green:.9f blue:.9f alpha:1.f], };
+    graph.themeAttributes = _themeAttributes;
+
+    [graph addPlot:plot];
+    [graph setupTheView];
+    [self.temperatureGraphContainer addSubview:graph];
+}
+
+- (void) forecastManager:(ForecastManager *)manager didReceivedForecast:(Forecast *)cast for:(NSArray *)place {
+    if (place == self.place) {
+        self.temperatureGraphData = [self.graphController graphDataFor:cast];
+        self.cast = cast;
+        self.castOffset = manager.behindDays;
+
+        [self viewDidLayoutSubviews];
+        [self removeLoadingView];
+    }
+}
+
+- (void) forecastManager:(ForecastManager *)manager didMadeProgress:(NSUInteger)from to:(NSUInteger)to for:(NSArray *)place {
+    if (place == self.place) {
+        [self.loadingProgress setProgress:(float) from/to animated:YES];
+    }
 }
 
 #pragma mark - change city
@@ -138,31 +210,9 @@
 }
 
 #pragma mark - daily forecast
-- (void) forecastManager:(ForecastManager *)manager didReceivedForecast:(Forecast *)cast for:(NSArray *)place {
-    if (place == self.place) {
-        self.cast = cast;
-        [self.collectionView reloadData];
-        [self removeLoadingView];
-    }
-}
-
-- (void) forecastManager:(ForecastManager *)manager didMadeProgress:(NSUInteger)from to:(NSUInteger)to for:(NSArray *)place {
-    if (place == self.place) {
-        [self.loadingProgress setProgress:(float) from/to animated:YES];
-    }
-}
-
-- (void) viewDidLayoutSubviews {
-    [self.collectionView reloadData];
-
-    float width = 150.f;
-    self.popupTableView.frame = CGRectMake(self.view.frame.size.width - width - 5.f, self.popupTableView.frame.origin.y, width, 300.f);
-
-    [super viewDidLayoutSubviews];
-}
 
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.cast.dailyForecasts.count;
+    return self.cast.dailyForecasts.count - self.castOffset;
 }
 
 - (NSInteger) numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -179,7 +229,7 @@
     UILabel *currentFeelslike = [cell viewWithTag:105];
     UILabel *currentWind = [cell viewWithTag:106];
 
-    NSDate *date = [self.cast.dates objectAtIndex:indexPath.row];
+    NSDate *date = [self.cast.dates objectAtIndex:indexPath.row + self.castOffset];
     DailyForecast *forecast = [self.cast dailyForecastFor:date];
     HourlyForecast *middayForecast;
     if ([[self.formatter stringFromDate:[NSDate new]] isEqualToString:[self.formatter stringFromDate:date]]) {

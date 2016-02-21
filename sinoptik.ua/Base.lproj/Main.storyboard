@@ -86,15 +86,15 @@
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" horizontalCompressionResistancePriority="1000" text="20℃" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnO-hC-Xgj">
-                                                            <rect key="frame" x="242" y="29" width="70" height="36"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" horizontalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" text="20℃" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnO-hC-Xgj">
+                                                            <rect key="frame" x="242" y="33" width="70" height="36"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="751" text="18.02.2016" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-4w-NDL">
-                                                            <rect key="frame" x="228" y="8" width="84" height="21"/>
+                                                            <rect key="frame" x="228" y="12" width="84" height="21"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -348,8 +348,8 @@
                                                                 </mask>
                                                             </variation>
                                                         </view>
-                                                        <button opaque="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="500" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="532-5S-9ex">
-                                                            <rect key="frame" x="214" y="65" width="98" height="33"/>
+                                                        <button opaque="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="500" horizontalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="532-5S-9ex">
+                                                            <rect key="frame" x="214" y="69" width="98" height="29"/>
                                                             <animations/>
                                                             <state key="normal" title="Шаповаловка"/>
                                                             <connections>
@@ -408,6 +408,7 @@
                                                     <constraint firstItem="Dzs-j3-eoI" firstAttribute="leading" secondItem="H3z-ci-cJK" secondAttribute="leadingMargin" id="j2V-hR-2Ah"/>
                                                     <constraint firstItem="m4i-4w-NDL" firstAttribute="leading" secondItem="4ed-kH-ZnS" secondAttribute="trailing" constant="8" symbolic="YES" id="kUn-hn-MfL"/>
                                                     <constraint firstAttribute="trailingMargin" secondItem="vJa-y6-TNZ" secondAttribute="trailing" id="lmv-NU-93O"/>
+                                                    <constraint firstItem="m4i-4w-NDL" firstAttribute="top" secondItem="4ed-kH-ZnS" secondAttribute="top" id="nsb-RF-NuA"/>
                                                     <constraint firstItem="4ed-kH-ZnS" firstAttribute="bottom" secondItem="bGt-TH-32e" secondAttribute="bottom" id="olJ-O9-hF6"/>
                                                     <constraint firstItem="4ed-kH-ZnS" firstAttribute="leading" secondItem="u9J-vA-yzl" secondAttribute="trailing" constant="8" id="rrK-hX-pN1"/>
                                                     <constraint firstItem="zYo-Na-jKt" firstAttribute="bottom" secondItem="Dzs-j3-eoI" secondAttribute="bottom" id="vhk-S1-4FP"/>
@@ -421,6 +422,7 @@
                                                         <exclude reference="w9N-8Z-Spn"/>
                                                         <exclude reference="QLn-8j-n3t"/>
                                                         <exclude reference="kUn-hn-MfL"/>
+                                                        <exclude reference="vzr-p3-LDR"/>
                                                         <exclude reference="fkh-J4-M62"/>
                                                         <exclude reference="d4Q-Py-Gps"/>
                                                     </mask>
@@ -475,16 +477,8 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screen Shot 2016-02-18 at 22.23.25" translatesAutoresizingMaskIntoConstraints="NO" id="98o-O3-Cd0">
-                                        <rect key="frame" x="0.0" y="262" width="320" height="195"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="039-ta-QpH"/>
-                                            <constraint firstAttribute="height" constant="195" id="gma-bA-je8"/>
-                                        </constraints>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuQ-No-ktz">
-                                        <rect key="frame" x="255" y="465" width="57" height="30"/>
+                                        <rect key="frame" x="255" y="463" width="57" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Settings"/>
                                         <connections>
@@ -492,28 +486,36 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last update: 18.02.16 22:40" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU9-hG-fd4">
-                                        <rect key="frame" x="8" y="471" width="239" height="18"/>
+                                        <rect key="frame" x="8" y="469" width="239" height="18"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.31854635240000001" green="0.3397187941" blue="0.3734681373" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGK-jZ-N6n">
+                                        <rect key="frame" x="0.0" y="262" width="320" height="193"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="193" id="NVw-lo-9qF"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <animations/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sGK-jZ-N6n" secondAttribute="trailing" id="1Bd-VM-9JX"/>
                                     <constraint firstItem="OuQ-No-ktz" firstAttribute="baseline" secondItem="OU9-hG-fd4" secondAttribute="baseline" id="5Un-nU-tK2"/>
                                     <constraint firstAttribute="trailing" secondItem="sLO-Wk-tMF" secondAttribute="trailing" id="5fI-Ym-xsM"/>
+                                    <constraint firstItem="sGK-jZ-N6n" firstAttribute="top" secondItem="sLO-Wk-tMF" secondAttribute="bottom" id="6hQ-28-CFX"/>
                                     <constraint firstItem="hQl-gi-iZt" firstAttribute="leading" secondItem="FX3-7V-Dd0" secondAttribute="leading" id="DPo-jB-PPG"/>
-                                    <constraint firstItem="98o-O3-Cd0" firstAttribute="top" secondItem="sLO-Wk-tMF" secondAttribute="bottom" id="Djp-fu-ARH"/>
                                     <constraint firstItem="OU9-hG-fd4" firstAttribute="leading" secondItem="FX3-7V-Dd0" secondAttribute="leading" constant="8" id="F31-Yv-x02"/>
                                     <constraint firstItem="hQl-gi-iZt" firstAttribute="top" secondItem="FX3-7V-Dd0" secondAttribute="top" id="Fmt-NE-NhF"/>
                                     <constraint firstAttribute="bottom" secondItem="OuQ-No-ktz" secondAttribute="bottom" constant="8" id="GxV-Vw-EjL"/>
                                     <constraint firstItem="sLO-Wk-tMF" firstAttribute="leading" secondItem="FX3-7V-Dd0" secondAttribute="leading" id="cEA-2j-QCI"/>
                                     <constraint firstItem="sLO-Wk-tMF" firstAttribute="top" secondItem="hQl-gi-iZt" secondAttribute="bottom" id="cYo-Qb-dNL"/>
-                                    <constraint firstItem="OuQ-No-ktz" firstAttribute="top" secondItem="98o-O3-Cd0" secondAttribute="bottom" constant="8" id="dIy-LV-UIT"/>
+                                    <constraint firstItem="sGK-jZ-N6n" firstAttribute="leading" secondItem="FX3-7V-Dd0" secondAttribute="leading" id="l0q-pT-NCK"/>
                                     <constraint firstItem="OuQ-No-ktz" firstAttribute="leading" secondItem="OU9-hG-fd4" secondAttribute="trailing" constant="8" id="oC2-p0-mtm"/>
-                                    <constraint firstItem="98o-O3-Cd0" firstAttribute="leading" secondItem="FX3-7V-Dd0" secondAttribute="leading" id="tY2-29-L9P"/>
-                                    <constraint firstAttribute="trailing" secondItem="98o-O3-Cd0" secondAttribute="trailing" id="xO5-02-VGG"/>
+                                    <constraint firstItem="OuQ-No-ktz" firstAttribute="top" secondItem="sGK-jZ-N6n" secondAttribute="bottom" constant="8" id="tSZ-IC-Fnh"/>
                                     <constraint firstAttribute="trailing" secondItem="OuQ-No-ktz" secondAttribute="trailing" constant="8" id="y89-k8-OOS"/>
                                     <constraint firstAttribute="trailing" secondItem="hQl-gi-iZt" secondAttribute="trailing" id="yeu-CV-Gk8"/>
                                 </constraints>
@@ -617,6 +619,7 @@
                         <outlet property="loadingProgress" destination="uJ9-3O-d2d" id="wdB-5m-zls"/>
                         <outlet property="loadingView" destination="E3F-4G-leJ" id="ghq-3u-raY"/>
                         <outlet property="popupTableView" destination="bXN-2V-Twx" id="4in-jm-zQr"/>
+                        <outlet property="temperatureGraphContainer" destination="sGK-jZ-N6n" id="z4h-dB-YzS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fM0-6x-BCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -758,7 +761,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2016-02-18 at 22.23.25" width="603" height="314"/>
         <image name="day-fog" width="800" height="538"/>
         <image name="day-rain" width="572" height="540"/>
         <image name="foobar" width="188" height="150"/>

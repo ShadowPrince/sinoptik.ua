@@ -18,6 +18,7 @@
 @end
 
 @interface ForecastManager : NSObject
+@property NSUInteger behindDays, forwardDays;
 
 - (instancetype) initWithDelegate:(id<ForecastManagerDelegate>) delegate;
 - (void) requestForecastFor:(NSArray *) key;

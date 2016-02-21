@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F31AC3B81C7A36D80075C7A9 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F31AC3B21C7A36D80075C7A9 /* PopoverView.m */; };
+		F31AC3B91C7A36D80075C7A9 /* SHLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F31AC3B51C7A36D80075C7A9 /* SHLineGraphView.m */; };
+		F31AC3BA1C7A36D80075C7A9 /* SHPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = F31AC3B71C7A36D80075C7A9 /* SHPlot.m */; };
 		F32CF9EA1BA6B87500814A61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F32CF9EC1BA6B87500814A61 /* Localizable.strings */; };
 		F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73051B9DD37B00A34965 /* TFHpple.m */; };
 		F34A730B1B9DD37B00A34965 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73071B9DD37B00A34965 /* TFHppleElement.m */; };
@@ -30,6 +33,7 @@
 		F3D5838B1BA05CE200EF2334 /* AssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5838A1BA05CE200EF2334 /* AssetsManager.m */; };
 		F3EB1B091C765063006231B7 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EB1B081C765063006231B7 /* ForecastViewController.m */; };
 		F3EE03F61BA4CDFF0066CF95 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */; };
+		F3FD08711C7A7425001F35FE /* GraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD08701C7A7425001F35FE /* GraphController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F31AC3B01C7A36D80075C7A9 /* PopoverView_Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopoverView_Configuration.h; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/PopoverView_Configuration.h"; sourceTree = "<group>"; };
+		F31AC3B11C7A36D80075C7A9 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopoverView.h; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/PopoverView.h"; sourceTree = "<group>"; };
+		F31AC3B21C7A36D80075C7A9 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopoverView.m; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/PopoverView.m"; sourceTree = "<group>"; };
+		F31AC3B31C7A36D80075C7A9 /* PopoverViewCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopoverViewCompatibility.h; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/PopoverViewCompatibility.h"; sourceTree = "<group>"; };
+		F31AC3B41C7A36D80075C7A9 /* SHLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHLineGraphView.h; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/SHLineGraphView.h"; sourceTree = "<group>"; };
+		F31AC3B51C7A36D80075C7A9 /* SHLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHLineGraphView.m; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/SHLineGraphView.m"; sourceTree = "<group>"; };
+		F31AC3B61C7A36D80075C7A9 /* SHPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHPlot.h; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/SHPlot.h"; sourceTree = "<group>"; };
+		F31AC3B71C7A36D80075C7A9 /* SHPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHPlot.m; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/SHPlot.m"; sourceTree = "<group>"; };
 		F32CF9EB1BA6B87500814A61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F32CF9EE1BA6B87800814A61 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F32CF9EF1BA6B87800814A61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -89,6 +101,8 @@
 		F3EB1B071C765063006231B7 /* ForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
 		F3EB1B081C765063006231B7 /* ForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F3FD086F1C7A7425001F35FE /* GraphController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphController.h; sourceTree = "<group>"; };
+		F3FD08701C7A7425001F35FE /* GraphController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +125,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F31AC3AF1C7A36BD0075C7A9 /* SHLineGraphView */ = {
+			isa = PBXGroup;
+			children = (
+				F31AC3B01C7A36D80075C7A9 /* PopoverView_Configuration.h */,
+				F31AC3B11C7A36D80075C7A9 /* PopoverView.h */,
+				F31AC3B21C7A36D80075C7A9 /* PopoverView.m */,
+				F31AC3B31C7A36D80075C7A9 /* PopoverViewCompatibility.h */,
+				F31AC3B41C7A36D80075C7A9 /* SHLineGraphView.h */,
+				F31AC3B51C7A36D80075C7A9 /* SHLineGraphView.m */,
+				F31AC3B61C7A36D80075C7A9 /* SHPlot.h */,
+				F31AC3B71C7A36D80075C7A9 /* SHPlot.m */,
+			);
+			name = SHLineGraphView;
+			sourceTree = "<group>";
+		};
 		F32CF9E91BA6B83C00814A61 /* i18n */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +182,8 @@
 				F34A73131B9DD73F00A34965 /* PlacesViewController.m */,
 				F3EB1B071C765063006231B7 /* ForecastViewController.h */,
 				F3EB1B081C765063006231B7 /* ForecastViewController.m */,
+				F3FD086F1C7A7425001F35FE /* GraphController.h */,
+				F3FD08701C7A7425001F35FE /* GraphController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -169,6 +200,7 @@
 		F35A8BBF1BA454F9001AAA34 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				F31AC3AF1C7A36BD0075C7A9 /* SHLineGraphView */,
 				F34A730F1B9DD47400A34965 /* Hpple */,
 				F3B18B0D1C08691C0002B9D0 /* TranslucentView */,
 				F35A8BBC1BA454F3001AAA34 /* UIImage-Extensions.h */,
@@ -374,6 +406,9 @@
 				F34A730B1B9DD37B00A34965 /* TFHppleElement.m in Sources */,
 				F34A730C1B9DD37B00A34965 /* XPathQuery.m in Sources */,
 				F3D583781B9EBAC300EF2334 /* SearchManager.m in Sources */,
+				F31AC3B91C7A36D80075C7A9 /* SHLineGraphView.m in Sources */,
+				F3FD08711C7A7425001F35FE /* GraphController.m in Sources */,
+				F31AC3BA1C7A36D80075C7A9 /* SHPlot.m in Sources */,
 				F3D5837F1B9EEDD600EF2334 /* Forecast.m in Sources */,
 				F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */,
 				F3A96F9F1B9D8AF600CEDF9E /* AppDelegate.m in Sources */,
@@ -384,6 +419,7 @@
 				F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */,
 				F3A96FC11B9D8CB000CEDF9E /* SinoptikAPI.m in Sources */,
 				F34A731A1B9DE5BB00A34965 /* PlacesDataSource.m in Sources */,
+				F31AC3B81C7A36D80075C7A9 /* PopoverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

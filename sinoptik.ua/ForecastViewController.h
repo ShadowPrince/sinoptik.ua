@@ -10,6 +10,10 @@
 #import "ForecastManager.h"
 #import "PlacesDataSource.h"
 #import "AssetsManager.h"
+#import "GraphController.h"
+
+#import "SHLineGraphView.h"
+#import "SHPlot.h"
 
 @interface ForecastViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ForecastManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 

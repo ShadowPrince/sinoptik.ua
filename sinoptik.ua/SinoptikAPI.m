@@ -51,7 +51,10 @@
 }
 
 // synchronous loading in NSOperation
-- (Forecast *) forecastFor:(NSString *) key progressCallback:(SinoptikAPIProgressCallback)cb {
+- (Forecast *) forecastFor:(NSString *) key
+                behindDays:(NSUInteger) offset
+               forwardDays:(NSUInteger) size
+          progressCallback:(SinoptikAPIProgressCallback)cb {
     Forecast *forecast = [[Forecast alloc] init];
 
     NSDateFormatter *formatter = [NSDateFormatter new];
@@ -59,10 +62,12 @@
 
     NSTimeInterval day = 60 * 60 * 24;
     NSDate *date = [formatter dateFromString:[formatter stringFromDate:[NSDate date]]];
+    date = [date dateByAddingTimeInterval:-day*offset];
     date = [date dateByAddingTimeInterval:-day];
+    int count = size+offset;
 
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < count; i++) {
         date = [date dateByAddingTimeInterval:day];
         NSData *forecastData = [self apiForecastFor:[NSString stringWithFormat:@"%@/%@", key, [formatter stringFromDate:date]]];
         if (forecastData.length) {
@@ -71,7 +76,7 @@
             forecast.dailyForecasts[date] = cast;
         }
 
-        cb(i, 10);
+        cb(i, count);
 
         if ([[NSOperationQueue currentQueue] isSuspended]) {
             forecast.dailyForecasts = [NSMutableDictionary new];
