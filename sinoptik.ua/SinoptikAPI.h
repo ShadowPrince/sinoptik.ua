@@ -31,5 +31,6 @@ typedef void (^SinoptikAPIProgressCallback)(NSUInteger, NSUInteger);
 - (NSArray *) searchPlaces:(NSString *) query;
 - (Forecast *) forecastFor:(NSString *) key progressCallback:(SinoptikAPIProgressCallback) cb;
 - (NSData *) imageForForecast:(HourlyForecast *) cast ofSize:(SinoptikImageSize) size time:(SinoptikTime) time;
+- (NSString *) imageNameFor:(HourlyForecast *) cast ofSize:(SinoptikImageSize) size time:(SinoptikTime) time;
 
 @end

@@ -38,6 +38,7 @@
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [self init];
     self.temperature = [aDecoder decodeIntForKey:@"temperature"];
+    self.feelslikeTemperature = [aDecoder decodeIntForKey:@"feelslikeTemperature"];
     self.rain = [aDecoder decodeIntForKey:@"rain"];
     self.clouds = [aDecoder decodeIntForKey:@"clouds"];
     self.pressure = [aDecoder decodeIntForKey:@"pressure"];
@@ -60,6 +61,7 @@
     [aCoder encodeInt:self.wind_direction forKey:@"wind_direction"];
     [aCoder encodeInt:self.rain_probability forKey:@"rain_probability"];
     [aCoder encodeInt:self.hour forKey:@"hour"];
+    [aCoder encodeInt:self.feelslikeTemperature forKey:@"feelslikeTemperature"];
 }
 
 @end
@@ -104,6 +106,20 @@
 
 - (HourlyForecast *) nightForecast {
     return self.hourlyForecast[@2];
+}
+
+- (HourlyForecast *) forecastFor:(int)hour {
+    NSNumber *minHour;
+    int minDif = 24;
+    for (NSNumber *hour in self.hours) {
+        int dif;
+        if ((dif = abs(hour.integerValue - hour.integerValue)) < minDif) {
+            minHour = hour;
+            minDif = dif;
+        }
+    }
+
+    return self.hourlyForecast[minHour];
 }
 
 - (instancetype) init {

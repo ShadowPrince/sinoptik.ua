@@ -12,6 +12,7 @@
 @property int clouds;
 @property int rain;
 @property char temperature;
+@property char feelslikeTemperature;
 @property int pressure;
 @property int humidity;
 @property float wind_speed;
@@ -33,6 +34,7 @@
 @property NSDate *last_update;
 
 - (NSArray *) hours;
+- (HourlyForecast *) forecastFor:(int) hour;
 - (HourlyForecast *) middayForecast;
 - (HourlyForecast *) morningForecast;
 - (HourlyForecast *) dayForecast;

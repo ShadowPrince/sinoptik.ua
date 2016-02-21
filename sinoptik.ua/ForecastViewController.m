@@ -28,7 +28,7 @@
     [super viewDidLoad];
 
     self.formatter = [NSDateFormatter new];
-    self.formatter.dateFormat = @"dd-MM-yyyy";
+    self.formatter.dateFormat = @"dd-MM-y";
     self.man = [[ForecastManager alloc] initWithDelegate:self];
 
     self.assets = [[AssetsManager alloc] init];
@@ -175,18 +175,31 @@
     UILabel *currentDate = [cell viewWithTag:101];
     UILabel *currentTemp = [cell viewWithTag:102];
     UIButton *currentCity = [cell viewWithTag:103];
+    UILabel *currentHum = [cell viewWithTag:104];
+    UILabel *currentFeelslike = [cell viewWithTag:105];
+    UILabel *currentWind = [cell viewWithTag:106];
 
     NSDate *date = [self.cast.dates objectAtIndex:indexPath.row];
     DailyForecast *forecast = [self.cast dailyForecastFor:date];
-    HourlyForecast *middayForecast = [forecast middayForecast];
+    HourlyForecast *middayForecast;
+    if ([[self.formatter stringFromDate:[NSDate new]] isEqualToString:[self.formatter stringFromDate:date]]) {
+        NSDateFormatter *hourFormatter = [NSDateFormatter new];
+        hourFormatter.dateFormat = @"H";
+        int hour = [hourFormatter stringFromDate:[NSDate new]].integerValue;
+        middayForecast = [forecast forecastFor:hour];
+    } else {
+        middayForecast = [forecast middayForecast];
+    }
 
+    currentHum.text = [self humTextFor:middayForecast.humidity];
+    currentWind.text = [self windTextFor:middayForecast.wind_speed direction:middayForecast.wind_direction];
+    currentFeelslike.text = [self feelslikeTextFor:middayForecast.feelslikeTemperature];
     currentDate.text = [self.formatter stringFromDate:date];
     [currentCity setTitle:self.place.firstObject forState:UIControlStateNormal];
     currentTemp.text = [self tempTextFor:middayForecast.temperature];
     currentImageView.image = nil;
     [self.assets loadBigImageFor:middayForecast callback:^(UIImage *i) {
         currentImageView.image = i;
-        currentImageView.contentMode = UIViewContentModeScaleToFill;
     }];
 
     NSArray *hours = @[@8, @14, @2];
@@ -195,6 +208,7 @@
         NSUInteger tag_prefix = i * 100 + 200;
 
         UIImageView *image = [cell viewWithTag:tag_prefix + 0];
+        //UIImageView *sinoptikImage = [cell viewWithTag:tag_prefix + 4];
         UILabel *temp = [cell viewWithTag:tag_prefix + 1];
         UILabel *hum = [cell viewWithTag:tag_prefix + 2];
         UILabel *wind = [cell viewWithTag:tag_prefix + 3];
@@ -202,8 +216,13 @@
         HourlyForecast *cast = [forecast hourlyForecast][hour];
         temp.text = [self tempTextFor:cast.temperature];
         hum.text = [self humTextFor:cast.humidity];
-        wind.text = [self windTextFor:cast.wind_speed];
+        wind.text = [self windTextFor:cast.wind_speed direction:cast.wind_direction];
         image.image = [self.assets fancyImageFor:cast];
+        /*
+        [self.assets loadImageFor:cast callback:^(UIImage *i) {
+            sinoptikImage.image = i;
+        }];
+         */
     }
 
     return cell;
@@ -213,12 +232,17 @@
     return [NSString stringWithFormat:@"%d℃", temp];
 }
 
+- (NSString *) feelslikeTextFor:(char) temp {
+    return [NSString stringWithFormat:@"%d℃~", temp];
+}
+
 - (NSString *) humTextFor:(int) val {
     return [NSString stringWithFormat:@"%d%%", val];
 }
 
-- (NSString *) windTextFor:(float) val {
-    return [NSString stringWithFormat:@"%1.fms", val];
+- (NSString *) windTextFor:(float) val direction:(int) direction {
+    NSArray *directions = @[@"↑", @"↗︎", @"→", @"↘︎", @"↓", @"↙︎", @"←", @"↖︎", @""];
+    return [NSString stringWithFormat:@"%@%1.fms", directions[direction], val];
 }
 
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {

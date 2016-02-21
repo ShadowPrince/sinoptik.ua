@@ -86,13 +86,20 @@
 // synchronous loading in NSOperation
 - (NSData *) imageForForecast:(HourlyForecast *) cast ofSize:(SinoptikImageSize) size time:(SinoptikTime) time {
     NSString *format = [size isEqualToString:SinoptikImageSizeBig] ?  @"jpg" : @"gif";
-    NSString *stringUrl = [NSString stringWithFormat:@"http://sinst.fwdcdn.com/img/weatherImg/%@/%@%d%d0.%@",
+    NSString *stringUrl = [NSString stringWithFormat:@"http://sinst.fwdcdn.com/img/weatherImg/%@/%@",
                            size,
+                           [self imageNameFor:cast ofSize:size time:time]];
+    return [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:stringUrl]] returningResponse:nil error:nil];
+}
+
+- (NSString *) imageNameFor:(HourlyForecast *) cast ofSize:(SinoptikImageSize) size time:(SinoptikTime) time {
+    NSString *format = [size isEqualToString:SinoptikImageSizeBig] ?  @"jpg" : @"gif";
+    NSString *stringName = [NSString stringWithFormat:@"%@%d%d0.%@",
                            time,
                            cast.clouds,
                            cast.rain,
                            format];
-    return [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:stringUrl]] returningResponse:nil error:nil];
+    return stringName;
 }
 
 # pragma mark private methods

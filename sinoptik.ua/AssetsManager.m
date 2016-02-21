@@ -28,7 +28,9 @@
 }
 
 - (void) loadBigImageFor:(HourlyForecast *) cast callback:(AssetsManagerLoadImageCallback) callback {
-    [self loadImageOfSize:SinoptikImageSizeBig for:cast callback:callback];
+    NSString *name = [[SinoptikAPI api] imageNameFor:cast ofSize:SinoptikImageSizeBig time:[self sinoptikTimeFor:cast]];
+    UIImage *image = [UIImage imageNamed:name];
+    callback(image);
 }
 
 - (void) loadImageOfSize:(SinoptikImageSize) size for:(HourlyForecast *) cast callback:(AssetsManagerLoadImageCallback) cb {

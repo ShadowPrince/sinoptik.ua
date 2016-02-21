@@ -69,6 +69,7 @@
     for (int i = 0; i < [data[1] count]; i++) {
         HourlyForecast *forecast = [HourlyForecast new];
         forecast.temperature = [(NSString *) data[3][i] integerValue];
+        forecast.feelslikeTemperature = [(NSString *) data[4][i] intValue];
         forecast.pressure = [(NSString *) data[5][i] intValue];
         forecast.humidity = [(NSString *) data[6][i] intValue];
 
