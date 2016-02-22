@@ -87,8 +87,6 @@
 }
 
 - (void) viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-
     [self.collectionView reloadData];
     
     [self.pagerContainer.subviews.firstObject removeFromSuperview];
@@ -136,6 +134,7 @@
     float width = 150.f;
     self.popupTableView.frame = CGRectMake(self.view.frame.size.width - width - 5.f, self.popupTableView.frame.origin.y, width, 300.f);
 
+    [super viewDidLayoutSubviews];
 }
 
 - (void) reload {
