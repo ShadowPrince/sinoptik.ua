@@ -9,11 +9,21 @@
 #import "ForecastViewController.h"
 
 @interface ForecastViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *temperatureGraphHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *windGraphHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *yearbeforeHeightConstraint;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *popupTableView;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UIProgressView *loadingProgress;
+@property (weak, nonatomic) IBOutlet UIView *pagerContainer;
+
 @property (weak, nonatomic) IBOutlet UIView *temperatureGraphContainer;
+@property (weak, nonatomic) IBOutlet UIView *windGraphContainer;
+
+@property DIBPagination *pager;
 
 @property GraphController *graphController;
 @property PlacesDataSource *places;
@@ -21,7 +31,7 @@
 @property AssetsManager *assets;
 @property NSDateFormatter *formatter;
 
-@property NSArray *temperatureGraphData;
+@property NSArray *temperatureGraphData, *windGraphData;
 @property NSArray *place;
 @property Forecast *cast;
 @property NSUInteger castOffset;
@@ -51,6 +61,13 @@
 
     self.initialLoading = YES;
     self.popupTableView.translatesAutoresizingMaskIntoConstraints = YES;
+
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        self.collectionViewHeightConstraint.constant *= 1.5;
+        self.temperatureGraphHeightConstraint.constant *= 1.5;
+        self.windGraphHeightConstraint.constant *= 1.5;
+        self.yearbeforeHeightConstraint.constant *= 1.5;
+    }
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -70,13 +87,55 @@
 }
 
 - (void) viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+
     [self.collectionView reloadData];
-    [self renderGraph:self.temperatureGraphData];
+    
+    [self.pagerContainer.subviews.firstObject removeFromSuperview];
+    self.pager = [[DIBPagination alloc] initWithFrame:self.pagerContainer.bounds
+                                           parentView:self.pagerContainer
+                                        paginationMax:[self collectionView:self.collectionView numberOfItemsInSection:0]
+                                            andColors:@[[UIColor blackColor], [UIColor blackColor]]];
+    [self.pager animateIn];
+
+    UIColor *labelColor = [UIColor colorWithRed:.5f green:.5f blue:.5f alpha:1.f];
+    [self renderGraph:self.temperatureGraphData
+                 into:self.temperatureGraphContainer
+                theme:@{// plot
+                        kPlotStrokeWidthKey : @1,
+                        kWarmLineColor: [UIColor redColor],
+                        kColdLineColor: [UIColor blueColor],
+                        // graph
+                        kXAxisLabelColorKey : labelColor,
+                        kXAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                        kYAxisLabelColorKey : labelColor,
+                        kYAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                        kZeroLineColor: [UIColor grayColor],
+                        kHighlightLineColor: [UIColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1.0],
+                        kXAxisLabelHighlightColorKey: [UIColor blackColor],
+                        kDotSizeKey: @3,
+                        kPlotBackgroundLineColorKey : [UIColor colorWithRed:.9f green:.9f blue:.9f alpha:1.f], }];
+
+    [self renderGraph:self.windGraphData
+                 into:self.windGraphContainer
+                theme:@{// plot
+                        kPlotStrokeWidthKey : @2,
+                        kWarmLineColor: [UIColor colorWithRed:0.5f green:0.9f blue:1.f alpha:1.f],
+                        kColdLineColor: [UIColor clearColor],
+                        // graph
+                        kXAxisLabelColorKey : labelColor,
+                        kXAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                        kYAxisLabelColorKey : labelColor,
+                        kYAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
+                        kZeroLineColor: [UIColor grayColor],
+                        kHighlightLineColor: [UIColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1.0],
+                        kXAxisLabelHighlightColorKey: [UIColor blackColor],
+                        kDotSizeKey: @3,
+                        kPlotBackgroundLineColorKey : [UIColor colorWithRed:.9f green:.9f blue:.9f alpha:1.f], }];
 
     float width = 150.f;
     self.popupTableView.frame = CGRectMake(self.view.frame.size.width - width - 5.f, self.popupTableView.frame.origin.y, width, 300.f);
 
-    [super viewDidLayoutSubviews];
 }
 
 - (void) reload {
@@ -99,12 +158,12 @@
     self.loadingView.hidden = YES;
 }
 
-- (void) renderGraph:(NSArray *) data {
-    [[self.temperatureGraphContainer subviews].firstObject removeFromSuperview];
+- (void) renderGraph:(NSArray *) data into:(UIView *) container theme:(NSDictionary *) theme {
+    [[container subviews].firstObject removeFromSuperview];
 
     SHPlot *plot = [[SHPlot alloc] init];
 
-    CGSize size = self.temperatureGraphContainer.frame.size;
+    CGSize size = container.frame.size;
     SHLineGraphView *graph = [[SHLineGraphView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     graph.yAxisRange = data.firstObject;
     graph.yAxisSuffix = data[1];
@@ -114,34 +173,50 @@
     graph.highlightedXLabel = [(NSNumber *) data[4] integerValue];
     graph.zeroMode = [(NSNumber *) data[5] integerValue];
 
-    NSDictionary *_plotThemeAttributes = @{kPlotStrokeWidthKey : @1,
-                                           kWarmLineColor: [UIColor redColor],
-                                           kColdLineColor: [UIColor blueColor], };
+    NSArray *plotThemeKeys = @[kPlotStrokeWidthKey,
+                               kWarmLineColor,
+                               kColdLineColor, ];
+    NSArray *graphThemeKeys = @[kXAxisLabelColorKey,
+                           kXAxisLabelFontKey,
+                           kYAxisLabelColorKey,
+                           kYAxisLabelFontKey,
+                           kZeroLineColor,
+                           kHighlightLineColor,
+                           kXAxisLabelHighlightColorKey,
+                           kDotSizeKey,
+                           kPlotBackgroundLineColorKey, ];
 
-    plot.plotThemeAttributes = _plotThemeAttributes;
+    NSMutableDictionary *graphTheme = [NSMutableDictionary new];
+    NSMutableDictionary *plotTheme = [NSMutableDictionary new];
 
-    UIColor *labelColor = [UIColor colorWithRed:.5f green:.5f blue:.5f alpha:1.f];
-    NSDictionary *_themeAttributes = @{kXAxisLabelColorKey : labelColor,
-                                       kXAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
-                                       kYAxisLabelColorKey : labelColor,
-                                       kYAxisLabelFontKey : [UIFont fontWithName:@"TrebuchetMS" size:10],
-                                       kZeroLineColor: [UIColor grayColor],
-                                       kHighlightLineColor: [UIColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1.0],
-                                       kXAxisLabelHighlightColorKey: [UIColor blackColor],
-                                       kDotSizeKey: @3,
-                                       kPlotBackgroundLineColorKey : [UIColor colorWithRed:.9f green:.9f blue:.9f alpha:1.f], };
-    graph.themeAttributes = _themeAttributes;
+    for (NSString *key in plotThemeKeys) plotTheme[key] = theme[key];
+    for (NSString *key in graphThemeKeys) graphTheme[key] = theme[key];
+
+    graph.themeAttributes = graphTheme;
+    plot.plotThemeAttributes = plotTheme;
 
     [graph addPlot:plot];
     [graph setupTheView];
-    [self.temperatureGraphContainer addSubview:graph];
+    [container addSubview:graph];
 }
 
 - (void) forecastManager:(ForecastManager *)manager didReceivedForecast:(Forecast *)cast for:(NSArray *)place {
     if (place == self.place) {
-        self.temperatureGraphData = [self.graphController graphDataFor:cast];
+        self.temperatureGraphData = [self.graphController temperatureGraphDataFor:cast];
+        self.windGraphData = [self.graphController windGraphDataFor:cast];
         self.cast = cast;
         self.castOffset = manager.behindDays;
+
+        [UIView animateWithDuration:.5f animations:^{
+            self.pager.alpha = 0.f;
+        } completion:^(BOOL finished) {
+            [self.pagerContainer.subviews.firstObject removeFromSuperview];
+            self.pager = [[DIBPagination alloc] initWithFrame:self.pagerContainer.bounds
+                                                   parentView:self.pagerContainer
+                                                paginationMax:[self collectionView:self.collectionView numberOfItemsInSection:0]
+                                                    andColors:@[[UIColor blackColor], [UIColor blackColor]]];
+            [self.pager animateIn];
+        }];
 
         [self viewDidLayoutSubviews];
         [self removeLoadingView];
@@ -297,6 +372,17 @@
 
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(collectionView.frame.size.width, collectionView.frame.size.height);
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    static NSInteger previousPage = 0;
+    CGFloat pageWidth = scrollView.frame.size.width;
+    float fractionalPage = scrollView.contentOffset.x / pageWidth;
+    NSInteger page = lround(fractionalPage);
+    if (previousPage != page) {
+        [self.pager setPageIndexToIndex:page];
+        previousPage = page;
+    }
 }
 
 @end

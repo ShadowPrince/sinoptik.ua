@@ -18,6 +18,7 @@
 		F34A731A1B9DE5BB00A34965 /* PlacesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73191B9DE5BB00A34965 /* PlacesDataSource.m */; };
 		F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */; };
 		F370693D1BAC4FEA00373159 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F370693C1BAC4FEA00373159 /* libxml2.tbd */; };
+		F39AE3F61C7A8E20000628D5 /* DIBPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = F39AE3F51C7A8E20000628D5 /* DIBPagination.m */; };
 		F3A96F9C1B9D8AF600CEDF9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96F9B1B9D8AF600CEDF9E /* main.m */; };
 		F3A96F9F1B9D8AF600CEDF9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */; };
 		F3A96FA51B9D8AF600CEDF9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA31B9D8AF600CEDF9E /* Main.storyboard */; };
@@ -73,6 +74,8 @@
 		F35A8BBC1BA454F3001AAA34 /* UIImage-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage-Extensions.h"; path = "UIImageExtensions/UIImage-Extensions.h"; sourceTree = "<group>"; };
 		F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage-Extensions.m"; path = "UIImageExtensions/UIImage-Extensions.m"; sourceTree = "<group>"; };
 		F370693C1BAC4FEA00373159 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		F39AE3F41C7A8E20000628D5 /* DIBPagination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIBPagination.h; path = "../../../Downloads/DIBPagerDots-master/DIBPagerDots/DIBPagination.h"; sourceTree = "<group>"; };
+		F39AE3F51C7A8E20000628D5 /* DIBPagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIBPagination.m; path = "../../../Downloads/DIBPagerDots-master/DIBPagerDots/DIBPagination.m"; sourceTree = "<group>"; };
 		F3A96F961B9D8AF600CEDF9E /* sinoptik.ua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinoptik.ua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A96F9A1B9D8AF600CEDF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A96F9B1B9D8AF600CEDF9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 		F35A8BBF1BA454F9001AAA34 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				F39AE3F31C7A8DF1000628D5 /* DIBPagerDots */,
 				F31AC3AF1C7A36BD0075C7A9 /* SHLineGraphView */,
 				F34A730F1B9DD47400A34965 /* Hpple */,
 				F3B18B0D1C08691C0002B9D0 /* TranslucentView */,
@@ -207,6 +211,15 @@
 				F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */,
 			);
 			name = libs;
+			sourceTree = "<group>";
+		};
+		F39AE3F31C7A8DF1000628D5 /* DIBPagerDots */ = {
+			isa = PBXGroup;
+			children = (
+				F39AE3F41C7A8E20000628D5 /* DIBPagination.h */,
+				F39AE3F51C7A8E20000628D5 /* DIBPagination.m */,
+			);
+			name = DIBPagerDots;
 			sourceTree = "<group>";
 		};
 		F3A96F8D1B9D8AF600CEDF9E = {
@@ -416,6 +429,7 @@
 				F3B18B0C1C0869180002B9D0 /* ILTranslucentView.m in Sources */,
 				F3D583851B9EF01E00EF2334 /* ForecastManager.m in Sources */,
 				F3A96F9C1B9D8AF600CEDF9E /* main.m in Sources */,
+				F39AE3F61C7A8E20000628D5 /* DIBPagination.m in Sources */,
 				F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */,
 				F3A96FC11B9D8CB000CEDF9E /* SinoptikAPI.m in Sources */,
 				F34A731A1B9DE5BB00A34965 /* PlacesDataSource.m in Sources */,

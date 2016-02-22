@@ -12,5 +12,6 @@
 @interface GraphController : NSObject
 
 - (NSArray *) temperatureGraphDataFor:(Forecast *) cast;
+- (NSArray *) windGraphDataFor:(Forecast *) cast;
 
 @end

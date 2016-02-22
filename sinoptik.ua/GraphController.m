@@ -31,7 +31,7 @@
         NSDate *d = cast.dates[i];
         
         DailyForecast *day = [cast dailyForecastFor:d];
-        HourlyForecast *hour = day.nightForecast;
+        HourlyForecast *hour = day.middayForecast;
 
         NSString *dayTitle = [self.captionFormatter stringFromDate:d];
         NSNumber *key = [NSNumber numberWithInt:i];
@@ -65,6 +65,8 @@
         zeroPresent = 0;
         range = (float) MAX(maxTemp, abs((int) minTemp)) * 2;
     }
+    range -= 2;
+
     NSMutableArray *plottingValues = [NSMutableArray new];
     for (int i = 0; i < tempValues.count; i++) {
         NSNumber *value = tempValues[i];
@@ -87,6 +89,36 @@
     }
     
     return @[@(range), @"℃", plottingXTitles, plottingValues, @(currentDayIdx), @(zeroPresent), ];
+}
+
+- (NSArray *) windGraphDataFor:(Forecast *) cast {
+    int currentDayIdx = 0;
+
+    float range = 0;
+    NSMutableArray *plottingValues = [NSMutableArray new];
+    NSMutableArray *plottingXTitles = [NSMutableArray new];
+    for (int i = 0; i < cast.dates.count; i++) {
+        NSDate *d = cast.dates[i];
+        
+        DailyForecast *day = [cast dailyForecastFor:d];
+        HourlyForecast *hour = day.middayForecast;
+
+        NSString *dayTitle = [self.captionFormatter stringFromDate:d];
+        NSNumber *key = [NSNumber numberWithInt:i];
+
+        [plottingXTitles addObject:@{key: dayTitle}];
+        [plottingValues addObject:@{key: @(hour.wind_speed)}];
+
+        if (range < hour.wind_speed) {
+            range = hour.wind_speed;
+        }
+
+        if ([[self.formatter stringFromDate:[NSDate new]] isEqualToString:[self.formatter stringFromDate:d]]) {
+            currentDayIdx = i;
+        }
+    }
+
+    return @[@(range), @"ms", plottingXTitles, plottingValues, @(currentDayIdx), @(1), ];
 }
 
 @end

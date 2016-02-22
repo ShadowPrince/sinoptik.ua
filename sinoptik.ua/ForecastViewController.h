@@ -12,9 +12,10 @@
 #import "AssetsManager.h"
 #import "GraphController.h"
 
+#import "DIBPagination.h"
 #import "SHLineGraphView.h"
 #import "SHPlot.h"
 
-@interface ForecastViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ForecastManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ForecastViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ForecastManagerDelegate, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @end
