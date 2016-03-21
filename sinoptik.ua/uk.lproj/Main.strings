@@ -1,24 +1,138 @@
 
+/* Class = "UILabel"; text = "Sunset:"; ObjectID = "01v-iH-2e6"; */
+"01v-iH-2e6.text" = "Sunset:";
+
+/* Class = "UILabel"; text = "Last update:"; ObjectID = "0z6-RJ-F6j"; */
+"0z6-RJ-F6j.text" = "Last update:";
+
 /* Class = "UISearchBar"; placeholder = "Add place"; ObjectID = "1Ss-t9-H1s"; */
-"1Ss-t9-H1s.placeholder" = "Добавити місто";
+"1Ss-t9-H1s.placeholder" = "Add place";
+
+/* Class = "UILabel"; text = "Min:"; ObjectID = "4hK-oH-R53"; */
+"4hK-oH-R53.text" = "Min:";
+
+/* Class = "UIButton"; normalTitle = "Шаповаловка"; ObjectID = "532-5S-9ex"; */
+"532-5S-9ex.normalTitle" = "Шаповаловка";
+
+/* Class = "UILabel"; text = "0%"; ObjectID = "5n9-7v-yfT"; */
+"5n9-7v-yfT.text" = "0%";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "62H-fF-WvJ"; */
 "62H-fF-WvJ.text" = "Label";
 
+/* Class = "UILabel"; text = "Label"; ObjectID = "9gs-JL-IX6"; */
+"9gs-JL-IX6.text" = "Label";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "AIa-BJ-5v3"; */
 "AIa-BJ-5v3.text" = "Label";
+
+/* Class = "UILabel"; text = "< 0.0"; ObjectID = "BJw-Au-MUn"; */
+"BJw-Au-MUn.text" = "< 0.0";
+
+/* Class = "UILabel"; text = "22 ℃"; ObjectID = "D9t-oy-XjV"; */
+"D9t-oy-XjV.text" = "22 ℃";
+
+/* Class = "UIBarButtonItem"; title = "<^>"; ObjectID = "EWt-Ne-Pwq"; */
+"EWt-Ne-Pwq.title" = "<^>";
+
+/* Class = "UILabel"; text = "Last 130 years:"; ObjectID = "FMJ-eO-nds"; */
+"FMJ-eO-nds.text" = "Last 130 years:";
+
+/* Class = "UILabel"; text = "22.02.15"; ObjectID = "Fqp-Jv-PIq"; */
+"Fqp-Jv-PIq.text" = "22.02.15";
+
+/* Class = "UILabel"; text = "0%"; ObjectID = "Hd7-CF-n3F"; */
+"Hd7-CF-n3F.text" = "0%";
+
+/* Class = "UINavigationItem"; title = "Kyiv"; ObjectID = "IR5-Qu-mIr"; */
+"IR5-Qu-mIr.title" = "Kyiv";
+
+/* Class = "UILabel"; text = "< 1.5"; ObjectID = "Icu-55-rVU"; */
+"Icu-55-rVU.text" = "< 1.5";
+
+/* Class = "UILabel"; text = "One year before:"; ObjectID = "JK9-7k-77W"; */
+"JK9-7k-77W.text" = "One year before:";
+
+/* Class = "UILabel"; text = "17:23"; ObjectID = "LyO-ij-AWH"; */
+"LyO-ij-AWH.text" = "17:23";
 
 /* Class = "UILabel"; text = "–––"; ObjectID = "OAD-eg-ABO"; */
 "OAD-eg-ABO.text" = "–––";
 
+/* Class = "UILabel"; text = "25.05.1995"; ObjectID = "OU9-hG-fd4"; */
+"OU9-hG-fd4.text" = "25.05.1995";
+
+/* Class = "UILabel"; text = "< 1.5"; ObjectID = "OqZ-w5-Y4Z"; */
+"OqZ-w5-Y4Z.text" = "< 1.5";
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "OuQ-No-ktz"; */
+"OuQ-No-ktz.normalTitle" = "Settings";
+
+/* Class = "UILabel"; text = "0%"; ObjectID = "QTr-RO-36E"; */
+"QTr-RO-36E.text" = "0%";
+
 /* Class = "UINavigationItem"; title = "Places"; ObjectID = "RUJ-Ed-aSx"; */
-"RUJ-Ed-aSx.title" = "Міста";
+"RUJ-Ed-aSx.title" = "Places";
 
 /* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "SNb-Kv-mRg"; */
-"SNb-Kv-mRg.title" = "Редаг/";
+"SNb-Kv-mRg.title" = "Edit";
+
+/* Class = "UILabel"; text = "15 ℃"; ObjectID = "Smm-5q-E7d"; */
+"Smm-5q-E7d.text" = "15 ℃";
+
+/* Class = "UILabel"; text = "-28.1 (1985)"; ObjectID = "TH8-I7-YeS"; */
+"TH8-I7-YeS.text" = "-28.1 (1985)";
+
+/* Class = "UILabel"; text = "Morning"; ObjectID = "Vee-jj-0OK"; */
+"Vee-jj-0OK.text" = "Morning";
+
+/* Class = "UILabel"; text = "11 ℃"; ObjectID = "Yec-gA-amc"; */
+"Yec-gA-amc.text" = "11 ℃";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bGt-TH-32e"; */
+"bGt-TH-32e.text" = "Label";
+
+/* Class = "UILabel"; text = "Max:"; ObjectID = "c6d-ld-p7R"; */
+"c6d-ld-p7R.text" = "Max:";
+
+/* Class = "UILabel"; text = "06:53"; ObjectID = "faf-rq-zJA"; */
+"faf-rq-zJA.text" = "06:53";
 
 /* Class = "UIViewController"; title = "Города"; ObjectID = "gvv-V1-3Ls"; */
-"gvv-V1-3Ls.title" = "Міста";
+"gvv-V1-3Ls.title" = "Города";
 
-/* Class = "UILabel"; text = "Loading..."; ObjectID = "v8X-2y-o3E"; */
-"v8X-2y-o3E.text" = "Завантаження...";
+/* Class = "UILabel"; text = "Day"; ObjectID = "h2f-B4-cJx"; */
+"h2f-B4-cJx.text" = "Day";
+
+/* Class = "UILabel"; text = "13.4 (1998)"; ObjectID = "ko4-JQ-HFI"; */
+"ko4-JQ-HFI.text" = "13.4 (1998)";
+
+/* Class = "UILabel"; text = "22 ℃ ^"; ObjectID = "kpW-dz-IbP"; */
+"kpW-dz-IbP.text" = "22 ℃ ^";
+
+/* Class = "UILabel"; text = "0%"; ObjectID = "lsz-u6-W5J"; */
+"lsz-u6-W5J.text" = "0%";
+
+/* Class = "UILabel"; text = "18.02.2016"; ObjectID = "m4i-4w-NDL"; */
+"m4i-4w-NDL.text" = "18.02.2016";
+
+/* Class = "UILabel"; text = "Night"; ObjectID = "nIL-sI-X9V"; */
+"nIL-sI-X9V.text" = "Night";
+
+/* Class = "UILabel"; text = "20℃"; ObjectID = "nnO-hC-Xgj"; */
+"nnO-hC-Xgj.text" = "20℃";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "u9J-vA-yzl"; */
+"u9J-vA-yzl.text" = "Label";
+
+/* Class = "UILabel"; text = "< 1.5"; ObjectID = "xxd-to-0IE"; */
+"xxd-to-0IE.text" = "< 1.5";
+
+/* Class = "UILabel"; text = "Sunrise:"; ObjectID = "z2D-5p-7ye"; */
+"z2D-5p-7ye.text" = "Sunrise:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zGh-4k-ZUC"; */
+"zGh-4k-ZUC.text" = "Label";
+
+/* Class = "UILabel"; text = "Today:"; ObjectID = "zvj-h3-lC1"; */
+"zvj-h3-lC1.text" = "Today:";
