@@ -167,7 +167,10 @@
                                                             <color key="backgroundColor" red="0.93389423076923073" green="0.93389423076923073" blue="0.93389423076923073" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstItem="Vee-jj-0OK" firstAttribute="top" secondItem="Dzs-j3-eoI" secondAttribute="top" constant="3" id="3UA-e5-5PD"/>
+                                                                <constraint firstItem="lsz-u6-W5J" firstAttribute="height" secondItem="Icu-55-rVU" secondAttribute="height" id="5j7-OH-A93"/>
                                                                 <constraint firstItem="geI-DS-bs7" firstAttribute="leading" secondItem="Dzs-j3-eoI" secondAttribute="leading" id="DMn-v6-iYU"/>
+                                                                <constraint firstItem="Smm-5q-E7d" firstAttribute="height" secondItem="lsz-u6-W5J" secondAttribute="height" id="Efe-CT-nXI"/>
+                                                                <constraint firstItem="Vee-jj-0OK" firstAttribute="height" secondItem="Smm-5q-E7d" secondAttribute="height" id="FyY-vT-qhv"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Icu-55-rVU" secondAttribute="bottom" constant="8" id="I9O-jp-bCc"/>
                                                                 <constraint firstItem="Icu-55-rVU" firstAttribute="top" secondItem="lsz-u6-W5J" secondAttribute="bottom" constant="12" id="Jva-2t-Ye6"/>
                                                                 <constraint firstAttribute="bottom" secondItem="geI-DS-bs7" secondAttribute="bottom" id="NMg-Vw-UbA"/>
@@ -179,6 +182,7 @@
                                                                 <constraint firstItem="Smm-5q-E7d" firstAttribute="centerX" secondItem="Vee-jj-0OK" secondAttribute="centerX" id="lGW-Xu-pyM"/>
                                                                 <constraint firstItem="geI-DS-bs7" firstAttribute="top" secondItem="Dzs-j3-eoI" secondAttribute="top" id="ncJ-Hx-rf5"/>
                                                                 <constraint firstItem="Vee-jj-0OK" firstAttribute="centerX" secondItem="Dzs-j3-eoI" secondAttribute="centerX" id="o1f-GW-5Zv"/>
+                                                                <constraint firstItem="Smm-5q-E7d" firstAttribute="top" secondItem="Vee-jj-0OK" secondAttribute="bottom" constant="11" id="ohf-dG-sFJ"/>
                                                                 <constraint firstItem="lsz-u6-W5J" firstAttribute="top" secondItem="Smm-5q-E7d" secondAttribute="bottom" constant="12" id="tJg-pn-7Hz"/>
                                                             </constraints>
                                                             <variation key="default">
@@ -236,12 +240,16 @@
                                                                 <constraint firstItem="xxd-to-0IE" firstAttribute="centerX" secondItem="h2f-B4-cJx" secondAttribute="centerX" id="Fir-tq-FQo"/>
                                                                 <constraint firstItem="xxd-to-0IE" firstAttribute="top" secondItem="5n9-7v-yfT" secondAttribute="bottom" constant="12" id="YSs-OJ-i8w"/>
                                                                 <constraint firstAttribute="bottom" secondItem="4DC-fs-wMR" secondAttribute="bottom" id="cYz-pC-23f"/>
+                                                                <constraint firstItem="D9t-oy-XjV" firstAttribute="height" secondItem="5n9-7v-yfT" secondAttribute="height" id="h7d-1f-TFt"/>
                                                                 <constraint firstItem="D9t-oy-XjV" firstAttribute="centerX" secondItem="h2f-B4-cJx" secondAttribute="centerX" id="knl-yR-tAK"/>
                                                                 <constraint firstItem="5n9-7v-yfT" firstAttribute="top" secondItem="D9t-oy-XjV" secondAttribute="bottom" constant="12" id="lTB-Te-sXm"/>
+                                                                <constraint firstItem="D9t-oy-XjV" firstAttribute="top" secondItem="h2f-B4-cJx" secondAttribute="bottom" constant="11" id="qFo-9f-rpc"/>
+                                                                <constraint firstItem="5n9-7v-yfT" firstAttribute="height" secondItem="xxd-to-0IE" secondAttribute="height" id="qfg-5t-huV"/>
                                                                 <constraint firstAttribute="width" constant="107" id="r5p-0g-umZ"/>
                                                                 <constraint firstItem="h2f-B4-cJx" firstAttribute="centerX" secondItem="zYo-Na-jKt" secondAttribute="centerX" id="rdz-zM-11i"/>
                                                                 <constraint firstItem="h2f-B4-cJx" firstAttribute="top" secondItem="zYo-Na-jKt" secondAttribute="top" constant="3" id="sYH-nG-Lwf"/>
                                                                 <constraint firstItem="4DC-fs-wMR" firstAttribute="top" secondItem="zYo-Na-jKt" secondAttribute="top" id="t1B-od-JWl"/>
+                                                                <constraint firstItem="h2f-B4-cJx" firstAttribute="height" secondItem="D9t-oy-XjV" secondAttribute="height" id="uq2-Tq-WCN"/>
                                                             </constraints>
                                                             <variation key="default">
                                                                 <mask key="constraints">
@@ -303,9 +311,13 @@
                                                                 <constraint firstItem="QTr-RO-36E" firstAttribute="top" secondItem="Yec-gA-amc" secondAttribute="bottom" constant="12" id="3wn-DU-UW7"/>
                                                                 <constraint firstAttribute="bottom" secondItem="yrs-5J-zrc" secondAttribute="bottom" id="3yv-FJ-YgD"/>
                                                                 <constraint firstItem="QTr-RO-36E" firstAttribute="centerX" secondItem="nIL-sI-X9V" secondAttribute="centerX" id="6sP-hm-Ovn"/>
+                                                                <constraint firstItem="nIL-sI-X9V" firstAttribute="height" secondItem="Yec-gA-amc" secondAttribute="height" id="Bs2-et-fon"/>
                                                                 <constraint firstItem="Yec-gA-amc" firstAttribute="centerX" secondItem="nIL-sI-X9V" secondAttribute="centerX" id="DQn-RZ-Pep"/>
                                                                 <constraint firstItem="BJw-Au-MUn" firstAttribute="centerX" secondItem="nIL-sI-X9V" secondAttribute="centerX" id="NMG-BO-UrV"/>
+                                                                <constraint firstItem="Yec-gA-amc" firstAttribute="top" secondItem="nIL-sI-X9V" secondAttribute="bottom" constant="11" id="RVA-Lq-Um5"/>
+                                                                <constraint firstItem="QTr-RO-36E" firstAttribute="height" secondItem="BJw-Au-MUn" secondAttribute="height" id="UC4-Gc-kTF"/>
                                                                 <constraint firstAttribute="trailing" secondItem="fmJ-vG-TjI" secondAttribute="trailing" id="WIH-A9-FqG"/>
+                                                                <constraint firstItem="Yec-gA-amc" firstAttribute="height" secondItem="QTr-RO-36E" secondAttribute="height" id="cpF-OF-YRa"/>
                                                                 <constraint firstItem="nIL-sI-X9V" firstAttribute="top" secondItem="vJa-y6-TNZ" secondAttribute="top" constant="3" id="eeb-Qr-dEF"/>
                                                                 <constraint firstAttribute="width" constant="107" id="ghm-wT-w47"/>
                                                                 <constraint firstAttribute="trailing" secondItem="yrs-5J-zrc" secondAttribute="trailing" id="mQ1-ug-PH5"/>
@@ -530,8 +542,8 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="25.05.1995" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU9-hG-fd4">
-                                        <rect key="frame" x="183" y="773" width="64" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="100" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="25.05.1995" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU9-hG-fd4">
+                                        <rect key="frame" x="87" y="773" width="160" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="0.31854635240000001" green="0.3397187941" blue="0.3734681373" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -569,7 +581,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="251" text="Last update:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0z6-RJ-F6j">
-                                        <rect key="frame" x="8" y="773" width="167" height="30"/>
+                                        <rect key="frame" x="8" y="773" width="71" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>

@@ -16,10 +16,6 @@
     places = [self restore];
     if (!places) {
         self.places = [NSMutableArray new];
-        //@CLEANUP
-        [self.places addObject:@[@"Киев", @"123123", @"погода-киев"]];
-        [self.places addObject:@[@"Чернигов", @"123123", @"погода-киев"]];
-        [self store];
     }
 
     return self;
