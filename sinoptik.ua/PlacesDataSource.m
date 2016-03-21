@@ -16,6 +16,10 @@
     places = [self restore];
     if (!places) {
         self.places = [NSMutableArray new];
+        //@CLEANUP
+        [self.places addObject:@[@"Киев", @"123123", @"погода-киев"]];
+        [self.places addObject:@[@"Чернигов", @"123123", @"погода-киев"]];
+        [self store];
     }
 
     return self;
@@ -62,11 +66,11 @@
 #pragma mark - user defaults
 
 - (void) store {
-    [[NSUserDefaults standardUserDefaults] setValue:self.places forKey:@"places"];
+    [[[NSUserDefaults alloc] initWithSuiteName:@"group.net.shdwprince.sinoptik-ua"] setValue:self.places forKey:@"places"];
 }
 
 - (NSMutableArray *) restore {
-    return [[[NSUserDefaults standardUserDefaults] valueForKey:@"places"] mutableCopy];
+    return [[[[NSUserDefaults alloc] initWithSuiteName:@"group.net.shdwprince.sinoptik-ua"] valueForKey:@"places"] mutableCopy];
 }
 
 #pragma mark - table 

@@ -1,6 +1,5 @@
 //
 //  Forecast.m
-//  
 //
 //  Created by shdwprince on 9/8/15.
 //
@@ -11,7 +10,7 @@
 #pragma mark - hourly forecast
 
 @implementation HourlyForecast
-@synthesize clouds, rain, temperature, pressure, humidity, wind_speed, rain_probability, hour;
+@synthesize clouds, rain, temperature, pressure, humidity, wind_speed, rain_probability, hour, frost;
 
 - (NSString *) description {
     return [NSString stringWithFormat:@"{%d, (rain: %d, clouds: %d), pressure %d, hum %d, wnd %@%f, prob. %d}",
@@ -41,6 +40,7 @@
     self.feelslikeTemperature = [aDecoder decodeIntForKey:@"feelslikeTemperature"];
     self.rain = [aDecoder decodeIntForKey:@"rain"];
     self.clouds = [aDecoder decodeIntForKey:@"clouds"];
+    self.frost = [aDecoder decodeIntForKey:@"frost"];
     self.pressure = [aDecoder decodeIntForKey:@"pressure"];
     self.humidity = [aDecoder decodeIntForKey:@"humidity"];
     self.wind_speed = [aDecoder decodeFloatForKey:@"wind_speed"];
@@ -55,6 +55,7 @@
     [aCoder encodeInt:self.temperature forKey:@"temperature"];
     [aCoder encodeInt:self.rain forKey:@"rain"];
     [aCoder encodeInt:self.clouds forKey:@"clouds"];
+    [aCoder encodeInt:self.frost forKey:@"frost"];
     [aCoder encodeInt:self.pressure forKey:@"pressure"];
     [aCoder encodeInt:self.humidity forKey:@"humidity"];
     [aCoder encodeFloat:self.wind_speed forKey:@"wind_speed"];
@@ -108,12 +109,12 @@
     return self.hourlyForecast[@2];
 }
 
-- (HourlyForecast *) forecastFor:(int)hour {
+- (HourlyForecast *) forecastFor:(int)targetHour {
     NSNumber *minHour;
     int minDif = 24;
     for (NSNumber *hour in self.hours) {
         int dif;
-        if ((dif = abs(hour.integerValue - hour.integerValue)) < minDif) {
+        if ((dif = abs(hour.integerValue - targetHour)) < minDif) {
             minHour = hour;
             minDif = dif;
         }
@@ -122,10 +123,25 @@
     return self.hourlyForecast[minHour];
 }
 
+- (NSNumber *) hourFor:(int) targetHour {
+    NSNumber *minHour;
+    int minDif = 24;
+    for (NSNumber *hour in self.hours) {
+        int dif;
+        if ((dif = abs(targetHour - hour.integerValue)) < minDif) {
+            minHour = hour;
+            minDif = dif;
+        }
+    }
+
+    return minHour;
+}
+
 - (instancetype) init {
     self = [super init];
     self.hourlyForecast = [NSMutableDictionary new];
     self.daylight = @[];
+    self.minMax = @[];
     self.last_update = [NSDate date];
     return self;
 }
@@ -138,6 +154,7 @@
     self.daylight = [aDecoder decodeObject];
     self.summary = [aDecoder decodeObject];
     self.last_update = [aDecoder decodeObject];
+    self.minMax = [aDecoder decodeObject];
 
     return self;
 }
@@ -147,6 +164,7 @@
     [aCoder encodeObject:self.daylight];
     [aCoder encodeObject:self.summary];
     [aCoder encodeObject:self.last_update];
+    [aCoder encodeObject:self.minMax];
 }
 @end
 
@@ -161,6 +179,8 @@
     self = [super init];
     self.formatter = [NSDateFormatter new];
     self.formatter.dateFormat = @"yyyy-MM-dd";
+    //self.formatter.timeZone = [NSTimeZone systemTimeZone];
+
     self.dailyForecasts = [NSMutableDictionary new];
     return self;
 }
@@ -187,7 +207,11 @@
 }
 
 - (DailyForecast *) dailyForecastFor:(NSDate *)date {
-    return self.dailyForecasts[[self.formatter dateFromString:[self.formatter stringFromDate:date]]];
+    /*
+    NSDate *normalizedDate = [self.formatter dateFromString:[self.formatter stringFromDate:date]];
+    NSLog(@"got %@ turned %@", date, normalizedDate);
+     */
+    return self.dailyForecasts[date];
 }
 
 #pragma mark coding
@@ -195,11 +219,13 @@
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
     self = [self init];
     self.dailyForecasts = [aDecoder decodeObject];
+    self.lastUpdate = [aDecoder decodeObject];
     return self;
 }
 
 - (void) encodeWithCoder:(NSCoder *)aCoder {
     [aCoder encodeObject:self.dailyForecasts];
+    [aCoder encodeObject:self.lastUpdate];
 }
 
 @end

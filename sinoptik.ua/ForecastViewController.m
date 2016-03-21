@@ -9,21 +9,26 @@
 #import "ForecastViewController.h"
 
 @interface ForecastViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *temperatureGraphHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *windGraphHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *yearbeforeHeightConstraint;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIButton *changeCityButton;
 @property (weak, nonatomic) IBOutlet UITableView *popupTableView;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UIProgressView *loadingProgress;
 @property (weak, nonatomic) IBOutlet UIView *pagerContainer;
+@property (weak, nonatomic) IBOutlet UILabel *lastUpdateLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *temperatureGraphContainer;
 @property (weak, nonatomic) IBOutlet UIView *windGraphContainer;
 
 @property DIBPagination *pager;
+@property NSUInteger pagerPage;
 
 @property GraphController *graphController;
 @property PlacesDataSource *places;
@@ -47,35 +52,43 @@
 
     self.man = [[ForecastManager alloc] initWithDelegate:self];
     self.assets = [[AssetsManager alloc] init];
-    self.places = [[PlacesDataSource alloc] init];
+    self.places = [PlacesDataSource instance];
     self.graphController = [GraphController new];
-
-    self.places.places = [NSMutableArray new];
-    if (self.places.places.count == 0) {
-        [self.places addEntry:@[@"Чернигов", @"0", @"погода-чернигов"]];
-        [self.places addEntry:@[@"Шаповаловка", @"0", @"погода-шаповаловка"]];
-        [self.places addEntry:@[@"Киев", @"0", @"погода-киев"]];
-    }
-
-    self.place = self.places.places.firstObject;
 
     self.initialLoading = YES;
     self.popupTableView.translatesAutoresizingMaskIntoConstraints = YES;
+    self.loadingView.translatesAutoresizingMaskIntoConstraints = YES;
 
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        self.collectionViewHeightConstraint.constant *= 1.5;
-        self.temperatureGraphHeightConstraint.constant *= 1.5;
-        self.windGraphHeightConstraint.constant *= 1.5;
+        self.collectionViewHeightConstraint.constant *= 2;
+        self.temperatureGraphHeightConstraint.constant *= 1;
+        self.windGraphHeightConstraint.constant *= 1;
         self.yearbeforeHeightConstraint.constant *= 1.5;
     }
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
+
+
+    if (self.initialLoading) {
+        [self showLoadingView];
+    }
+
+    if (self.places.places.count == 0) {
+        [self performSegueWithIdentifier:@"2settings" sender:self];
+        self.initialLoading = YES;
+    }
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     if (self.initialLoading) {
+        if (self.places.places.count) {
+            self.place = self.places.places.firstObject;
+        } else {
+            return;
+        }
+
         [self reload];
         self.initialLoading = NO;
     }
@@ -87,14 +100,28 @@
 }
 
 - (void) viewDidLayoutSubviews {
+    CGFloat margin = 8.f;
+    /*
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        margin = 8.f;
+    }
+    */
+
+    self.collectionViewWidthConstraint.constant = self.view.frame.size.width - margin;
+    [self.view layoutIfNeeded];
+
     [self.collectionView reloadData];
     
     [self.pagerContainer.subviews.firstObject removeFromSuperview];
+    int paginationMax = [self collectionView:self.collectionView numberOfItemsInSection:0];
     self.pager = [[DIBPagination alloc] initWithFrame:self.pagerContainer.bounds
                                            parentView:self.pagerContainer
-                                        paginationMax:[self collectionView:self.collectionView numberOfItemsInSection:0]
+                                        paginationMax:paginationMax
                                             andColors:@[[UIColor blackColor], [UIColor blackColor]]];
-    [self.pager animateIn];
+    if (paginationMax) {
+        [self.pager animateIn];
+        [self.pager setPageIndexToIndex:self.pagerPage];
+    }
 
     UIColor *labelColor = [UIColor colorWithRed:.5f green:.5f blue:.5f alpha:1.f];
     [self renderGraph:self.temperatureGraphData
@@ -141,6 +168,32 @@
     [self showLoadingView];
     [self.popupTableView reloadData];
     [self.man requestForecastFor:self.place];
+    [self.view viewWithTag:2100].alpha = 0.5f;
+    self.title = self.place.firstObject;
+
+    [[NSOperationQueue new] addOperationWithBlock:^{
+        NSTimeInterval yearInterval = [[self.formatter dateFromString:@"01-01-2016"]
+                                       timeIntervalSinceDate:[self.formatter dateFromString:@"01-01-2015"]];
+        NSDate *yearAgo = [[NSDate new] dateByAddingTimeInterval:-yearInterval];
+        DailyForecast *dailyCast = [[SinoptikAPI api] forecastFor:self.place.lastObject at:yearAgo];
+        if (!dailyCast)
+            return;
+
+        HourlyForecast *middayCast = dailyCast.middayForecast;
+        NSArray *values = @[[self.formatter stringFromDate:yearAgo],
+                            [self tempTextFor:middayCast.temperature],
+                            [self humTextFor:middayCast.humidity],
+                            [self windTextFor:middayCast.wind_speed direction:middayCast.wind_direction], ];
+
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            for (int i = 0; i < values.count; i++) {
+                [(UILabel *) [self.view viewWithTag:2001 + i] setText:values[i]];
+            }
+            
+            [(UIImageView *) [self.view viewWithTag:2000] setImage:[self.assets fancyImageFor:middayCast]];
+            [self.view viewWithTag:2100].alpha = 1.f;
+        }];
+    }];
 }
 
 - (void) showLoadingView {
@@ -200,22 +253,19 @@
 }
 
 - (void) forecastManager:(ForecastManager *)manager didReceivedForecast:(Forecast *)cast for:(NSArray *)place {
-    if (place == self.place) {
+    if ([place isEqual:self.place]) {
         self.temperatureGraphData = [self.graphController temperatureGraphDataFor:cast];
         self.windGraphData = [self.graphController windGraphDataFor:cast];
         self.cast = cast;
         self.castOffset = manager.behindDays;
 
-        [UIView animateWithDuration:.5f animations:^{
-            self.pager.alpha = 0.f;
-        } completion:^(BOOL finished) {
-            [self.pagerContainer.subviews.firstObject removeFromSuperview];
-            self.pager = [[DIBPagination alloc] initWithFrame:self.pagerContainer.bounds
-                                                   parentView:self.pagerContainer
-                                                paginationMax:[self collectionView:self.collectionView numberOfItemsInSection:0]
-                                                    andColors:@[[UIColor blackColor], [UIColor blackColor]]];
-            [self.pager animateIn];
-        }];
+        NSDate *date = [self.formatter dateFromString:[self.formatter stringFromDate:[NSDate new]]];
+        DailyForecast *dailyCast = [cast dailyForecastFor:date];
+        NSArray *values = [dailyCast.daylight arrayByAddingObjectsFromArray:dailyCast.minMax];
+        for (int i = 0; i < values.count; i++) {
+            [(UILabel *) [self.view viewWithTag:1001 + i] setText:values[i]];
+        }
+        self.lastUpdateLabel.text = [self.formatter stringFromDate:dailyCast.last_update];
 
         [self viewDidLayoutSubviews];
         [self removeLoadingView];
@@ -243,7 +293,7 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.places.places.count;
+    return self.place == nil ? 0 : self.places.places.count;
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView {
@@ -261,6 +311,10 @@
     
     NSArray *entry = places[indexPath.row];
     [(UILabel *) [cell viewWithTag:100] setText:[entry firstObject]];
+    if (indexPath.row == 0) {
+        [(UILabel *) [cell viewWithTag:100] setTextColor:self.view.tintColor];
+    }
+
     return cell;
 }
 
@@ -299,8 +353,8 @@
     UILabel *currentDate = [cell viewWithTag:101];
     UILabel *currentTemp = [cell viewWithTag:102];
     UIButton *currentCity = [cell viewWithTag:103];
-    UILabel *currentHum = [cell viewWithTag:104];
-    UILabel *currentFeelslike = [cell viewWithTag:105];
+    UILabel *currentTime = [cell viewWithTag:104];
+    UILabel *currentHum = [cell viewWithTag:105];
     UILabel *currentWind = [cell viewWithTag:106];
 
     NSDate *date = [self.cast.dates objectAtIndex:indexPath.row + self.castOffset];
@@ -309,7 +363,7 @@
     if ([[self.formatter stringFromDate:[NSDate new]] isEqualToString:[self.formatter stringFromDate:date]]) {
         NSDateFormatter *hourFormatter = [NSDateFormatter new];
         hourFormatter.dateFormat = @"H";
-        int hour = [hourFormatter stringFromDate:[NSDate new]].integerValue;
+        int hour = [hourFormatter stringFromDate:[NSDate new]].intValue;
         middayForecast = [forecast forecastFor:hour];
     } else {
         middayForecast = [forecast middayForecast];
@@ -317,7 +371,8 @@
 
     currentHum.text = [self humTextFor:middayForecast.humidity];
     currentWind.text = [self windTextFor:middayForecast.wind_speed direction:middayForecast.wind_direction];
-    currentFeelslike.text = [self feelslikeTextFor:middayForecast.feelslikeTemperature];
+    //currentFeelslike.text = [self feelslikeTextFor:middayForecast.feelslikeTemperature];
+    currentTime.text = [NSString stringWithFormat:@"%02d:00", middayForecast.hour];
     currentDate.text = [self.formatter stringFromDate:date];
     [currentCity setTitle:self.place.firstObject forState:UIControlStateNormal];
     currentTemp.text = [self tempTextFor:middayForecast.temperature];
@@ -366,7 +421,7 @@
 
 - (NSString *) windTextFor:(float) val direction:(int) direction {
     NSArray *directions = @[@"↑", @"↗︎", @"→", @"↘︎", @"↓", @"↙︎", @"←", @"↖︎", @""];
-    return [NSString stringWithFormat:@"%@%1.fms", directions[direction], val];
+    return [NSString stringWithFormat:@"%@%1.f%@", directions[direction], val, NSLocalizedString(@"m/s", @"meterspersec")];
 }
 
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -374,13 +429,13 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    static NSInteger previousPage = 0;
+    NSInteger previousPage = self.pagerPage;
     CGFloat pageWidth = scrollView.frame.size.width;
     float fractionalPage = scrollView.contentOffset.x / pageWidth;
     NSInteger page = lround(fractionalPage);
     if (previousPage != page) {
         [self.pager setPageIndexToIndex:page];
-        previousPage = page;
+        self.pagerPage = page;
     }
 }
 

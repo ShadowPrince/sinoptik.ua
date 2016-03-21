@@ -35,37 +35,42 @@
 }
 
 - (void) requestForecastFor:(NSArray *)place {
+    Forecast *cast;
+    BOOL shouldUpdate = YES;
     NSString *key = place[2];
 
     [self.queue cancelAllOperations];
-    if (self.forecastCache[key]) {
-        [self.delegate forecastManager:self didReceivedForecast:self.forecastCache[key] for:place];
+    if ((cast = self.forecastCache[key])) {
+        [self.delegate forecastManager:self didReceivedForecast:cast for:place];
+        shouldUpdate = [cast.lastUpdate timeIntervalSinceNow] < -60*60*24;
     }
 
-    [self.queue addOperationWithBlock:^{
-        Forecast *forecats = [[SinoptikAPI api] forecastFor:key
+    if (shouldUpdate) {
+        [self.queue addOperationWithBlock:^{
+            Forecast *cast = [[SinoptikAPI api] forecastFor:key
                                                  behindDays:self.behindDays
                                                 forwardDays:self.forwardDays
                                            progressCallback:^(NSUInteger from, NSUInteger to) {
                                                dispatch_sync(dispatch_get_main_queue(), ^{
-                                                   [self.delegate forecastManager:self didMadeProgress:from to:to for:place];
+                                                   [self.delegate forecastManager:self didMadeProgress:from+1 to:to for:place];
                                                });
                                            }];
-
-        if (!forecats) {
-            return;
-        }
-
-        self.forecastCache[key] = forecats;
-        [self store];
-
-        if ([[NSOperationQueue currentQueue] isSuspended])
-            return;
-
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.delegate forecastManager:self didReceivedForecast:forecats for:place];
-        });
-    }];
+            
+            if (!cast) {
+                return;
+            }
+            
+            self.forecastCache[key] = cast;
+            [self store];
+            
+            if ([[NSOperationQueue currentQueue] isSuspended])
+                return;
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.delegate forecastManager:self didReceivedForecast:cast for:place];
+            });
+        }];
+    }
 }
 
 #pragma mark - private methods
@@ -77,7 +82,7 @@
                                                                        NSUserDomainMask,
                                                                        YES);
 
-    return [[documentDirectories firstObject] stringByAppendingPathComponent:@"forecast.data"];
+    return [[documentDirectories firstObject] stringByAppendingPathComponent:@"forecastv2.data"];
 }
 
 - (void) store {

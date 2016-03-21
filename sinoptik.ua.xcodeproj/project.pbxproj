@@ -7,15 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F30A1F771C82367D00EC1157 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30A1F761C82367D00EC1157 /* NotificationCenter.framework */; };
+		F30A1F7B1C82367D00EC1157 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30A1F7A1C82367D00EC1157 /* TodayViewController.m */; };
+		F30A1F7E1C82367D00EC1157 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30A1F7C1C82367D00EC1157 /* MainInterface.storyboard */; };
+		F30A1F821C82367D00EC1157 /* sinoptik.ua widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F30A1F741C82367D00EC1157 /* sinoptik.ua widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F30A1F871C8252A700EC1157 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A96FA61B9D8AF600CEDF9E /* Images.xcassets */; };
 		F31AC3B81C7A36D80075C7A9 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F31AC3B21C7A36D80075C7A9 /* PopoverView.m */; };
 		F31AC3B91C7A36D80075C7A9 /* SHLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F31AC3B51C7A36D80075C7A9 /* SHLineGraphView.m */; };
 		F31AC3BA1C7A36D80075C7A9 /* SHPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = F31AC3B71C7A36D80075C7A9 /* SHPlot.m */; };
+		F325040A1C85D4410013158E /* SinoptikAPI.h in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FBF1B9D8CB000CEDF9E /* SinoptikAPI.h */; };
+		F325040B1C85D4410013158E /* SinoptikAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96FC01B9D8CB000CEDF9E /* SinoptikAPI.m */; };
+		F325040C1C85D4410013158E /* SinoptikResponseParser.h in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837A1B9EEDBE00EF2334 /* SinoptikResponseParser.h */; };
+		F325040D1C85D4410013158E /* SinoptikResponseParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837B1B9EEDBE00EF2334 /* SinoptikResponseParser.m */; };
+		F325040E1C85D4410013158E /* Forecast.h in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837D1B9EEDD600EF2334 /* Forecast.h */; };
+		F325040F1C85D4410013158E /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837E1B9EEDD600EF2334 /* Forecast.m */; };
+		F32504101C85D4410013158E /* AssetsManager.h in Sources */ = {isa = PBXBuildFile; fileRef = F3D583891BA05CE200EF2334 /* AssetsManager.h */; };
+		F32504111C85D4410013158E /* AssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5838A1BA05CE200EF2334 /* AssetsManager.m */; };
+		F32504121C85D4410013158E /* PlacesDataSource.h in Sources */ = {isa = PBXBuildFile; fileRef = F34A73181B9DE5BB00A34965 /* PlacesDataSource.h */; };
+		F32504131C85D4410013158E /* PlacesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73191B9DE5BB00A34965 /* PlacesDataSource.m */; };
+		F32504141C85D4410013158E /* SearchManager.h in Sources */ = {isa = PBXBuildFile; fileRef = F3D583761B9EBAC300EF2334 /* SearchManager.h */; };
+		F32504151C85D4410013158E /* SearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583771B9EBAC300EF2334 /* SearchManager.m */; };
+		F32504161C85D4410013158E /* ForecastManager.h in Sources */ = {isa = PBXBuildFile; fileRef = F3D583831B9EF01E00EF2334 /* ForecastManager.h */; };
+		F32504171C85D4410013158E /* ForecastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583841B9EF01E00EF2334 /* ForecastManager.m */; };
+		F325041A1C85D5620013158E /* TFHpple.h in Sources */ = {isa = PBXBuildFile; fileRef = F34A73041B9DD37B00A34965 /* TFHpple.h */; };
+		F325041B1C85D5620013158E /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73051B9DD37B00A34965 /* TFHpple.m */; };
+		F325041C1C85D5620013158E /* TFHppleElement.h in Sources */ = {isa = PBXBuildFile; fileRef = F34A73061B9DD37B00A34965 /* TFHppleElement.h */; };
+		F325041D1C85D5620013158E /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73071B9DD37B00A34965 /* TFHppleElement.m */; };
+		F325041E1C85D5620013158E /* XPathQuery.h in Sources */ = {isa = PBXBuildFile; fileRef = F34A73081B9DD37B00A34965 /* XPathQuery.h */; };
+		F325041F1C85D5620013158E /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73091B9DD37B00A34965 /* XPathQuery.m */; };
+		F32504201C85D5720013158E /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F370693C1BAC4FEA00373159 /* libxml2.tbd */; };
 		F32CF9EA1BA6B87500814A61 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F32CF9EC1BA6B87500814A61 /* Localizable.strings */; };
 		F34A730A1B9DD37B00A34965 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73051B9DD37B00A34965 /* TFHpple.m */; };
 		F34A730B1B9DD37B00A34965 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73071B9DD37B00A34965 /* TFHppleElement.m */; };
 		F34A730C1B9DD37B00A34965 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73091B9DD37B00A34965 /* XPathQuery.m */; };
 		F34A73141B9DD73F00A34965 /* PlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73131B9DD73F00A34965 /* PlacesViewController.m */; };
 		F34A731A1B9DE5BB00A34965 /* PlacesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F34A73191B9DE5BB00A34965 /* PlacesDataSource.m */; };
+		F35220DB1C8C70C300F620F9 /* weathericons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35220DA1C8C70C300F620F9 /* weathericons.ttf */; };
 		F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */; };
 		F370693D1BAC4FEA00373159 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F370693C1BAC4FEA00373159 /* libxml2.tbd */; };
 		F39AE3F61C7A8E20000628D5 /* DIBPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = F39AE3F51C7A8E20000628D5 /* DIBPagination.m */; };
@@ -32,12 +59,20 @@
 		F3D5837F1B9EEDD600EF2334 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5837E1B9EEDD600EF2334 /* Forecast.m */; };
 		F3D583851B9EF01E00EF2334 /* ForecastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D583841B9EF01E00EF2334 /* ForecastManager.m */; };
 		F3D5838B1BA05CE200EF2334 /* AssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3D5838A1BA05CE200EF2334 /* AssetsManager.m */; };
+		F3DF18861CA029AC00149287 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3DF18841CA029AC00149287 /* Localizable.strings */; };
 		F3EB1B091C765063006231B7 /* ForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EB1B081C765063006231B7 /* ForecastViewController.m */; };
 		F3EE03F61BA4CDFF0066CF95 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */; };
 		F3FD08711C7A7425001F35FE /* GraphController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD08701C7A7425001F35FE /* GraphController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F30A1F801C82367D00EC1157 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3A96F8E1B9D8AF600CEDF9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F30A1F731C82367D00EC1157;
+			remoteInfo = "sinoptik.ua widget";
+		};
 		F3A96FB01B9D8AF600CEDF9E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F3A96F8E1B9D8AF600CEDF9E /* Project object */;
@@ -47,7 +82,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F30A1F861C82367D00EC1157 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F30A1F821C82367D00EC1157 /* sinoptik.ua widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		F30A1F741C82367D00EC1157 /* sinoptik.ua widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "sinoptik.ua widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30A1F761C82367D00EC1157 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		F30A1F791C82367D00EC1157 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		F30A1F7A1C82367D00EC1157 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		F30A1F7D1C82367D00EC1157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F30A1F7F1C82367D00EC1157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F31AC3B01C7A36D80075C7A9 /* PopoverView_Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopoverView_Configuration.h; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/PopoverView_Configuration.h"; sourceTree = "<group>"; };
 		F31AC3B11C7A36D80075C7A9 /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopoverView.h; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/PopoverView.h"; sourceTree = "<group>"; };
 		F31AC3B21C7A36D80075C7A9 /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopoverView.m; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/PopoverView.m"; sourceTree = "<group>"; };
@@ -56,11 +111,10 @@
 		F31AC3B51C7A36D80075C7A9 /* SHLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHLineGraphView.m; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/SHLineGraphView.m"; sourceTree = "<group>"; };
 		F31AC3B61C7A36D80075C7A9 /* SHPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHPlot.h; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/SHPlot.h"; sourceTree = "<group>"; };
 		F31AC3B71C7A36D80075C7A9 /* SHPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHPlot.m; path = "../../../Downloads/SHLineGraphView-master/SHLineGraphView/SHLineGraphView/SHPlot.m"; sourceTree = "<group>"; };
+		F32504181C85D5530013158E /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		F32CF9EB1BA6B87500814A61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F32CF9EE1BA6B87800814A61 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F32CF9EF1BA6B87800814A61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F32CF9F31BA6BA5B00814A61 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		F32CF9F51BA6BA5F00814A61 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		F34A73041B9DD37B00A34965 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Classes/TFHpple.h; sourceTree = "<group>"; };
 		F34A73051B9DD37B00A34965 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Classes/TFHpple.m; sourceTree = "<group>"; };
 		F34A73061B9DD37B00A34965 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Classes/TFHppleElement.h; sourceTree = "<group>"; };
@@ -71,9 +125,16 @@
 		F34A73131B9DD73F00A34965 /* PlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesViewController.m; sourceTree = "<group>"; };
 		F34A73181B9DE5BB00A34965 /* PlacesDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesDataSource.h; sourceTree = "<group>"; };
 		F34A73191B9DE5BB00A34965 /* PlacesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacesDataSource.m; sourceTree = "<group>"; };
+		F35220D81C8C6D4200F620F9 /* sinoptik.ua.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = sinoptik.ua.entitlements; sourceTree = "<group>"; };
+		F35220D91C8C6D8000F620F9 /* sinoptik.ua widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "sinoptik.ua widget.entitlements"; sourceTree = "<group>"; };
+		F35220DA1C8C70C300F620F9 /* weathericons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = weathericons.ttf; path = assets/weathericons.ttf; sourceTree = "<group>"; };
 		F35A8BBC1BA454F3001AAA34 /* UIImage-Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage-Extensions.h"; path = "UIImageExtensions/UIImage-Extensions.h"; sourceTree = "<group>"; };
 		F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage-Extensions.m"; path = "UIImageExtensions/UIImage-Extensions.m"; sourceTree = "<group>"; };
 		F370693C1BAC4FEA00373159 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		F39529411C944F5D00B1FCEF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		F39529431C944F6000B1FCEF /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		F39529451C94502C00B1FCEF /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		F39529471C94502E00B1FCEF /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		F39AE3F41C7A8E20000628D5 /* DIBPagination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DIBPagination.h; path = "../../../Downloads/DIBPagerDots-master/DIBPagerDots/DIBPagination.h"; sourceTree = "<group>"; };
 		F39AE3F51C7A8E20000628D5 /* DIBPagination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DIBPagination.m; path = "../../../Downloads/DIBPagerDots-master/DIBPagerDots/DIBPagination.m"; sourceTree = "<group>"; };
 		F3A96F961B9D8AF600CEDF9E /* sinoptik.ua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sinoptik.ua.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +162,8 @@
 		F3D583841B9EF01E00EF2334 /* ForecastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastManager.m; sourceTree = "<group>"; };
 		F3D583891BA05CE200EF2334 /* AssetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetsManager.h; sourceTree = "<group>"; };
 		F3D5838A1BA05CE200EF2334 /* AssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetsManager.m; sourceTree = "<group>"; };
+		F3DF18851CA029AC00149287 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F3DF18871CA029B800149287 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F3EB1B071C765063006231B7 /* ForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewController.h; sourceTree = "<group>"; };
 		F3EB1B081C765063006231B7 /* ForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewController.m; sourceTree = "<group>"; };
 		F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -109,6 +172,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F30A1F711C82367D00EC1157 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32504201C85D5720013158E /* libxml2.tbd in Frameworks */,
+				F30A1F771C82367D00EC1157 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3A96F931B9D8AF600CEDF9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +200,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F30A1F751C82367D00EC1157 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F32504181C85D5530013158E /* libxml2.2.tbd */,
+				F30A1F761C82367D00EC1157 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F30A1F781C82367D00EC1157 /* sinoptik.ua widget */ = {
+			isa = PBXGroup;
+			children = (
+				F35220D91C8C6D8000F620F9 /* sinoptik.ua widget.entitlements */,
+				F3DF18841CA029AC00149287 /* Localizable.strings */,
+				F30A1F791C82367D00EC1157 /* TodayViewController.h */,
+				F30A1F7A1C82367D00EC1157 /* TodayViewController.m */,
+				F30A1F7C1C82367D00EC1157 /* MainInterface.storyboard */,
+				F30A1F7F1C82367D00EC1157 /* Info.plist */,
+			);
+			path = "sinoptik.ua widget";
+			sourceTree = "<group>";
+		};
 		F31AC3AF1C7A36BD0075C7A9 /* SHLineGraphView */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,14 +235,6 @@
 				F31AC3B71C7A36D80075C7A9 /* SHPlot.m */,
 			);
 			name = SHLineGraphView;
-			sourceTree = "<group>";
-		};
-		F32CF9E91BA6B83C00814A61 /* i18n */ = {
-			isa = PBXGroup;
-			children = (
-				F32CF9EC1BA6B87500814A61 /* Localizable.strings */,
-			);
-			name = i18n;
 			sourceTree = "<group>";
 		};
 		F34A730F1B9DD47400A34965 /* Hpple */ = {
@@ -225,11 +311,14 @@
 		F3A96F8D1B9D8AF600CEDF9E = {
 			isa = PBXGroup;
 			children = (
+				F35220DA1C8C70C300F620F9 /* weathericons.ttf */,
 				F370693C1BAC4FEA00373159 /* libxml2.tbd */,
 				F3EE03F51BA4CDFF0066CF95 /* QuartzCore.framework */,
 				F35A8BBF1BA454F9001AAA34 /* libs */,
 				F3A96F981B9D8AF600CEDF9E /* sinoptik.ua */,
 				F3A96FB21B9D8AF600CEDF9E /* sinoptik.uaTests */,
+				F30A1F781C82367D00EC1157 /* sinoptik.ua widget */,
+				F30A1F751C82367D00EC1157 /* Frameworks */,
 				F3A96F971B9D8AF600CEDF9E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -239,6 +328,7 @@
 			children = (
 				F3A96F961B9D8AF600CEDF9E /* sinoptik.ua.app */,
 				F3A96FAF1B9D8AF600CEDF9E /* sinoptik.uaTests.xctest */,
+				F30A1F741C82367D00EC1157 /* sinoptik.ua widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +336,8 @@
 		F3A96F981B9D8AF600CEDF9E /* sinoptik.ua */ = {
 			isa = PBXGroup;
 			children = (
+				F35220D81C8C6D4200F620F9 /* sinoptik.ua.entitlements */,
+				F32CF9EC1BA6B87500814A61 /* Localizable.strings */,
 				F34A73151B9DE3A000A34965 /* API */,
 				F3D583791B9EED9000EF2334 /* Managers */,
 				F34A73161B9DE3AB00A34965 /* Controllers */,
@@ -253,7 +345,6 @@
 				F3A96F9D1B9D8AF600CEDF9E /* AppDelegate.h */,
 				F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */,
 				F3A96FA61B9D8AF600CEDF9E /* Images.xcassets */,
-				F32CF9E91BA6B83C00814A61 /* i18n */,
 				F3A96F991B9D8AF600CEDF9E /* Supporting Files */,
 			);
 			path = sinoptik.ua;
@@ -312,6 +403,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F30A1F731C82367D00EC1157 /* sinoptik.ua widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F30A1F851C82367D00EC1157 /* Build configuration list for PBXNativeTarget "sinoptik.ua widget" */;
+			buildPhases = (
+				F30A1F701C82367D00EC1157 /* Sources */,
+				F30A1F711C82367D00EC1157 /* Frameworks */,
+				F30A1F721C82367D00EC1157 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sinoptik.ua widget";
+			productName = "sinoptik.ua widget";
+			productReference = F30A1F741C82367D00EC1157 /* sinoptik.ua widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F3A96F951B9D8AF600CEDF9E /* sinoptik.ua */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3A96FB91B9D8AF600CEDF9E /* Build configuration list for PBXNativeTarget "sinoptik.ua" */;
@@ -319,10 +427,12 @@
 				F3A96F921B9D8AF600CEDF9E /* Sources */,
 				F3A96F931B9D8AF600CEDF9E /* Frameworks */,
 				F3A96F941B9D8AF600CEDF9E /* Resources */,
+				F30A1F861C82367D00EC1157 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F30A1F811C82367D00EC1157 /* PBXTargetDependency */,
 			);
 			name = sinoptik.ua;
 			productName = sinoptik.ua;
@@ -356,9 +466,23 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = shdwprince;
 				TargetAttributes = {
+					F30A1F731C82367D00EC1157 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = T7SD4W2ENW;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					F3A96F951B9D8AF600CEDF9E = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = T7SD4W2ENW;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					F3A96FAE1B9D8AF600CEDF9E = {
 						CreatedOnToolsVersion = 6.4;
@@ -383,11 +507,23 @@
 			targets = (
 				F3A96F951B9D8AF600CEDF9E /* sinoptik.ua */,
 				F3A96FAE1B9D8AF600CEDF9E /* sinoptik.uaTests */,
+				F30A1F731C82367D00EC1157 /* sinoptik.ua widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F30A1F721C82367D00EC1157 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F35220DB1C8C70C300F620F9 /* weathericons.ttf in Resources */,
+				F3DF18861CA029AC00149287 /* Localizable.strings in Resources */,
+				F30A1F871C8252A700EC1157 /* Images.xcassets in Resources */,
+				F30A1F7E1C82367D00EC1157 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3A96F941B9D8AF600CEDF9E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -409,6 +545,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F30A1F701C82367D00EC1157 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F325041A1C85D5620013158E /* TFHpple.h in Sources */,
+				F325041B1C85D5620013158E /* TFHpple.m in Sources */,
+				F325041C1C85D5620013158E /* TFHppleElement.h in Sources */,
+				F325041D1C85D5620013158E /* TFHppleElement.m in Sources */,
+				F325041E1C85D5620013158E /* XPathQuery.h in Sources */,
+				F325041F1C85D5620013158E /* XPathQuery.m in Sources */,
+				F325040A1C85D4410013158E /* SinoptikAPI.h in Sources */,
+				F325040B1C85D4410013158E /* SinoptikAPI.m in Sources */,
+				F325040C1C85D4410013158E /* SinoptikResponseParser.h in Sources */,
+				F325040D1C85D4410013158E /* SinoptikResponseParser.m in Sources */,
+				F325040E1C85D4410013158E /* Forecast.h in Sources */,
+				F325040F1C85D4410013158E /* Forecast.m in Sources */,
+				F32504101C85D4410013158E /* AssetsManager.h in Sources */,
+				F32504111C85D4410013158E /* AssetsManager.m in Sources */,
+				F32504121C85D4410013158E /* PlacesDataSource.h in Sources */,
+				F32504131C85D4410013158E /* PlacesDataSource.m in Sources */,
+				F32504141C85D4410013158E /* SearchManager.h in Sources */,
+				F32504151C85D4410013158E /* SearchManager.m in Sources */,
+				F32504161C85D4410013158E /* ForecastManager.h in Sources */,
+				F32504171C85D4410013158E /* ForecastManager.m in Sources */,
+				F30A1F7B1C82367D00EC1157 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3A96F921B9D8AF600CEDF9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +612,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F30A1F811C82367D00EC1157 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F30A1F731C82367D00EC1157 /* sinoptik.ua widget */;
+			targetProxy = F30A1F801C82367D00EC1157 /* PBXContainerItemProxy */;
+		};
 		F3A96FB11B9D8AF600CEDF9E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F3A96F951B9D8AF600CEDF9E /* sinoptik.ua */;
@@ -456,6 +625,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		F30A1F7C1C82367D00EC1157 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F30A1F7D1C82367D00EC1157 /* Base */,
+				F39529451C94502C00B1FCEF /* ru */,
+				F39529471C94502E00B1FCEF /* uk */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		F32CF9EC1BA6B87500814A61 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -470,8 +649,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				F3A96FA41B9D8AF600CEDF9E /* Base */,
-				F32CF9F31BA6BA5B00814A61 /* ru */,
-				F32CF9F51BA6BA5F00814A61 /* uk */,
+				F39529411C944F5D00B1FCEF /* ru */,
+				F39529431C944F6000B1FCEF /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -484,9 +663,60 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		F3DF18841CA029AC00149287 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3DF18851CA029AC00149287 /* ru */,
+				F3DF18871CA029B800149287 /* uk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F30A1F831C82367D00EC1157 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "sinoptik.ua widget/sinoptik.ua widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					EXTENSION,
+					DEBUG,
+				);
+				INFOPLIST_FILE = "sinoptik.ua widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.shdwprince.sinoptik-ua.sinoptik-ua-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+			};
+			name = Debug;
+		};
+		F30A1F841C82367D00EC1157 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_ENTITLEMENTS = "sinoptik.ua widget/sinoptik.ua widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = EXTENSION;
+				INFOPLIST_FILE = "sinoptik.ua widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.shdwprince.sinoptik-ua.sinoptik-ua-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+			};
+			name = Release;
+		};
 		F3A96FB71B9D8AF600CEDF9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -575,6 +805,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = sinoptik.ua/sinoptik.ua.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = sinoptik.ua/Info.plist;
@@ -593,6 +824,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = sinoptik.ua/sinoptik.ua.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = sinoptik.ua/Info.plist;
@@ -645,6 +877,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F30A1F851C82367D00EC1157 /* Build configuration list for PBXNativeTarget "sinoptik.ua widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F30A1F831C82367D00EC1157 /* Debug */,
+				F30A1F841C82367D00EC1157 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F3A96F911B9D8AF600CEDF9E /* Build configuration list for PBXProject "sinoptik.ua" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

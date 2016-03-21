@@ -32,9 +32,13 @@
 
 // synchronous loading in NSOperation
 - (NSArray *) searchPlaces:(NSString *) query {
+#ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+#endif
     NSData *data = [NSData dataWithContentsOfURL:[self url:@"/search.php?q=%@", query]];
+#ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+#endif
 
     NSString *response = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
@@ -51,11 +55,32 @@
 }
 
 // synchronous loading in NSOperation
+- (DailyForecast *) forecastFor:(NSString *) key
+                             at:(NSDate *) date {
+    DailyForecast *result;
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    
+    NSTimeInterval day = 60 * 60 * 24;
+    date = [date dateByAddingTimeInterval:-day];
+    date = [formatter dateFromString:[formatter stringFromDate:date]];
+    
+    date = [date dateByAddingTimeInterval:day];
+    NSData *forecastData = [self apiForecastFor:[NSString stringWithFormat:@"%@/%@", key, [formatter stringFromDate:date]]];
+    if (forecastData.length) {
+        DailyForecast *cast = [self.parser parseForecast:forecastData];
+        result =  cast;
+    }
+    
+    return result;
+}
+
 - (Forecast *) forecastFor:(NSString *) key
                 behindDays:(NSUInteger) offset
                forwardDays:(NSUInteger) size
           progressCallback:(SinoptikAPIProgressCallback)cb {
     Forecast *forecast = [[Forecast alloc] init];
+    forecast.lastUpdate = [NSDate new];
 
     NSDateFormatter *formatter = [NSDateFormatter new];
     formatter.dateFormat = @"yyyy-MM-dd";
@@ -66,7 +91,9 @@
     date = [date dateByAddingTimeInterval:-day];
     int count = size+offset;
 
+#ifndef EXTENSION
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+#endif
     for (int i = 0; i < count; i++) {
         date = [date dateByAddingTimeInterval:day];
         NSData *forecastData = [self apiForecastFor:[NSString stringWithFormat:@"%@/%@", key, [formatter stringFromDate:date]]];
@@ -83,7 +110,9 @@
             break;
         }
     }
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO; 
+#ifndef EXTENSION
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+#endif
 
     return forecast.dailyForecasts.count ? forecast : nil;
 }
@@ -99,11 +128,12 @@
 
 - (NSString *) imageNameFor:(HourlyForecast *) cast ofSize:(SinoptikImageSize) size time:(SinoptikTime) time {
     NSString *format = [size isEqualToString:SinoptikImageSizeBig] ?  @"jpg" : @"gif";
-    NSString *stringName = [NSString stringWithFormat:@"%@%d%d0.%@",
-                           time,
-                           cast.clouds,
-                           cast.rain,
-                           format];
+    NSString *stringName = [NSString stringWithFormat:@"%@%d%d%d.%@",
+                            time,
+                            cast.clouds,
+                            cast.rain,
+                            cast.frost,
+                            format];
     return stringName;
 }
 

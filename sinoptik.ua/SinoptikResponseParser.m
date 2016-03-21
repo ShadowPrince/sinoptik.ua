@@ -16,12 +16,13 @@
     NSArray *weatherDetailsTable = [html searchWithXPathQuery:@"//table[@class='weatherDetails']//tr"];
     NSMutableArray *data = [NSMutableArray new];
 
+    int mode = weatherDetailsTable.count == 7 ? 7 : 9;
     int i = 0;
     for (TFHppleElement *column in weatherDetailsTable) {
         NSMutableArray *columnData = [NSMutableArray new];
         data[i++] = columnData;
 
-        if (i == 8) { // wind
+        if (i == ((mode == 7) ? 7 : 8)) { // wind
             for (TFHppleElement *el in [column searchWithXPathQuery:@"//td//div"]) {
                 NSString *direction_class = [[el.attributes[@"class"] componentsSeparatedByString:@" "] lastObject];
                 NSString *direction = [[direction_class componentsSeparatedByString:@"-"] lastObject];
@@ -57,6 +58,19 @@
         if (el.text)
             [daylight addObject:el.text];
     }
+    NSMutableArray *minMax = [NSMutableArray new];
+    TFHppleElement *infoHistoryElement = [html searchWithXPathQuery:@"//p[@class='infoHistoryval']"].firstObject;
+    int year_idx = 4;
+
+    for (TFHppleElement *el in [html searchWithXPathQuery:@"//p[@class='infoHistoryval']//span"]) {
+        if (el.text) {
+            TFHppleElement *yearNode = infoHistoryElement.children[year_idx];
+            NSString *yearString = [yearNode.content stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            [minMax addObject:[NSString stringWithFormat:@"%@ %@", el.text, yearString]];
+        }
+
+        year_idx = 10;
+    }
 
     NSArray *description_elements = [html searchWithXPathQuery:@"//div[@class='description']"];
     NSString *summary = [(TFHppleElement *) [description_elements firstObject] content];
@@ -64,17 +78,21 @@
 
     DailyForecast *cast = [DailyForecast new];
     cast.daylight = daylight;
+    cast.minMax = minMax;
     cast.summary = summary;
 
     for (int i = 0; i < [data[1] count]; i++) {
         HourlyForecast *forecast = [HourlyForecast new];
-        forecast.temperature = [(NSString *) data[3][i] integerValue];
-        forecast.feelslikeTemperature = [(NSString *) data[4][i] intValue];
-        forecast.pressure = [(NSString *) data[5][i] intValue];
-        forecast.humidity = [(NSString *) data[6][i] intValue];
+
+        int row = 3;
+        forecast.temperature = [(NSString *) data[row++][i] integerValue];
+        if (mode == 9)
+            forecast.feelslikeTemperature = [(NSString *) data[row++][i] intValue];
+        forecast.pressure = [(NSString *) data[row++][i] intValue];
+        forecast.humidity = [(NSString *) data[row++][i] intValue];
 
         // wind data
-        NSString *wind_data = data[7][i];
+        NSString *wind_data = data[row++][i];
         NSScanner *s = [NSScanner scannerWithString:wind_data];
         NSString *output;
         [s scanUpToCharactersFromSet:[NSCharacterSet decimalDigitCharacterSet] intoString:&output];
@@ -87,14 +105,18 @@
         NSNumber *clouds_data = data[2][i];
         Byte clouds = 0;
         Byte rain = 0;
+        Byte frost = 0;
         if (![clouds_data isEqual:@0]) {
             clouds = [[clouds_data.stringValue substringWithRange:NSMakeRange(0, 1)] integerValue];
             rain = [[clouds_data.stringValue substringWithRange:NSMakeRange(1, 1)] integerValue];
+            frost = [[clouds_data.stringValue substringWithRange:NSMakeRange(2, 1)] integerValue];
         }
 
         forecast.clouds = clouds;
         forecast.rain = rain;
-        forecast.rain_probability = [(NSString *) data[8][i] intValue];
+        forecast.frost = frost;
+        if (mode == 9)
+            forecast.rain_probability = [(NSString *) data[8][i] intValue];
 
         s = [NSScanner scannerWithString:data[1][i]];
         NSString *hour;

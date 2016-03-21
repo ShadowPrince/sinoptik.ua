@@ -30,6 +30,8 @@ typedef void (^SinoptikAPIProgressCallback)(NSUInteger, NSUInteger);
 
 - (NSArray *) searchPlaces:(NSString *) query;
 
+- (DailyForecast *) forecastFor:(NSString *) key
+                             at:(NSDate *) date;
 - (Forecast *) forecastFor:(NSString *) key
                 behindDays:(NSUInteger) offset
                forwardDays:(NSUInteger) size

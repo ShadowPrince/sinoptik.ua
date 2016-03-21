@@ -11,6 +11,7 @@
 @interface HourlyForecast : NSObject <NSCoding>
 @property int clouds;
 @property int rain;
+@property int frost;
 @property char temperature;
 @property char feelslikeTemperature;
 @property int pressure;
@@ -28,13 +29,14 @@
 @end
 
 @interface DailyForecast : NSObject <NSCoding>
-@property NSArray *daylight;
+@property NSArray *daylight, *minMax;
 @property NSString *summary;
 @property NSMutableDictionary *hourlyForecast;
 @property NSDate *last_update;
 
 - (NSArray *) hours;
 - (HourlyForecast *) forecastFor:(int) hour;
+- (NSNumber *) hourFor:(int) hour;
 - (HourlyForecast *) middayForecast;
 - (HourlyForecast *) morningForecast;
 - (HourlyForecast *) dayForecast;
@@ -43,6 +45,7 @@
 @end
 
 @interface Forecast : NSObject <NSCoding>
+@property NSDate *lastUpdate;
 @property NSMutableDictionary *dailyForecasts;
 
 - (NSArray<NSDate *> *) dates;

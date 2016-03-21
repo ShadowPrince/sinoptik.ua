@@ -33,7 +33,7 @@
         DailyForecast *day = [cast dailyForecastFor:d];
         HourlyForecast *hour = day.middayForecast;
 
-        NSString *dayTitle = [self.captionFormatter stringFromDate:d];
+        NSString *dayTitle = [self.captionFormatter stringFromDate:d].uppercaseString;
         NSNumber *key = [NSNumber numberWithInt:i];
 
         [plottingXTitles addObject:@{key: dayTitle}];
@@ -65,7 +65,6 @@
         zeroPresent = 0;
         range = (float) MAX(maxTemp, abs((int) minTemp)) * 2;
     }
-    range -= 2;
 
     NSMutableArray *plottingValues = [NSMutableArray new];
     for (int i = 0; i < tempValues.count; i++) {
@@ -103,7 +102,7 @@
         DailyForecast *day = [cast dailyForecastFor:d];
         HourlyForecast *hour = day.middayForecast;
 
-        NSString *dayTitle = [self.captionFormatter stringFromDate:d];
+        NSString *dayTitle = [self.captionFormatter stringFromDate:d].uppercaseString;
         NSNumber *key = [NSNumber numberWithInt:i];
 
         [plottingXTitles addObject:@{key: dayTitle}];
@@ -118,7 +117,7 @@
         }
     }
 
-    return @[@(range), @"ms", plottingXTitles, plottingValues, @(currentDayIdx), @(1), ];
+    return @[@(range), NSLocalizedString(@"ms", @"meters per sec short"), plottingXTitles, plottingValues, @(currentDayIdx), @(1), ];
 }
 
 @end

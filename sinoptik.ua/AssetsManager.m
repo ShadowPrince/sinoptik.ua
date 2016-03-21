@@ -15,7 +15,6 @@
 - (instancetype) init {
     self = [super init];
     self.queue = [NSOperationQueue new];
-    //@TODO: day/night images, refactor
     return self;
 }
 
@@ -83,6 +82,10 @@
         } else {
             key = @"day-sun";
         }
+
+        if (cast.frost > 1) {
+            key = @"day-snow";
+        }
     } else {
         if (cast.clouds && cast.rain) {
             key = @"night-rain";
@@ -92,6 +95,10 @@
             key = @"night-rain";
         } else {
             key = @"night-clear";
+        }
+
+        if (cast.frost > 1) {
+            key = @"night-snow";
         }
     }
 
