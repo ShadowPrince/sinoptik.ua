@@ -124,7 +124,7 @@
 }
 
 - (SinoptikTime) sinoptikTimeFor:(HourlyForecast *) cast {
-    return (cast.hour > 20 || cast.hour < 7) ? SinoptikTimeNight : SinoptikTimeDay;
+    return (cast.hour >= 20 || cast.hour <= 5) ? SinoptikTimeNight : SinoptikTimeDay;
 }
 
 - (void) dealloc {

@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.delimeters = @[[NSNull null], self.delim200, self.delim300, self.delim400, ];
+    self.delimeters = @[self.delim200, self.delim300, self.delim400, ];
 
     self.captionFormatter = [NSDateFormatter new];
     self.captionFormatter.dateFormat = @"EE";
@@ -78,7 +78,10 @@
 
 - (void) populate:(Forecast *) cast {
     self.view.alpha = 1.f;
-    
+    [self.delimeters enumerateObjectsUsingBlock:^(NSLayoutConstraint * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.constant = 8.f;
+    }];
+
     NSDateFormatter *hourFormatter = [NSDateFormatter new];
     hourFormatter.dateFormat = @"H";
 
@@ -102,13 +105,12 @@
         HourlyForecast *cellCast = currentCast.hourlyForecast[currentHour];
 
         if (changedDate && i > offset) {
-            NSUInteger key = i/100 - 1;
-            if (self.delimeters.count > key)
-                self.delimeters[key].constant = 20.f;
+            self.delimeters[(i-200)/100].constant = 20.f;
         }
+
+        [self.view layoutIfNeeded];
         
         UILabel *l;
-
         l = [self.view viewWithTag:i + 1];
         l.font = [UIFont fontWithName:@"Weather Icons" size:15.f];
         l.text = [self tempTextFor:cellCast];

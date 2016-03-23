@@ -381,13 +381,12 @@
         currentImageView.image = i;
     }];
 
-    NSArray *hours = @[@8, @14, @2];
+    NSArray<NSNumber *> *hours = @[@8, @14, @23];
     for (int i = 0; i < hours.count; i++) {
-        NSNumber *hour = hours[i];
+        NSNumber *hour = [forecast hourFor:hours[i].intValue];
         NSUInteger tag_prefix = i * 100 + 200;
 
         UIImageView *image = [cell viewWithTag:tag_prefix + 0];
-        //UIImageView *sinoptikImage = [cell viewWithTag:tag_prefix + 4];
         UILabel *temp = [cell viewWithTag:tag_prefix + 1];
         UILabel *hum = [cell viewWithTag:tag_prefix + 2];
         UILabel *wind = [cell viewWithTag:tag_prefix + 3];
