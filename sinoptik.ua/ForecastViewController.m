@@ -396,11 +396,6 @@
         hum.text = [self humTextFor:cast.humidity];
         wind.text = [self windTextFor:cast.wind_speed direction:cast.wind_direction];
         image.image = [self.assets fancyImageFor:cast];
-        /*
-        [self.assets loadImageFor:cast callback:^(UIImage *i) {
-            sinoptikImage.image = i;
-        }];
-         */
     }
 
     return cell;
