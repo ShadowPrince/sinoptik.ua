@@ -34,7 +34,7 @@
 @property PlacesDataSource *places;
 @property ForecastManager *man;
 @property AssetsManager *assets;
-@property NSDateFormatter *formatter;
+@property NSDateFormatter *formatter, *cellDateFormatter;
 
 @property NSArray *temperatureGraphData, *windGraphData;
 @property NSArray *place;
@@ -49,6 +49,9 @@
 
     self.formatter = [NSDateFormatter new];
     self.formatter.dateFormat = @"dd-MM-y";
+
+    self.cellDateFormatter = [NSDateFormatter new];
+    self.cellDateFormatter.dateFormat = @"cccc, dd MMM";
 
     self.man = [[ForecastManager alloc] initWithDelegate:self];
     self.assets = [[AssetsManager alloc] init];
@@ -180,7 +183,7 @@
             return;
 
         HourlyForecast *middayCast = dailyCast.middayForecast;
-        NSArray *values = @[[self.formatter stringFromDate:yearAgo],
+        NSArray *values = @[//[self.formatter stringFromDate:yearAgo],
                             [self tempTextFor:middayCast.temperature],
                             [self humTextFor:middayCast.humidity],
                             [self windTextFor:middayCast.wind_speed direction:middayCast.wind_direction], ];
@@ -373,9 +376,12 @@
     currentWind.text = [self windTextFor:middayForecast.wind_speed direction:middayForecast.wind_direction];
     //currentFeelslike.text = [self feelslikeTextFor:middayForecast.feelslikeTemperature];
     currentTime.text = [NSString stringWithFormat:@"%02d:00", middayForecast.hour];
-    currentDate.text = [self.formatter stringFromDate:date];
+    NSMutableString *strDate = [self.cellDateFormatter stringFromDate:date].mutableCopy;
+    [strDate replaceCharactersInRange:NSMakeRange(0, 1) withString:[strDate substringToIndex:1].uppercaseString];
+    currentDate.text = strDate;
     [currentCity setTitle:self.place.firstObject forState:UIControlStateNormal];
     currentTemp.text = [self tempTextFor:middayForecast.temperature];
+    currentTemp.font = [UIFont fontWithName:@"Weather Icons" size:30.f];
     currentImageView.image = nil;
     [self.assets loadBigImageFor:middayForecast callback:^(UIImage *i) {
         currentImageView.image = i;
@@ -392,7 +398,12 @@
         UILabel *wind = [cell viewWithTag:tag_prefix + 3];
 
         HourlyForecast *cast = [forecast hourlyForecast][hour];
-        temp.text = [self tempTextFor:cast.temperature];
+        temp.text = [[self weatherfontCharFor:[self.assets sinoptikTimeFor:cast]
+                                       clouds:cast.clouds
+                                         rain:cast.rain]
+                     stringByAppendingString:[self tempTextFor:cast.temperature]];
+        temp.font = [UIFont fontWithName:@"Weather Icons" size:15.f];
+
         hum.text = [self humTextFor:cast.humidity];
         wind.text = [self windTextFor:cast.wind_speed direction:cast.wind_direction];
         image.image = [self.assets fancyImageFor:cast];
@@ -402,11 +413,84 @@
 }
 
 - (NSString *) tempTextFor:(char) temp {
-    return [NSString stringWithFormat:@"%d℃", temp];
+    return [NSString stringWithFormat:@"%d", temp];
 }
 
+- (NSString *) weatherfontCharFor:(SinoptikTime) time clouds:(int) c rain:(int) r {
+    if ([time isEqualToString:SinoptikTimeDay]) {
+        switch (c)
+        { case 0: switch (r) {
+            case 0: return @"";
+        } case 1: switch (r) {
+            case 0: return @"";
+            case 1: return @"";
+            case 2: return @"";
+            case 3: return @"";
+            case 4: return @"";
+        } case 2: switch (r) {
+            case 0: return @"";
+            case 1: return @"";
+            case 2: return @"";
+            case 3: return @"";
+            case 4: return @"";
+        } case 3: switch (r) {
+            case 0: return @"";
+            case 1: return @"";
+            case 2: return @"";
+            case 3: return @"";
+            case 4: return @"";
+        } case 4: switch (r) {
+            case 0: return @"";
+            case 1: return @"";
+            case 2: return @"";
+            case 3: return @"";
+            case 4: return @"";
+        } case 5: switch (r) {
+            case 0: return @"";
+        } case 6: switch (r) {
+            case 0: return @"";
+        } }
+    } else {
+        switch (c)
+        { case 0: switch (r) {
+            case 0: return @"";
+        } case 1: switch (r) {
+            case 0: return @"";
+            case 1: return @"";
+            case 2: return @"";
+            case 3: return @"";
+            case 4: return @"";
+        } case 2: switch (r) {
+            case 0: return @"";
+            case 1: return @"";
+            case 2: return @"";
+            case 3: return @"";
+            case 4: return @"";
+        } case 3: switch (r) {
+            case 0: return @"";
+            case 1: return @"";
+            case 2: return @"";
+            case 3: return @"";
+            case 4: return @"";
+        } case 4: switch (r) {
+            case 0: return @"";
+            case 1: return @"";
+            case 2: return @"";
+            case 3: return @"";
+            case 4: return @"";
+        } case 5: switch (r) {
+            case 0: return @"";
+        } case 6: switch (r) {
+            case 0: return @"";
+        } }
+    }
+
+    return nil;
+}
+
+
 - (NSString *) feelslikeTextFor:(char) temp {
-    return [NSString stringWithFormat:@"%d℃~", temp];
+    return [NSString stringWithFormat:@"%d~", temp];
 }
 
 - (NSString *) humTextFor:(int) val {

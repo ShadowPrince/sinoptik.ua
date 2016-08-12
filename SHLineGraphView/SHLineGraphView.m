@@ -300,11 +300,11 @@
         xAxisLabel.font = (UIFont *)_themeAttributes[kXAxisLabelFontKey];
         
         if (self.highlightedXLabel && self.highlightedXLabel == i) {
-            
             xAxisLabel.textColor = (UIColor *)_themeAttributes[kXAxisLabelHighlightColorKey];
         } else {
             xAxisLabel.textColor = (UIColor *)_themeAttributes[kXAxisLabelColorKey];
         }
+
         xAxisLabel.textAlignment = NSTextAlignmentCenter;
         
         NSDictionary *dic = [_xAxisValues objectAtIndex:i];
@@ -312,8 +312,13 @@
         [dic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             xLabel = (NSString *)obj;
         }];
-        
-        xAxisLabel.text = [NSString stringWithFormat:@"%@", xLabel];
+
+        if ([xLabel isKindOfClass:[NSString class]]) {
+            xAxisLabel.text = [NSString stringWithFormat:@"%@", xLabel];
+        } else {
+            xAxisLabel.textColor = (UIColor *) [(NSArray *) xLabel firstObject];
+            xAxisLabel.text = [NSString stringWithFormat:@"%@", [(NSArray *) xLabel lastObject]];
+        }
         [self addSubview:xAxisLabel];
     }
 }
@@ -441,6 +446,7 @@
 
 - (void)clicked:(id)sender
 {
+    return;
     @try {
         UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
         lbl.backgroundColor = [UIColor clearColor];

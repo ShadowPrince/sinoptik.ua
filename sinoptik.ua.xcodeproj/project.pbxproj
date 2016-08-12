@@ -45,6 +45,7 @@
 		F35220DB1C8C70C300F620F9 /* weathericons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35220DA1C8C70C300F620F9 /* weathericons.ttf */; };
 		F35A8BBE1BA454F3001AAA34 /* UIImage-Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F35A8BBD1BA454F3001AAA34 /* UIImage-Extensions.m */; };
 		F370693D1BAC4FEA00373159 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F370693C1BAC4FEA00373159 /* libxml2.tbd */; };
+		F3716CBB1D42276700058363 /* weathericons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F35220DA1C8C70C300F620F9 /* weathericons.ttf */; };
 		F39AE3F61C7A8E20000628D5 /* DIBPagination.m in Sources */ = {isa = PBXBuildFile; fileRef = F39AE3F51C7A8E20000628D5 /* DIBPagination.m */; };
 		F3A96F9C1B9D8AF600CEDF9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96F9B1B9D8AF600CEDF9E /* main.m */; };
 		F3A96F9F1B9D8AF600CEDF9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3A96F9E1B9D8AF600CEDF9E /* AppDelegate.m */; };
@@ -528,6 +529,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3716CBB1D42276700058363 /* weathericons.ttf in Resources */,
 				F3A96FA51B9D8AF600CEDF9E /* Main.storyboard in Resources */,
 				F3A96FAA1B9D8AF600CEDF9E /* LaunchScreen.xib in Resources */,
 				F32CF9EA1BA6B87500814A61 /* Localizable.strings in Resources */,

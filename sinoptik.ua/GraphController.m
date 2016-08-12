@@ -11,6 +11,7 @@
 @interface GraphController ()
 @property NSDateFormatter *formatter;
 @property NSDateFormatter *captionFormatter;
+@property NSCalendar *cal;
 @end @implementation GraphController
 
 - (instancetype) init {
@@ -19,6 +20,8 @@
     self.formatter.dateFormat = @"dd-MM-y";
     self.captionFormatter = [NSDateFormatter new];
     self.captionFormatter.dateFormat = @"E";
+    self.cal = [NSCalendar currentCalendar];
+
     return self;
 }
 
@@ -27,16 +30,24 @@
     float minTemp = MAXFLOAT, maxTemp = MAXFLOAT;
     NSMutableArray *tempValues = [NSMutableArray new];
     NSMutableArray *plottingXTitles = [NSMutableArray new];
+
     for (int i = 0; i < cast.dates.count; i++) {
         NSDate *d = cast.dates[i];
-        
+
+        NSNumber *key = [NSNumber numberWithInt:i];
         DailyForecast *day = [cast dailyForecastFor:d];
         HourlyForecast *hour = day.middayForecast;
 
         NSString *dayTitle = [self.captionFormatter stringFromDate:d].uppercaseString;
-        NSNumber *key = [NSNumber numberWithInt:i];
+        NSDateComponents *comp = [self.cal components:kCFCalendarUnitWeekday fromDate:d];
 
-        [plottingXTitles addObject:@{key: dayTitle}];
+        if ([comp weekday] == 1 || [comp weekday] == 7) {
+            UIColor *color = [UIColor colorWithRed:0.7f green:0.3f blue:0.3f alpha:1.f];
+            [plottingXTitles addObject:@{key: @[color, dayTitle]}];
+        } else {
+            [plottingXTitles addObject:@{key: dayTitle}];
+        }
+
         [tempValues addObject:@(hour.temperature)];
         
         if (minTemp == MAXFLOAT || minTemp > hour.temperature) {
@@ -105,7 +116,15 @@
         NSString *dayTitle = [self.captionFormatter stringFromDate:d].uppercaseString;
         NSNumber *key = [NSNumber numberWithInt:i];
 
-        [plottingXTitles addObject:@{key: dayTitle}];
+        NSDateComponents *comp = [self.cal components:kCFCalendarUnitWeekday fromDate:d];
+
+        if ([comp weekday] == 1 || [comp weekday] == 7) {
+            UIColor *color = [UIColor colorWithRed:0.7f green:0.3f blue:0.3f alpha:1.f];
+            [plottingXTitles addObject:@{key: @[color, dayTitle]}];
+        } else {
+            [plottingXTitles addObject:@{key: dayTitle}];
+        }
+
         [plottingValues addObject:@{key: @(hour.wind_speed)}];
 
         if (range < hour.wind_speed) {
