@@ -183,8 +183,9 @@
             return;
 
         HourlyForecast *middayCast = dailyCast.middayForecast;
+        
         NSArray *values = @[//[self.formatter stringFromDate:yearAgo],
-                            [self tempTextFor:middayCast.temperature],
+                            [self tempCharCombinedFor:middayCast],
                             [self humTextFor:middayCast.humidity],
                             [self windTextFor:middayCast.wind_speed direction:middayCast.wind_direction], ];
 
@@ -380,14 +381,13 @@
     [strDate replaceCharactersInRange:NSMakeRange(0, 1) withString:[strDate substringToIndex:1].uppercaseString];
     currentDate.text = strDate;
     [currentCity setTitle:self.place.firstObject forState:UIControlStateNormal];
-    currentTemp.text = [self tempTextFor:middayForecast.temperature];
-    currentTemp.font = [UIFont fontWithName:@"Weather Icons" size:30.f];
+    currentTemp.text = [self tempCharCombinedFor:middayForecast];
     currentImageView.image = nil;
     [self.assets loadBigImageFor:middayForecast callback:^(UIImage *i) {
         currentImageView.image = i;
     }];
 
-    NSArray<NSNumber *> *hours = @[@8, @14, @23];
+    NSArray<NSNumber *> *hours = @[@9, @15, @21, @3];
     for (int i = 0; i < hours.count; i++) {
         NSNumber *hour = [forecast hourFor:hours[i].intValue];
         NSUInteger tag_prefix = i * 100 + 200;
@@ -396,13 +396,11 @@
         UILabel *temp = [cell viewWithTag:tag_prefix + 1];
         UILabel *hum = [cell viewWithTag:tag_prefix + 2];
         UILabel *wind = [cell viewWithTag:tag_prefix + 3];
+        UILabel *time = [cell viewWithTag:tag_prefix + 4];
 
         HourlyForecast *cast = [forecast hourlyForecast][hour];
-        temp.text = [[self weatherfontCharFor:[self.assets sinoptikTimeFor:cast]
-                                       clouds:cast.clouds
-                                         rain:cast.rain]
-                     stringByAppendingString:[self tempTextFor:cast.temperature]];
-        temp.font = [UIFont fontWithName:@"Weather Icons" size:15.f];
+        time.text = [NSString stringWithFormat:@"%d:00", cast.hour];
+        temp.text = [self tempCharCombinedFor:cast];
 
         hum.text = [self humTextFor:cast.humidity];
         wind.text = [self windTextFor:cast.wind_speed direction:cast.wind_direction];
@@ -410,6 +408,13 @@
     }
 
     return cell;
+}
+
+- (NSString *) tempCharCombinedFor:(HourlyForecast *) cast {
+    return [[self weatherfontCharFor:[self.assets sinoptikTimeFor:cast]
+                              clouds:cast.clouds
+                                rain:cast.rain]
+            stringByAppendingString:[self tempTextFor:cast.temperature]];
 }
 
 - (NSString *) tempTextFor:(char) temp {

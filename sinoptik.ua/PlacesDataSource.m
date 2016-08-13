@@ -77,11 +77,13 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self deleteEntryAt:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [tableView reloadData];
     }
 }
 
 - (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     [self moveEntryFrom:sourceIndexPath.row to:destinationIndexPath.row];
+    [tableView reloadData];
 }
 
 #pragma mark data source
@@ -101,6 +103,13 @@
         NSArray *entry = self.places[indexPath.row];
         [(UILabel *) [cell viewWithTag:100] setText:[entry firstObject]];
         [(UILabel *) [cell viewWithTag:101] setText:entry[1]];
+
+        UILabel *widgetLabel = (UILabel *) [cell viewWithTag:102];
+        if (indexPath.row == 0) {
+            widgetLabel.hidden = NO;
+        } else {
+            widgetLabel.hidden = YES;
+        }
         
         return cell;
     } else {
